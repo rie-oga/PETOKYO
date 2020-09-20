@@ -1,13 +1,30 @@
 Rails.application.routes.draw do
-	devise_for :admins, controllers: {
+  devise_for :admins, controllers: {
       sessions: 'admin/sessions',
       registrations: 'admin/registrations',
       passwords: 'admin/passwords'
-    }
-    devise_for :members, controllers: {
+  }
+  devise_for :members, controllers: {
       sessions: 'member/sessions',
       registrations: 'member/registrations',
       passwords: 'member/passwords'
-    }
+  }
+
+  namespace :admin do
+      get '/' => 'tops#top'
+      resources :members, only: [:index,:show,:edit,:update]
+      resources :genres, only: [:index,:edit,:create,:update]
+      resources :spots
+  end
+
+  root to: 'member/spots#top'
+  namespace :member, path:'' do
+      get '/members/unsubscribe' => 'members#unsubscribe'
+      patch '/members/:id/withdraw' => 'members#withdraw'
+      resources :members, only: [:show,:edit,:update]
+      get 'spots/about' => 'spots#about'
+      resources :spots, only: [:index,:edit,:update,:destroy,:show]
+      resources :dogs, only: [:edit,:update,:destroy]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
