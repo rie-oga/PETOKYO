@@ -4,11 +4,10 @@ class ApplicationController < ActionController::Base
 	protected
 	  def after_sign_in_path_for(resource)
 	    if resource == current_admin
-	    	flash[:notice] = "ログインに成功しました"
-	      root_path
-	    elsif resource == current_member
-	    	flash[:notice] = "ログインに成功しました"
-	      root_path
+	       root_path
+	    elsif
+	       resource == current_member
+	       root_path
 	    end
 	  end
 
