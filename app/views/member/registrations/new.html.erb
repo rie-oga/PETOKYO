@@ -6,17 +6,17 @@
       <%#= form_with model: @member_new, url: member_registration_path, id: 'new_member', class: 'new_member', local: true do |f| %>
           <%= render "member/shared/error_messages", resource: resource %>
           <div class="field">
-              <%= f.label :Name %><br/>
+              <%= f.label :Name %><br />
               <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"名前" %>
           </div>
 
           <div class="field">
-              <%= f.label :Nickname %><br/>
+              <%= f.label :Nickname %><br />
               <%= f.text_field :nick_name, placeholder:"ニックネーム" %>
           </div>
 
           <div class="field">
-              <%= f.label :Email %><br/>
+              <%= f.label :Email %><br />
               <%= f.email_field :email, autocomplete: "email", placeholder:"メールアドレス" %>
           </div>
 
@@ -24,12 +24,12 @@
               <%= f.label :Password %>
               <% if @minimum_password_length %>
               <em>(英数字<%= @minimum_password_length %>文字以上)</em>
-              <% end %><br/>
+              <% end %><br />
               <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード" %>
           </div>
 
           <div class="field">
-              <%= f.label :Password %><br/>
+              <%= f.label :Password %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード確認" %>
           </div>
 
