@@ -1,0 +1,36 @@
+// Place all the styles related to the member/spots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.slide-image {
+	width: 0 auto;
+	height: 400px;
+	background-size: cover;
+	background-position: center;
+}
+.slide-image:nth-child(1) {
+	background-image: url("<%= asset_path('anea.jpg') %>");
+}
+.slide-image:nth-child(2) {
+	background-image: url("<%= asset_path('moazan-kote.jpg') %>");
+}
+.slide-image:nth-child(3) {
+	background-image: url("<%= asset_path('moazan.jpg') %>");
+}
+.slide-image:nth-child(4) {
+	background-image: url("<%= asset_path('flower-kote.jpg') %>");
+}
+.slide-image:nth-child(5) {
+	background-image: url("<%= asset_path('kote1.jpg') %>");
+}
+
+.slick-dots {
+  li {
+    font-size: 15px !important;
+    button:before {
+    content: "★" !important;
+    font-size: 15px !important;
+    color: rgb(60, 60, 60) !important;
+    }
+  }
+}
