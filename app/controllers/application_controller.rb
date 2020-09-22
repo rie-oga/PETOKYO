@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
 	protected
 	  def after_sign_in_path_for(resource)
 	    if resource == current_admin
-	     member_spots_about_path
+	    　　member_spots_path
 	    elsif
 	       resource == current_member
-	       root_path
+	       member_spots_path
 	    end
 	  end
 
