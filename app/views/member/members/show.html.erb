@@ -1,2 +1,49 @@
-<h1>Member::Members#show</h1>
-<p>Find me in app/views/member/members/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h1>My page</h1><btn><%= link_to "編集する", edit_member_member_path(current_member), class: "btn btn-primary" %></btn>
+			<h5>飼い主様</h5>
+				<table class="table">
+					<tr>
+						<th>Name</th>
+						<th><%= current_member.name %></th>
+					</tr>
+					<tr>
+						<th>Nickname</th>
+						<th><%= current_member.nick_name %></th>
+					</tr>
+					<tr>
+						<th>Email</th>
+						<th><%= current_member.email %></th>
+					</tr>
+					<tr>
+						<th>投稿履歴</th>
+						<th></th>
+					</tr>
+				</table>
+			<h5>わんちゃん</h5>
+				<table class="table">
+					<% @dogs.each do |dog| %>
+						<tr>
+							<th></th>
+							<th><%= dog.id %></th>
+						</tr>
+						<tr>
+							<th>お名前</th>
+							<th><%= dog.name %></th>
+						</tr>
+						<tr>
+							<th>犬種</th>
+							<th><%= dog.kind %></th>
+						</tr>
+						<tr>
+							<th>性別</th>
+							<th><%= dog.sex %></th>
+						</tr>
+						<tr>
+							<th>年齢</th>
+							<th><%= dog.age %></th>
+						</tr>
+					<% end %>
+				</table>
+	</div>
+</div>
