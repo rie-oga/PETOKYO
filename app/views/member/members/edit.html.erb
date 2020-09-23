@@ -1,2 +1,45 @@
-<h1>Member::Members#edit</h1>
-<p>Find me in app/views/member/members/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h1>My page</h1>
+		<%= form_with(model: @member, local: true) do |form| %>
+			<h5>飼い主様</h5>
+				<div class="field">
+    				<%= form.label :Name %><br />
+    				<%= form.text_field :name %>
+  				</div>
+  				<div class="field">
+    				<%= form.label :Nickname %><br />
+    				<%= form.text_field :nickname %>
+  				</div>
+				<div class="field">
+    				<%= form.label :メールアドレス %><br />
+    				<%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  				</div>
+  				<div class="action">
+  					<%= form.submit "変更" %>
+  				</div>
+		<% end %>
+		<h5>わんちゃん</h5>
+			<table class="table">
+				<tr>
+					<th></th>
+					<th>お名前</th>
+					<th>犬種</th>
+					<th>性別</th>
+					<th>年齢</th>
+				</tr>
+			<% @dogs.each do |dog| %>
+				<%= form_with(model: dog, local: true) do |form| %>
+					<tr>
+						<td><% if current_member.dogs.count > 1 %><%= dog.id %><% end %></td>
+	    				<td><%= form.text_field :name %></td>
+	    				<td><%= form.text_field :kind %></td>
+	    				<td><%= form.text_field :sex %></td>
+	    				<td><%= form.text_field :age %></td>
+	    			</tr>
+  					<%= form.submit "変更" %>
+				<% end %>
+			<% end %>
+			</table>
+	</div>
+</div>
