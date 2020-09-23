@@ -1,2 +1,10 @@
-<h1>Member::Spots#index</h1>
-<p>Find me in app/views/member/spots/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<%= spots.each do |spot| %>
+			<%= attachment_image_tag spot, :image, :fill, 500, 500, fallback: "no_image.jpg", size:'500x500' %>
+			<%= spot.name %>
+			<%= spot.address %>
+			<%= spot.url %>
+		<% end %>
+	</div>
+</div>

@@ -6,8 +6,11 @@ class Member::SpotsController < ApplicationController
   end
 
   def index
+  	@spots = Spot.all
   end
 
   def show
+  	@spot = Spot.find(params[:id])
+  	@comment = Comment.new
   end
 end
