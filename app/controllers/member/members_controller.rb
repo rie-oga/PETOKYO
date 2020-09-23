@@ -1,4 +1,9 @@
 class Member::MembersController < ApplicationController
+
+  def index
+  	@spots = current_member.spots
+  end
+
   def show
   	@dogs = current_member.dogs
   end
@@ -7,6 +12,6 @@ class Member::MembersController < ApplicationController
   end
 
   def edit
-  	@user = User.find(params[:id])
+  	@member = Member.find(params[:id])
   end
 end

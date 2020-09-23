@@ -7,6 +7,7 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :url
       t.string :image_id
+      t.string :introduction
 
       t.timestamps
     end
