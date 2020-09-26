@@ -67,4 +67,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem "refile-mini_magick", github: 'refile/refile-mini_magick'
+#gem "aws-sdk-s3"
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
