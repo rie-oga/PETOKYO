@@ -1,7 +1,10 @@
-<% genres.each do |genre| %>
-	<tr>
-    	<td>
-     		<%= genre.name %>
-    	</td>
- 	</tr>
-<% end %>
+<div class="row">
+	<% genres.each do |genre| %>
+		<tr>
+			<td class="col-12">
+	     		<%= link_to genre.name, admin_spots_path, class:"btn btn-primary active" %>
+	     		<%= link_to "編集" %><%= link_to "削除" %>
+	     	</td>
+	    </tr>
+	<% end %>
+</div>

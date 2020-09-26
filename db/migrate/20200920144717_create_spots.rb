@@ -6,8 +6,8 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :name, null: false, unique: true
       t.string :address
       t.string :url
-      t.string :image_id
       t.string :introduction
+      t.string :image_id
 
       t.timestamps
     end

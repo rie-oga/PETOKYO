@@ -51,6 +51,7 @@ group :development do
   gem 'rubocop-airbnb'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -68,7 +69,6 @@ gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick", github: 'refile/refile-mini_magick'
-#gem "aws-sdk-s3"
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

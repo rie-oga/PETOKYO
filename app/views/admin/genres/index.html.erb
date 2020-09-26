@@ -1,19 +1,16 @@
 <div class="container">
   <div class="row">
-    <h3>ジャンル</h3>
-      <% @genres.each do |genre| %>
-        <%= genre.name %>
-          <%= link_to "編集する", edit_admin_genre_path(genre),class:"btn btn-primary active" %>
-      <% end %>
-  </div>
-  <div class="row">
-
+    <div class="col-sm-3">
+      <h3>ジャンル</h3>
+        <%= link_to admin_genres_path, remote: true do %><!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にする --><!-- admin_genres_pathと記述することで、genre/indexアクションが起きる -->
+          <i class="fas fa-plus-circle">ジャンルを追加</i>
+        <% end %>
+        <div id="genre-form"><!-- ここにajaxのformを表示 --></div>
+        <table class="table" id="genres">
+          <%= render "genre", genres: @genres %>
+        </table>
+    </div>
+    <div class="col-sm-9">
+    </div>
   </div>
 </div>
-
-<h1>Appleモデル一覧</h1>
-<table class="table" id="genres">
-  <%= render "genre", genres: @genres %>
-</table>
-<%= link_to "ジャンルを追加", admin_genres_path, remote: true %><!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にする --><!-- admin_genres_pathと記述することで、genre/indexアクションが起きる -->
-<div id="genre-form"><!-- ここにajaxのformを表示 --></div>
