@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       patch '/members/:id/withdraw' => 'members#withdraw'
       resources :members, only: [:index,:show,:edit,:update]
       get 'spots/about' => 'spots#about'
-      resources :spots, only: [:index,:edit,:update,:destroy,:show] do
+      resources :spots do
         resources :comments, only: [:create,:destroy]
       end
       resources :dogs, only: [:edit,:update,:destroy]

@@ -1,0 +1,22 @@
+<%= form_with(url: admin_spots_path, local: true) do |form| %>
+        <%= f.attachment_field :image %>
+				<div class="field">
+    				<%= form.label :Name %><br>
+    				<%= form.text_field :name, class: 'col-xs-12' %>
+  				</div>
+				<div class="field">
+    				<%= form.label :Address %><br>
+    				<%= form.text_field :address, class: 'col-xs-12' %>
+  				</div>
+  				<div class="field">
+    				<%= form.label :公式 %><br>
+    				<%= form.text_field :url, class: 'col-xs-12' %>
+  				</div>
+				<div class="field">
+    				<%= form.label :Introductionn %><br>
+    				<%= form.text_area :introduction,class: 'col-xs-12' %>
+  				</div>
+  				<div class="action">
+  					<%= form.submit "投稿" %>
+  				</div>
+<% end %>
