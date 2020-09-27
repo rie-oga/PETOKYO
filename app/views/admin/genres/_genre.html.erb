@@ -3,7 +3,7 @@
 		<tr>
 			<td class="col-12">
 	     		<%= link_to genre.name, admin_spots_path, class:"btn btn-primary active" %>
-	     		<%= link_to "編集" %><%= link_to "削除" %>
+	     		<%= link_to "編集" %><%= link_to "削除", admin_genre_path(genre), method: :delete %>
 	     	</td>
 	    </tr>
 	<% end %>

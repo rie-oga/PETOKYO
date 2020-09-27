@@ -1,17 +1,28 @@
 <div class="container">
-	<div class="row">
-		<%= @spots.each do |spot| %>
-			<% if spot.spot_images.present? %>
-  				<% spot.spot_images.each do |image| %>
-    				<%= attachment_image_tag image, :image, :fill, 200, 200 %><br>
-    			<% end %>
-  			<% else %>
-    			<%= image_tag 'no_image.jpg', size: '200x200' %>
-			<% end %>
-			<%= spot.name %>
-			<%= spot.address %>
-			<%= spot.url %>
-			<%= spot.introduction %>
-		<% end %>
-	</div>
+		<div class="row">
+			<div class="col-sm-3">
+					<% if params[:genre_id] %>
+						<h3><%= @genre.name %>ランキング</h3>
+							<% @spots.each do |spot| %>
+								<nav>
+									<ul>
+										<li><%= spot.name %></li>
+									</ul>
+								</nav>
+							<% end %>
+					<% else %>
+						<h3>総合ランキング</h3>
+						<% @spots.each do |spot| %>
+							<nav>
+								<ul>
+									<li><%= spot.name %></li>
+								</ul>
+							</nav>
+						<% end %>
+					<% end %>
+			</div>
+		    <div class="col-sm-9">
+		    	<%= render 'spots_ranking', spots: @spots %>
+		    </div>
+		</div>
 </div>

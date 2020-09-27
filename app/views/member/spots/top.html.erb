@@ -10,9 +10,13 @@
 			    	<div class="slide-image"></div>
 			    </div>
 			</div>
+			<div class="spots-ranking">
+				spot総合ランキング上位いくつか表示
+				<%= render 'spots_ranking', spots: @spots %>
+			</div>
 		</div>
 		<div class="col-sm-3">
-			<%= render "admin/shared/top_side" %>
+			<%= render 'member/shared/top_side' %>
 		</div>
 	</div>
 </div>

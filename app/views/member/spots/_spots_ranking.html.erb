@@ -1,0 +1,19 @@
+	<div class="row">
+		<% @genres.each do |genre| %>
+					<li><%= link_to genre.name, member_spots_path(genre_id: genre.id), class:"btn btn-primary" %></li>
+				<% end %>
+		<% @spots.each do |spot| %>
+			<% if spot.spot_images.present? %>
+  				<% spot.spot_images.each do |image| %>
+    				<%= attachment_image_tag image, :image, :fill, 200, 200 %><br>
+    			<% end %>
+  			<% else %>
+    			<%= image_tag 'no_image.jpg', size: '200x200' %>
+			<% end %>
+			<%= spot.name %>
+			<%= spot.address %>
+			<%= spot.url %>
+			<%= spot.introduction %>
+			<%= link_to 'レビューする' %>
+		<% end %>
+	</div>

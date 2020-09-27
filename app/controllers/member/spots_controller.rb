@@ -1,12 +1,19 @@
 class Member::SpotsController < ApplicationController
   def top
+    @genres = Genre.all
+    @spots = Spot.all
   end
 
   def about
   end
 
   def index
-  	@spots = Spot.all
+    if params[:genre_id]
+       @genre = Genre.find(params[:genre_id])
+       @spots = Spot.where(genre_id:@genre)
+    end
+    @spots = Spot.all
+    @genres = Genre.all
   end
 
   def show
@@ -40,7 +47,9 @@ class Member::SpotsController < ApplicationController
   end
 
   def destroy
-
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private

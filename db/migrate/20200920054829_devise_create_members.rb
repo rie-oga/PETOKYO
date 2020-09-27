@@ -4,11 +4,11 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
   def change
     create_table :members do |t|
       ## Database authenticatable
-      t.string :name, null: false
-      t.string :nick_name, null: false, unique: true
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-      t.boolean :is_withdeawal_status, null: false, default: true
+      t.string :name
+      t.string :nick_name, unique: true
+      t.string :email,               default: ""
+      t.string :encrypted_password, default: ""
+      t.boolean :is_withdeawal_status, default: true
 
       ## Recoverable
       t.string   :reset_password_token
@@ -35,7 +35,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.timestamps null: false
+      t.timestamps
     end
 
     add_index :members, :email,                unique: true
