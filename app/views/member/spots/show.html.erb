@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
-		<% link_to root_path, class:"btn" do %>
+		<%= link_to root_path, class:"btn" do %>
 			<i class="fas fa-plus-circle">投稿する</i>
 		<% end %>
-			</div>
+	</div>
 	<div class="row">
 		<% if @spot.spot_images.present? %>
   			<% @spot.spot_images.each do |image| %>
@@ -17,9 +17,9 @@
 		<%= @spot.url %>
 	</div>
 	<div class="row">
-		<%= form_for [@spot, @comment] do |f| %>
-      		<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-      		<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+		<%= form_with(model: [:member, @spot, @comment], local: true) do |form| %>
+      		<%= form.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+      		<%= form.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
 		<% end %>
     </div>
-  </div>
+ </div>

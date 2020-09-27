@@ -1,8 +1,13 @@
 <div class="container">
 	<div class="row">
-		あいうえお
 		<%= @spots.each do |spot| %>
-			<%= attachment_image_tag spot, :image, :fill, 500, 500, fallback: "no_image.jpg", size:'500x500' %>
+			<% if spot.spot_images.present? %>
+  				<% spot.spot_images.each do |image| %>
+    				<%= attachment_image_tag image, :image, :fill, 200, 200 %><br>
+    			<% end %>
+  			<% else %>
+    			<%= image_tag 'no_image.jpg', size: '200x200' %>
+			<% end %>
 			<%= spot.name %>
 			<%= spot.address %>
 			<%= spot.url %>
