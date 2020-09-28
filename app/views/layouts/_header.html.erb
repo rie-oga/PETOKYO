@@ -34,7 +34,7 @@
 		<nav>
 			<ul class="nav navbar-nav">
 				<li><%= link_to '地域を選ぶ', member_spots_path, class:"btn btn-primary" %></li>
-				<% Genre.all.each do |genre| %>
+				<% @genres.each do |genre| %>
 					<li><%= link_to genre.name, member_spots_path(genre_id: genre.id), class:"btn btn-primary" %></li>
 				<% end %>
 			</ul>

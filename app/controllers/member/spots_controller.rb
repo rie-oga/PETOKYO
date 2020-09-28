@@ -19,6 +19,7 @@ class Member::SpotsController < ApplicationController
   def show
   	@spot = Spot.find(params[:id])
   	@comment = Comment.new
+    @comments = Comment.all
   end
 
   def new

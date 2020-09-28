@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
+	before_action :get_genre
 
 	protected
+
+	  def get_genre
+	  	@genres = Genre.all
+	  end
+
 	  def after_sign_in_path_for(resource)
 	    if resource == current_admin
 	    　　member_spots_path

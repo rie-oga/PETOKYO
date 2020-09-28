@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_124501) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.float "rate"
     t.text "comment"
     t.integer "member_id"
     t.integer "spot_id"

@@ -19,12 +19,14 @@
 			<%= link_to '削除', @spot, member_spot_path, method: :delete, data: { confirm: '本当に消しますか？' } %>
 		<% end %>
 	</div>
+	 <!-- コメント一覧 -->
+	 <div class="row">
+	 	<%#= render partial: 'comment_index', locals: {comments: @comments} %>
+	 </div>
 	<!-- コメント投稿フォーム -->
 	<div class="row">
-		<%= form_with(model: [:member, @spot, @comment], local: true) do |form| %>
-      		<%= form.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-      		<%= form.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-		<% end %>
+		<%= render partial: 'comment_form', locals: { comment: @comment } %>
     </div>
-    <!-- コメント投稿フォームここまで -->
  </div>
+
+<% end %>
