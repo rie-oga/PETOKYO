@@ -8,10 +8,6 @@ class Admin::GenresController < ApplicationController
   	end
   end
 
-  def edit
-  	@genre = Genre.find(params[:id])
-  end
-
   def create
   	@genre = Genre.new(genre_params)
   	respond_to do |format|
@@ -22,6 +18,12 @@ class Admin::GenresController < ApplicationController
   		   format.js {render :index}
   		end
   	end
+  end
+
+  def destroy
+    @genre = Genre.find(params[:id])
+    @genre.destroy
+    redirect_to admin_genres_path
   end
 
   private

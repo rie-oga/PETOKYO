@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
       get '/' => 'tops#top'
       resources :members, only: [:index,:show,:edit,:update]
-      resources :genres, only: [:index,:edit,:create,:update]
+      resources :genres, only: [:index,:create,:update,:destroy]
       resources :spots
   end
 
@@ -23,9 +23,8 @@ Rails.application.routes.draw do
       patch '/members/:id/withdraw' => 'members#withdraw'
       resources :members, only: [:index,:show,:edit,:update]
       get 'spots/about' => 'spots#about'
-      resources :spots do
-        resources :comments, only: [:create,:destroy]
-      end
+      resources :spots
+      resources :comments, only: [:create,:destroy]
       resources :dogs, only: [:edit,:update,:destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

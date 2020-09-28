@@ -5,22 +5,18 @@
     	</nav>
 
 		<% if member_signed_in? %>
-			<p>ようこそ！<%= current_member.name %>さん</p>
+			<p>ようこそ！<%= current_member.nick_name %>さん</p>
 			<nav>
 				<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to 'About', member_spots_about_path %></li>
-					<li><%= link_to '地域を選ぶ', member_spots_path %></li>
-					<li><%= link_to 'カフェを探す', member_spots_path %></li>
-					<li><%= link_to '公園・ドッグランを探す', member_spots_path %></li>
+					<li><%= link_to 'Mypage', member_member_path(current_member) %></li>
 					<li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete %></li>
 				</ul>
 			</nav>
 		<% elsif admin_signed_in? %>
 			<nav>
 				<ul class="nav navbar-nav navbar-right">
-					<li><%= link_to '地域を選ぶ', member_spots_path %></li>
-					<li><%= link_to 'カフェ一覧へ', member_spots_path %></li>
-					<li><%= link_to '公園・ドッグラン一覧へ', member_spots_path %></li>
+					<li><%= link_to '会員一覧', admin_members_path %></li>
 					<li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
 				</ul>
 			</nav>
@@ -28,13 +24,20 @@
 			<nav>
 				<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to 'About', member_spots_about_path %></li>
-					<li><%= link_to '地域を選ぶ', member_spots_path %></li>
-					<li><%= link_to 'カフェを探す', member_spots_path %></li>
-					<li><%= link_to '公園・ドッグランを探す', member_spots_path %></li>
-					<li><%= link_to 'ログイン', new_member_session_path %></li>
 					<li><%= link_to '新規登録', new_member_registration_path %></li>
+					<li><%= link_to 'ログイン', new_member_session_path %></li>
 				</ul>
 			</nav>
 		<% end %>
+	</div>
+	<div class="container nav2">
+		<nav>
+			<ul class="nav navbar-nav">
+				<li><%= link_to '地域を選ぶ', member_spots_path, class:"btn btn-primary" %></li>
+				<% @genres.each do |genre| %>
+					<li><%= link_to genre.name, member_spots_path(genre_id: genre.id), class:"btn btn-primary" %></li>
+				<% end %>
+			</ul>
+		</nav>
 	</div>
 </header>

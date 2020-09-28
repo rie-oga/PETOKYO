@@ -1,0 +1,48 @@
+<% if comments.present? %>
+  <% comments.each do |comment| %>
+    <div class="row">
+      <div class="col-ms-2">
+        <%= asset_path('moai.jpg') %>
+        <p><%= link_to comment.member.name, member_members_path %></p>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class=" posts-content">
+          <p><%#= simple_time(comment.created_at) %></p>
+          <h4 class="mb-3">評価：<%= comment.rate %>点 </h4>
+
+          <!--星評価-->
+         <div id="star-rate-<%= comment.id %>"></div>
+          <script>
+          $('#star-rate-<%= comment.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,//読み取り専用
+            score: <%= comment.rate %>//星の入力値を読み込む
+          });
+          </script>
+        <!--/星評価-->
+
+        <p><%= comment.comment %></p>
+          <%#= image_tag comment.picture.url, class:'img-fluid' if comment.picture? %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= link_to comment.spot do %>
+          <div class="posts-product">
+            <img src="<%= comment.spot.image_url %>" alt="">
+            <p><%=  comment.spot.name %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-12 edit-button">
+        <% if current_member == comment.member %>
+          <%= link_to '口コミを編集', root_path, method: :get, class:'btn btn-default' %>
+          <%= link_to '口コミを削除', root_path, method: :delete, class:'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

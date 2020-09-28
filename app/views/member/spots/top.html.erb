@@ -10,9 +10,14 @@
 			    	<div class="slide-image"></div>
 			    </div>
 			</div>
+			<div class="spots-ranking">
+				<h3 class="popular-spot">人気スポット</h3>
+				<%= render 'spots_ranking', spots: @spots %>
+				<%= link_to 'もっと見る', member_spots_path, class:"btn btn-primary" %>
+			</div>
 		</div>
 		<div class="col-sm-3">
-			<%= render "admin/shared/top_side" %>
+			<%= render 'member/shared/top_side' %>
 		</div>
 	</div>
 </div>
