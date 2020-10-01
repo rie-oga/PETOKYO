@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :spots
   end
 
-  root to: 'member/spots#top'
   namespace :member, path:'' do
       get '/members/unsubscribe' => 'members#unsubscribe'
       patch '/members/:id/withdraw' => 'members#withdraw'
@@ -27,5 +26,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create,:destroy]
       resources :dogs, only: [:edit,:update,:destroy]
   end
+
+  root to: 'member/spots#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

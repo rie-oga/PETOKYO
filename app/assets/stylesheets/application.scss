@@ -29,13 +29,34 @@ a {
   clear: both;
 }
 .main {
-	margin-top: 150px;
+	margin-top: 10px;
 }
 footer {
 	background-color: #000;
 	width: 100%;
 	height: 50px;
 }
-.nav2 {
-	background-color: #fff;
+.header-nav {
+	list-style: none;
+}
+.logo {
+	text-align: center;
+}
+.logo img {
+	width: 110px;
+	height: 100px;
+	opacity: 0.85;
+}
+.nav-li {
+	text-align: center;
+	font-family: 'Hannotate TC','Meiryo UI',sans-serif;
+	font-size: 12px;
+	letter-spacing: 0.3em;
+}
+.nav-li img {
+	width: 35px;
+	height: 35px;
+	opacity: 0.55;
+	margin-top: 15px;
+	margin-bottom: 7px;
 }

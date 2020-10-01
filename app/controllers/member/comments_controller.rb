@@ -9,8 +9,9 @@ class Member::CommentsController < ApplicationController
 	end
 
 	def destroy
-		Comment.find_by(id: params[:id], spot_id: params[:spot_id]).destroy
-    	redirect_back fallback_location: root_path(params[:spot_id])
+		comment = current_member.comments.find(params[:id])
+		comment.destroy
+    	redirect_to member_spots_path
 	end
 
 	private
