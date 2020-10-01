@@ -1,46 +1,38 @@
 <% if comments.present? %>
   <% comments.each do |comment| %>
     <div class="row">
-      <div class="col-ms-2">
-        <%= asset_path('moai.jpg') %>
+      <div class="col-md-2">
+        <img src="<%= asset_path('moai.jpg') %>" alt="人物イメージ" width="100" height="100">
         <p><%= link_to comment.member.name, member_members_path %></p>
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-3 mb-3">
         <div class=" posts-content">
-          <p><%#= simple_time(comment.created_at) %></p>
+          <p><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
           <h4 class="mb-3">評価：<%= comment.rate %>点 </h4>
 
           <!--星評価-->
-         <div id="star-rate-<%= comment.id %>"></div>
+         <div id="star-rate-<%= comment.id %>"></div><!-- 繰り返し処理を実行してもidを一意に保てるようにpost.idを埋め込む-->
           <script>
           $('#star-rate-<%= comment.id %>').raty({
             size: 36,
             starOff:  '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
             starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
+            half: true,//星の半分入力
             readOnly: true,//読み取り専用
             score: <%= comment.rate %>//星の入力値を読み込む
           });
           </script>
         <!--/星評価-->
-
-        <p><%= comment.comment %></p>
-          <%#= image_tag comment.picture.url, class:'img-fluid' if comment.picture? %>
         </div>
       </div>
-      <div class="col-md-4">
-        <%= link_to comment.spot do %>
-          <div class="posts-product">
-            <img src="<%= comment.spot.image_url %>" alt="">
-            <p><%=  comment.spot.name %></p>
-          </div>
-        <% end %>
+      <div class="col-md-7">
+        <p><%= comment.comment %></p>
       </div>
       <div class="col-md-12 edit-button">
         <% if current_member == comment.member %>
           <%= link_to '口コミを編集', root_path, method: :get, class:'btn btn-default' %>
-          <%= link_to '口コミを削除', root_path, method: :delete, class:'btn btn-default' %>
+          <%= link_to '口コミを削除', member_comment_path(comment.id), method: :delete, data: { confirm: '本当に消しますか？'},class:'btn btn-default' %>
         <% end %>
       </div>
     </div>

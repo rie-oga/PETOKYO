@@ -1,11 +1,10 @@
 <!-- 口コミ入力フォーム -->
-<%= form_with(model: comment,url: member_comments_path, local: true) do |form| %>
+<%= form_with(model: comment, url: member_comments_path, local: true) do |form| %>
 
   <!--エラーメッセージ-->
-  <%#= render 'layouts/error_messages', model: form.object %>
+  <%= render 'layouts/errors', obj: comment %>
 
   <%= form.hidden_field :spot_id, { value: params[:id]} %>
-  <%#= form.hidden_field :member_id, { value: comment.member} %>
 
   <!-- 評価 -->
   <div class="form-group row" id="star">

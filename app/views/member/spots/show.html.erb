@@ -15,18 +15,13 @@
   		<% else %>
     		<%= image_tag 'no_image.jpg', size: '200x200' %>
 		<% end %>
-		<% if current_member.id = @spot.member_id do %>
-			<%= link_to '削除', @spot, member_spot_path, method: :delete, data: { confirm: '本当に消しますか？' } %>
-		<% end %>
 	</div>
 	 <!-- コメント一覧 -->
 	 <div class="row">
-	 	<%#= render partial: 'comment_index', locals: {comments: @comments} %>
+	 	<%= render partial: 'comment_index', locals: {comments: @comments} %>
 	 </div>
 	<!-- コメント投稿フォーム -->
 	<div class="row">
 		<%= render partial: 'comment_form', locals: { comment: @comment } %>
     </div>
  </div>
-
-<% end %>
