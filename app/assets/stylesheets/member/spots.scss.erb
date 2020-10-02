@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .slide-image {
+ margin-top: 100px;
 	width: 0 auto;
 	height: 400px;
 	background-size: cover;
@@ -37,10 +38,276 @@
 .popular-spot {
 	margin-top: 50px;
 }
+.main-visuals {
+    display: flex;
+}
 .main-visual {
-	width: 100%;
-	height: 700px;
+	width: 24%;
+	height: 400px;
+	margin: 8px;
+	border-radius: 20px;
 	background-size: cover;
 	background-position: center;
+}
+.main-visual:nth-child(1) {
 	background-image: image-url("<%= asset_path('inu2.jpg') %>");
+}
+.main-visual:nth-child(2) {
+	background-image: image-url("<%= asset_path('inu4.jpg') %>");
+}
+.main-visual:nth-child(3) {
+	background-image: image-url("<%= asset_path('cafe.jpg') %>");
+}
+.main-visual:nth-child(4) {
+	background-image: image-url("<%= asset_path('hurisubi-.jpg') %>");
+}
+.about {
+	text-align: center;
+}
+h5 {
+	font-family: 'メイリオ', Meiryo,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+}
+//吹き出し左
+.about-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 30px 30px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 1px #555;
+  box-sizing: border-box;
+  border-radius: 25px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
+
+.about-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.about-left:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.about-left h5 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.2em;
+  line-height: 25px;
+}
+//吹き出し左ここまで
+
+//吹き出し右
+.about-right {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 30px 30px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 1px #555;
+  box-sizing: border-box;
+  border-radius: 25px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
+
+.about-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-left: 12px solid #FFF;
+  z-index: 2;
+}
+
+.about-right:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-left: 14px solid #555;
+  z-index: 1;
+}
+
+.about-right h5 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.2em;
+  line-height: 25px;
+}
+//吹き出し右ここまで
+
+//影ボックスここから
+.about-center {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+    border-radius: 25px;
+    background-color: #fff;
+}
+.about-center h5 {
+    margin: 50;
+    padding: 30px;
+    letter-spacing: 0.2em;
+  	line-height: 25px;
+}
+//影ボックスここまで
+
+.background-color-2way {
+    /*上から下へ*/
+    background: linear-gradient(180deg,#fff 0%,#fff 100px,#365C92 100px,#365C92 100%);
+}
+.background-color-2way-reverse {
+	background: linear-gradient(180deg,#365C92 0%,#365C92 300px,#fff 300px,#fff 55%,#fff 300px,#365C92 300px,#365C92 75%,#365C92 100px,#fff 100px, #fff 100%);
+	width: 100%;
+}
+
+.man {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+.man img {
+	height: 150px;
+}
+.about-container {
+	margin-top: 20px;
+}
+.about-container:nth-child(2) {
+	margin-left:150px;
+}
+
+//文字下線
+h4 {
+	position: relative;
+    display: inline-block;
+}
+h4:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;/*線の上下位置*/
+  display: inline-block;
+  width: 50px;/*線の長さ*/
+  height: 3px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-10%);/*位置調整*/
+  background-color: #EC715F;/*線の色*/
+  border-radius: 2px;
+}
+//文字下線ここまで
+
+.p-white {
+	padding-top: 100px;
+	text-align:center;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 0.3em;
+}
+
+.top-introduction-img-box {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 100px;
+}
+.top-introduction-img1 {
+	background-image: image-url("<%= asset_path('moazan-kote.jpg') %>");
+	transform: rotate( -7deg );
+	width: 220px;
+	height: 250px;
+	border-radius: 25px;
+	background-size: cover;
+	background-position: center;
+	margin: 150px 20px 20px 50px;
+	position: relative;
+}
+.top-introduction-text1 {
+	transform: rotate( -7deg );
+	margin-top: 150px;
+	margin-right: 30px;
+}
+.top-introduction-img2 {
+	background-image: image-url("<%= asset_path('anea.jpg') %>");
+	transform: rotate( 5deg );
+	width: 250px;
+	height: 250px;
+	border-radius: 25px;
+	background-size: cover;
+	background-position: center;
+	margin: 20px 100px 20px 20px;
+	position: relative;
+}
+.top-introduction-text2 {
+	transform: rotate( 5deg );
+	margin-top: 200px;
+}
+.top-introduction-img3 {
+	background-image: image-url("<%= asset_path('yoyogi.huri-.jpg') %>");
+	width: 250px;
+	height: 250px;
+	border-radius: 25px;
+	background-size: cover;
+	background-position: center;
+	margin: 150px 20px 20px 20px;
+	transform: rotate( -7deg );
+	position: relative;
+}
+.top-introduction-text3 {
+	transform: rotate( -7deg );
+}
+.top-introduction-img4 {
+	background-image: image-url("<%= asset_path('park2.jpg') %>");
+	width: 250px;
+	height: 250px;
+	border-radius: 25px;
+	background-size: cover;
+	background-position: center;
+	margin: 70px 20px 70px 250px;
+	transform: rotate( 5deg );
+	position: relative;
+}
+.top-introduction-text4 {
+	transform: rotate( 5deg );
+	margin: 250px 70px 0 0;
+}
+.top-introduction-img5 {
+	background-image: image-url("<%= asset_path('flower-kote.jpg') %>");
+	width: 250px;
+	height: 250px;
+	border-radius: 25px;
+	background-size: cover;
+	background-position: center;
+	margin: 0px 30px 70px 20px;
+	position: relative;
+}
+.top-introduction-text5 {
+	margin-top: 50px;
+	color: #fff;
+}
+.label1, .label2, .label3, .label4, .label5 {
+	potision: absolute;
+	background-color: #fff;
+	border-radius: 25px;
+	padding: 5px;
 }
