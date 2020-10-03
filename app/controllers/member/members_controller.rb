@@ -5,7 +5,8 @@ class Member::MembersController < ApplicationController
   end
 
   def show
-  	@dogs = current_member.dogs
+  	@spots = current_member.spots
+    @comments = current_member.comments
   end
 
   def unsubscribe

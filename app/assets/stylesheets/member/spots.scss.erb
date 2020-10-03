@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* topページここから */
 .slide-image {
  margin-top: 100px;
 	width: 0 auto;
@@ -42,6 +43,7 @@
     display: flex;
 }
 .main-visual {
+  display: none;
 	width: 24%;
 	height: 400px;
 	margin: 8px;
@@ -161,8 +163,9 @@ h5 {
 }
 //吹き出し右ここまで
 
-//影ボックスここから
+//影付きボックスここから
 .about-center {
+    display: none;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
     border-radius: 25px;
     background-color: #fff;
@@ -173,11 +176,11 @@ h5 {
     letter-spacing: 0.2em;
   	line-height: 25px;
 }
-//影ボックスここまで
+//影付きボックスここまで
 
 .background-color-2way {
     /*上から下へ*/
-    background: linear-gradient(180deg,#fff 0%,#fff 100px,#365C92 100px,#365C92 100%);
+  background: linear-gradient(180deg,#fff 0%,#fff 100px,#365C92 100px,#365C92 100%);
 }
 .background-color-2way-reverse {
 	background: linear-gradient(180deg,#365C92 0%,#365C92 300px,#fff 300px,#fff 55%,#fff 300px,#365C92 300px,#365C92 75%,#365C92 100px,#fff 100px, #fff 100%);
@@ -199,11 +202,11 @@ h5 {
 }
 
 //文字下線
-h4 {
+.under-line {
 	position: relative;
     display: inline-block;
 }
-h4:before {
+.under-line:before {
   content: '';
   position: absolute;
   left: 50%;
@@ -283,7 +286,7 @@ h4:before {
 	border-radius: 25px;
 	background-size: cover;
 	background-position: center;
-	margin: 70px 20px 70px 250px;
+	margin: 70px 20px 100px 250px;
 	transform: rotate( 5deg );
 	position: relative;
 }
@@ -311,3 +314,57 @@ h4:before {
 	border-radius: 25px;
 	padding: 5px;
 }
+/* topページここまで */
+
+
+
+/* indexページここから */
+.spot-name-rank {
+	margin-left: 30px;
+	font-size: 15px;
+	letter-spacing: 0.3em;
+}
+.rank-name {
+	margin-bottom: 20px;
+}
+.index-nav {
+  list-style: none;
+}
+/* indexページここまで */
+
+
+
+
+/*　_spots_rankingページここから　*/
+
+//影付きボックスここから
+.spot-box {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 50px;
+    margin: 10px;
+    font-family: 'Hannotate TC','Meiryo UI',sans-serif;
+	font-size: 15px;
+	letter-spacing: 0.2em;
+	line-height: 20px;
+}
+//影付きボックスここまで
+//影付きボックスここから
+.spot-introduction {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 50px;
+    margin: 10px;
+    font-family: 'Hannotate TC','Meiryo UI',sans-serif;
+	font-size: 12px;
+	letter-spacing: 0.3em;
+}
+//影付きボックスここまで
+
+.spots-ranking {
+	background-color: #365C92;
+}
+
+/* _spots_rankingページここまで */

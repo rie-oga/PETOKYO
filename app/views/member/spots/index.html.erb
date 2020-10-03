@@ -1,27 +1,32 @@
 <div class="container">
+	<% @genres.each do |genre| %>
+		<%= link_to genre.name, member_spots_path(genre_id: genre.id) %>
+	<% end %>
+
+
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-3 spot-name-rank">
 					<% if params[:genre_id] %>
-						<h3><%= @genre.name %>ランキング</h3>
-							<% @spots.each do |spot| %>
+						<h4 class="rank-name"><%= @genre.name %>ランキング</h4>
+							<% @spots.each.with_index(1) do |spot, i| %>
 								<nav>
-									<ul>
-										<li><%= spot.name %></li>
+									<ul class="index-nav">
+										<li><%= i %>位  <%= spot.name %></li>
 									</ul>
 								</nav>
 							<% end %>
 					<% else %>
-						<h3>総合ランキング</h3>
-						<% @spots.each do |spot| %>
+						<h4 class="rank-name">総合ランキング</h4>
+						<% @spots.each.with_index(1) do |spot, i| %>
 							<nav>
-								<ul>
-									<li><%= spot.name %></li>
+								<ul class="index-nav">
+									<li><%= i %>位  <%= spot.name %></li>
 								</ul>
 							</nav>
 						<% end %>
 					<% end %>
 			</div>
-		    <div class="col-sm-9">
+		    <div class="col-sm-8 spots-ranking">
 		    	<%= render 'spots_ranking', spots: @spots %>
 		    </div>
 		</div>
