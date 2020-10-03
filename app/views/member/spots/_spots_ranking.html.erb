@@ -1,10 +1,10 @@
 	<div class="row">
-		<% @spots.each do |spot| %>
+		<% @spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box">
 			<table clas="table">
 					<tr>
 						<% if spot.comments.present? %>
-							<th id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></th>
+							<th><%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></span><%= spot.ave_rate.round(1) %>点</th>
 							<!--星評価-->
 							 <script>
 					          $('#star-rate-<%= spot.id %>').raty({

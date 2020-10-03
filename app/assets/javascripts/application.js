@@ -27,3 +27,37 @@ $(function() {
 		pauseOnFocus: true//ドットクリック時、自動再生を一時中止
 	});
 });
+
+//topページ
+$(function(){
+  $('.main-visual:nth-child(1)').slideDown(2000);
+});
+$(function(){
+  $('.main-visual:nth-child(2)').slideDown(2200);
+});
+$(function(){
+  $('.main-visual:nth-child(3)').slideDown(2400);
+});
+$(function(){
+  $('.main-visual:nth-child(4)').slideDown(2600);
+});
+
+$(function(){
+  $('.about-center').slideDown(10000);
+});
+
+$(function(){
+  $('.top-introduction-img1').slideDown(10000);
+});
+$(function(){
+  $('.top-introduction-img2').slideDown(10000);
+});
+$(function(){
+  $('.top-introduction-img3').slideDown(10000);
+});
+$(function(){
+  $('.top-introduction-img4').slideDown(10000);
+});
+$(function(){
+  $('.top-introduction-img5').slideDown(10000);
+});

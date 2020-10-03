@@ -2,7 +2,6 @@ class Member::SpotsController < ApplicationController
   before_action :ensure_spot, only: [:show, :edit, :update, :destroy]
 
   def top
-    @spots = Spot.all
   end
 
   def about

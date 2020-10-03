@@ -7,21 +7,21 @@
 		<div class="row">
 			<div class="col-sm-3 spot-name-rank">
 					<% if params[:genre_id] %>
-						<h3 class="rank-name"><%= @genre.name %>ランキング</h3>
-							<% @spots.each do |spot| %>
+						<h4 class="rank-name"><%= @genre.name %>ランキング</h4>
+							<% @spots.each.with_index(1) do |spot, i| %>
 								<nav>
-									<ol>
-										<li><%= spot.name %></li>
-									</ol>
+									<ul class="index-nav">
+										<li><%= i %>位  <%= spot.name %></li>
+									</ul>
 								</nav>
 							<% end %>
 					<% else %>
-						<h3 class="rank-name">総合ランキング</h3>
-						<% @spots.each do |spot| %>
+						<h4 class="rank-name">総合ランキング</h4>
+						<% @spots.each.with_index(1) do |spot, i| %>
 							<nav>
-								<ol>
-									<li><%= spot.name %></li>
-								</ol>
+								<ul class="index-nav">
+									<li><%= i %>位  <%= spot.name %></li>
+								</ul>
 							</nav>
 						<% end %>
 					<% end %>
