@@ -1,7 +1,9 @@
-<div class="container">
+<div class="container mypage">
 	<div class="row">
-		<h1>My page</h1><btn><%= link_to "編集する", edit_member_member_path(current_member), class: "btn btn-primary" %></btn>
-			<h5>飼い主様</h5>
+		<div class="col-sm-4">
+		</div>
+		<div class="col-sm-4 mydate-box">
+		<h5>ご登録情報　　　<btn><%= link_to "編集する", edit_member_member_path(current_member), class: "btn btn-primary" %></btn></h5>
 				<table class="table">
 					<tr>
 						<th>Name</th>
@@ -15,35 +17,62 @@
 						<th>Email</th>
 						<th><%= current_member.email %></th>
 					</tr>
-					<tr>
-						<th>投稿履歴</th>
-						<th></th>
-					</tr>
 				</table>
-			<h5>わんちゃん</h5>
+		</div>
+		<div class="col-sm-4">
+		</div>
+	</div>
+
+	<div class="row　my-spots-box">
+		<h5>ご投稿一覧</h5>
 				<table class="table">
-					<% @dogs.each do |dog| %>
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Image</th>
+						<th>Spot</th>
+						<th>Introduction</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @spots.each do |spot| %>
 						<tr>
-							<th></th>
-							<th><%= dog.id %></th>
-						</tr>
-						<tr>
-							<th>お名前</th>
-							<th><%= dog.name %></th>
-						</tr>
-						<tr>
-							<th>犬種</th>
-							<th><%= dog.kind %></th>
-						</tr>
-						<tr>
-							<th>性別</th>
-							<th><%= dog.sex %></th>
-						</tr>
-						<tr>
-							<th>年齢</th>
-							<th><%= dog.age %></th>
+							<td><%= spot.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+							<td><%= attachment_image_tag spot, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'200x200' %></td>
+							<td><%= spot.name %></td>
+							<td><%= spot.introduction %></td>
+							<td><%= link_to "編集する", root_path, class: "btn btn-primary" %>
+								<%= link_to "投稿を削除する", root_path, class: "btn btn-primary" %>
+							</td>
 						</tr>
 					<% end %>
-				</table>
+				</tbody>
+			    </table>
+	</div>
+	<div class="row review-box">
+		<h5>レビュー一覧</h5>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Spot</th>
+							<th>Evaluation</th>
+							<th>Comment</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @comments.each do |comment| %>
+							<tr>
+								<td><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+								<td><%= comment.spot.name %></td>
+								<td><%= comment.rate %></td>
+								<td><%= comment.comment %></td>
+								<td><%= link_to "編集する", root_path, class: "btn btn-primary" %>
+									<%= link_to "投稿を削除する", root_path, class: "btn btn-primary" %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+			    </table>
 	</div>
 </div>

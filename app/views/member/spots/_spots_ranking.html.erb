@@ -1,10 +1,10 @@
 	<div class="row">
 		<% @spots.each do |spot| %>
+		<div class="spot-box">
 			<table clas="table">
-				<div class="col-sm-3">
 					<tr>
 						<% if spot.comments.present? %>
-							<td id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></td>
+							<th id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></th>
 							<!--星評価-->
 							 <script>
 					          $('#star-rate-<%= spot.id %>').raty({
@@ -14,39 +14,32 @@
 					            starHalf: '<%= asset_path('star-half.png') %>',
 					            half: true,//星の半分入力
 					            readOnly: true,//読み取り専用
-					            score: <%= spot.comments.average(:rate).to_f.round(1) %>//round関数で切り上げ
+					            score: <%= spot.ave_rate %>
 					          });
 					         </script>
 					        <!--/星評価-->
 						<% end %>
+						<th><button><%= link_to 'レビューする', class:"btn btn-group-lg" %></button></th>
 					</tr>
 					<tr>
-						<td><%= spot.name %></td>
+						<td>名所：　<%= spot.name %></td>
 					</tr>
 					<tr>
-						<td><%= spot.address %></td>
+						<td>住所：　<%= spot.address %></td>
 					</tr>
 					<tr>
 						<td><%= spot.url %></td>
 					</tr>
-					<tr>
-						<td><%= spot.introduction %></td>
-					</tr>
-			    </div>
-				<div class="col-sm-9">
 				    <tr>
 						<% if spot.spot_images.present? %>
 			  				<td><% spot.spot_images.each do |image| %>
 			    				<%= attachment_image_tag image, :image, :fill, 100, 200 %></td>
 			    			<% end %>
 			  			<% else %>
-			    			<td><%= image_tag 'anea.jpg', size: '500x500' %></td>
+			    			<td><%= image_tag 'anea.jpg', size: '200x200' %><span class="spot-introduction"><%= spot.introduction %></span></td>
 						<% end %>
 					</tr>
-					<tr>
-						<td><%= link_to 'レビューする' %></td>
-					</tr>
-				</div>
 			</table>
+		</div>
 		<% end %>
 	</div>

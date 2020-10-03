@@ -1,23 +1,23 @@
 <header>
 	<div class="container">
 		<div class="row">
-			<% if member_signed_in? %>
+		<% if member_signed_in? %>
 			<nav>
 				<ul class="header-nav">
-					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png alt=公園で佇む犬の写真"><br>About</a></li>
-					<li class="col-sm-2 nav-li"><img src="assets/4.png　alt=公園で遊ぶ犬の写真"><br>Search</li>
+					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png" alt="公園で佇む犬の写真"><br>About</a></li>
+					<li class="col-sm-2 nav-li"><img src="assets/4.png" alt="公園で遊ぶ犬の写真"><br>Search</li>
 					<%= link_to root_path do %>
-					<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo3.png　alt=ドッグカフェの写真"></li>
+					<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo3.png" alt="PETOKYOのロゴ"></li>
 					<% end %>
 					<%= link_to member_member_path(current_member) do %>
-					<li class="col-sm-2 nav-li"><img src="assets/5.png　alt=ドッグランの写真"><br>My page</li>
+					<li class="col-sm-2 nav-li"><img src="assets/5.png" alt="ドッグランの写真"><br>My page</li>
 					<% end %>
 					<%= link_to destroy_member_session_path, method: :delete do %>
-					<li class="col-sm-2 nav-li"><img src="assets/3.png"><br>Log out</li>
+					<li class="col-sm-2 nav-li"><img src="assets/3.png" alt="ログアウト"><br>Log out</li>
 					<% end %>
 				</ul>
 			</nav>
-			<% elsif admin_signed_in? %>
+		<% elsif admin_signed_in? %>
 			<nav>
 				<ul class="header-nav">
 					<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo2.png"></li>
