@@ -14,11 +14,15 @@ class Member::SpotsController < ApplicationController
        @genre = Genre.find(params[:genre_id])
        @spots = @spots.where(genre_id: params[:genre_id])
     end
+    respond_to do |format|#respond_toメソッドを使って結果をどのフォーマットで返すかを指定
+      format.html
+      format.js#ajaxで実行すると、このformat.jsに該当するindex.js.erbを返す
+    end
   end
 
   def show
   	@comment = Comment.new
-    @comments = @spot.comments
+    @comments = @spot.comments.order(id:"DESC")#降順
   end
 
   def new
@@ -34,6 +38,7 @@ class Member::SpotsController < ApplicationController
   end
 
   def edit
+    @spot = Spot.find(params[:id])
   end
 
   def update

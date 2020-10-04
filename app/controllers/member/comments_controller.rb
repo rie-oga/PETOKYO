@@ -5,7 +5,7 @@ class Member::CommentsController < ApplicationController
 		comment.member_id = current_member.id
 		comment.spot_id = params[:comment][:spot_id]
 		comment.save
-		redirect_to root_path
+		redirect_to member_spots_path
 	end
 
 	def destroy

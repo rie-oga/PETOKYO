@@ -1,9 +1,4 @@
 <div class="container">
-	<% @genres.each do |genre| %>
-		<%= link_to genre.name, member_spots_path(genre_id: genre.id) %>
-	<% end %>
-
-
 		<div class="row">
 			<div class="col-sm-3 spot-name-rank">
 					<% if params[:genre_id] %>
@@ -17,13 +12,13 @@
 							<% end %>
 					<% else %>
 						<h4 class="rank-name">総合ランキング</h4>
-						<% @spots.each.with_index(1) do |spot, i| %>
-							<nav>
-								<ul class="index-nav">
-									<li><%= i %>位  <%= spot.name %></li>
-								</ul>
-							</nav>
-						<% end %>
+							<% @spots.each.with_index(1) do |spot, i| %>
+								<nav>
+									<ul class="index-nav">
+										<li><%= i %>位  <%= spot.name %></li>
+									</ul>
+								</nav>
+							<% end %>
 					<% end %>
 			</div>
 		    <div class="col-sm-8 spots-ranking">
