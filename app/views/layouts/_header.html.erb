@@ -1,9 +1,21 @@
 <header>
 	<div class="container">
 		<div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
 		<% if member_signed_in? %>
 			<nav>
-				<ul class="header-nav">
+				<ul class="header-nav header-dropmenu">
 					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png"><br>About</a></li>
 					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search</li>
 					<%= link_to root_path do %>
@@ -27,9 +39,15 @@
 			</nav>
 		<% else %>
 			<nav>
-				<ul class="header-nav">
+				<ul class="header-nav header-dropmenu">
 					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png"><br>About</a></li>
-					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search</li>
+					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search
+						<ul>
+							<% @genres.each do |genre| %>
+								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+							<% end %>
+						</ul>
+					</li>
 					<%= link_to root_path do %>
 						<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo3.png" alt="PETOKYO"></li>
 					<% end %>

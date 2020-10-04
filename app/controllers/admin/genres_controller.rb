@@ -4,7 +4,7 @@ class Admin::GenresController < ApplicationController
   	@genre = Genre.new
   	respond_to do |format|#respond_toメソッドを使って結果をどのフォーマットで返すかを指定
   		format.html
-  		format.js#ajaxで実行すると、このformat.jsに該当するgenre.js.erbを返す
+  		format.js#ajaxで実行すると、このformat.jsに該当するindex.js.erbを返す
   	end
   end
 
