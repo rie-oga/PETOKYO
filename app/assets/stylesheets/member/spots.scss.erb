@@ -198,7 +198,7 @@ h5 {
 	margin-top: 20px;
 }
 .about-container:nth-child(2) {
-	margin-left:150px;
+	padding-left:150px;
 }
 
 //文字下線
@@ -368,3 +368,73 @@ h5 {
 }
 
 /* _spots_rankingページここまで */
+
+
+/* showページここから */
+
+.comment-index {
+  margin-left: 200px;
+}
+
+//吹き出し左
+.comment-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 30px 30px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 1px #555;
+  box-sizing: border-box;
+  border-radius: 25px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+}
+
+.comment-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.comment-left:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.comment-left h5 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.2em;
+  line-height: 25px;
+}
+//吹き出し左ここまで
+
+/* showページここまで */
+
+
+
+
+/* editページここから */
+.spot-edit {
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+.spot-edit-row {
+  margin-bottom: 50px;
+}
+/* editページここまで */

@@ -5,8 +5,8 @@ class Member::MembersController < ApplicationController
   end
 
   def show
-  	@spots = current_member.spots
-    @comments = current_member.comments
+  	@spots = current_member.spots.order(id:"DESC")#降順
+    @comments = current_member.comments.order(id:"DESC")#降順
   end
 
   def unsubscribe

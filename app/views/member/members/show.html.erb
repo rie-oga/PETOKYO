@@ -32,17 +32,25 @@
 						<th>Image</th>
 						<th>Spot</th>
 						<th>Introduction</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @spots.each do |spot| %>
 						<tr>
 							<td><%= spot.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
-							<td><%= attachment_image_tag spot, :image, :fill, 40, 40, fallback: "no_image.jpg", size:'200x200' %></td>
+
+							<% if spot.spot_images.present? %>
+				  				<td><% spot.spot_images.each do |image| %>
+				    				<%= attachment_image_tag image, :image, :fill, 50, 50 %></td>
+			    				<% end %>
+			  				<% else %>
+			  					<td>no image</td>
+			  			    <% end %>
 							<td><%= spot.name %></td>
 							<td><%= spot.introduction %></td>
-							<td><%= link_to "編集する", root_path, class: "btn btn-primary" %>
-								<%= link_to "投稿を削除する", root_path, class: "btn btn-primary" %>
+							<td><btn><%= link_to "編集する", root_path, class: "btn btn-default" %></btn>
+								<%= link_to "投稿を削除する", root_path, class: "btn btn-default" %>
 							</td>
 						</tr>
 					<% end %>
@@ -58,6 +66,7 @@
 							<th>Spot</th>
 							<th>Evaluation</th>
 							<th>Comment</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -65,10 +74,10 @@
 							<tr>
 								<td><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
 								<td><%= comment.spot.name %></td>
-								<td><%= comment.rate %></td>
+								<td><img src="assets/star-on.png"><%= comment.rate %></td>
 								<td><%= comment.comment %></td>
-								<td><%= link_to "編集する", root_path, class: "btn btn-primary" %>
-									<%= link_to "投稿を削除する", root_path, class: "btn btn-primary" %>
+								<td><%= link_to "編集する", root_path, class: "btn btn-default" %>
+									<%= link_to "投稿を削除する", root_path, class: "btn btn-default" %>
 								</td>
 							</tr>
 						<% end %>

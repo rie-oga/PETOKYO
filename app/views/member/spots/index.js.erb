@@ -1,0 +1,4 @@
+$('#comment-form').html("<%= j (render partial: 'comment_form', locals: { comment: Comment.new }) %>");
+$('#comment-form').fadeIn(800);
+//上記で、<div id="comment_form"></div>の箇所に入力フォームが動的に表示されるようになる。
+//また、renderでformを指定しているので、_comment_form.html.erbを作成。
