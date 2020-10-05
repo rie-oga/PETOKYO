@@ -2,9 +2,18 @@
 		<% spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box">
 			<table clas="table">
+				<% if current_member || current_admin %>
+          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
+          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},class:'btn btn-default' %>
+        		<% end %>
+        		<% if current_member != spot.member %>
+							<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
+							<%= link_to 'レビューする', member_spots_path, remote: true, class:"btn btn-default" %>
+								<div id="comment-form"></div>
+				<% end %>
 					<tr>
 						<% if spot.comments.present? %>
-							<th><%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></span><%= spot.ave_rate&.round(1) %>点</th>
+							<td><%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></span><%= spot.ave_rate&.round(1) %>点</td>
 							<!--星評価-->
 							 <script>
 					          $('#star-rate-<%= spot.id %>').raty({
@@ -19,31 +28,28 @@
 					         </script>
 					        <!--/星評価-->
 						<% end %>
-						<th><button><%= link_to 'レビューする', member_spots_path, remote: true, class:"btn btn-group-lg" %></button>
-							<div id="comment-form"></div></th>
 					</tr>
 					<tr>
-						<td>名所：　<%= spot.name %></td>
+						<% if spot.spot_images.present? %>
+			  				<td><% spot.spot_images.each do |image| %>
+			    				<%= attachment_image_tag image, :image, :fill, 550, 500 %></td>
+			    			<% end %>
+			  			<% else %>
+			    			<td><%= image_tag 'anea.jpg', size: '550x500' %></td>
+						<% end %>
 					</tr>
 					<tr>
-						<td>住所：　<%= spot.address %></td>
+						<td>名所：　<span class="font-size-big"><%= spot.name %></span></td>
+					</tr>
+					<tr>
+						<td>住所：　<span class="font-size-big"><%= spot.address %></span></td>
 					</tr>
 					<tr>
 						<td><%= spot.url %></td>
 					</tr>
-				    <tr>
-						<% if spot.spot_images.present? %>
-			  				<td><% spot.spot_images.each do |image| %>
-			    				<%= attachment_image_tag image, :image, :fill, 100, 200 %></td>
-			    			<% end %>
-			  			<% else %>
-			    			<td><%= image_tag 'anea.jpg', size: '200x200' %><span class="spot-introduction"><%= spot.introduction %></span></td>
-						<% end %>
+					<tr>
+						<td class="spot-introduction-td"><span class="spot-introduction"><%= spot.introduction %></span></td>
 					</tr>
-					<% if current_member || current_admin %>
-          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
-          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},class:'btn btn-default' %>
-        			<% end %>
 			</table>
 		</div>
 		<% end %>

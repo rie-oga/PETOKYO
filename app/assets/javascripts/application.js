@@ -28,36 +28,66 @@ $(function() {
 	});
 });
 
-//topページ
+//topページ main-visual//
 $(function(){
-  $('.main-visual:nth-child(1)').slideDown(2000);
+  $('.main-visual:nth-child(1)').slideDown(300);
 });
 $(function(){
-  $('.main-visual:nth-child(2)').slideDown(2200);
+  $('.main-visual:nth-child(2)').slideDown(500);
 });
 $(function(){
-  $('.main-visual:nth-child(3)').slideDown(2400);
+  $('.main-visual:nth-child(3)').slideDown(700);
 });
 $(function(){
-  $('.main-visual:nth-child(4)').slideDown(2600);
-});
-
-$(function(){
-  $('.about-center').slideDown(10000);
+  $('.main-visual:nth-child(4)').slideDown(900);
 });
 
+//topページ　about//
 $(function(){
-  $('.top-introduction-img1').slideDown(10000);
+  $(ScrollReveal().reveal('.about-container:nth-child(2)', {
+       duration: 2000, // アニメーションの完了にかかる時間
+       viewFactor: 1, // 0~1,どれくらい見えたら実行するか
+       reset: false, // 何回もアニメーション表示するか
+       distance: '200px',//500pxの距離から
+       origin: 'left',//表示される方向
+       delay: 2000 //実行されるまでの時間
+     }));
 });
 $(function(){
-  $('.top-introduction-img2').slideDown(10000);
+  $(ScrollReveal().reveal('.about-container:nth-child(3)', {
+       duration: 2000,
+       viewFactor: 1,
+       reset: false,
+       distance: '-200px',
+       origin: 'left'
+     }));
 });
 $(function(){
-  $('.top-introduction-img3').slideDown(10000);
+  $(ScrollReveal().reveal('.about-container:nth-child(4)', {
+       duration: 2000,
+       viewFactor: 1,
+       reset: false,
+       distance: '200px',
+       origin: 'left'
+     }));
 });
 $(function(){
-  $('.top-introduction-img4').slideDown(10000);
+  $(ScrollReveal().reveal('.about-center', {
+       duration: 3000, // アニメーションの完了にかかる時間
+       viewFactor: 1, // 0~1,どれくらい見えたら実行するか
+       reset: false, // 何回もアニメーション表示するか
+       distance: '200px',//500pxの距離から
+       origin: 'bottom'
+     }));
 });
+
+//topページ　introduction-img//
 $(function(){
-  $('.top-introduction-img5').slideDown(10000);
+  $(ScrollReveal().reveal('.top-introduction-img1,.top-introduction-img2,.top-introduction-img3,.top-introduction-img4,.top-introduction-img5', {
+       duration: 3000, // アニメーションの完了にかかる時間
+       viewFactor: 1, // 0~1,どれくらい見えたら実行するか
+       reset: false, // 何回もアニメーション表示するか
+       distance: '100px',//500pxの距離から
+       origin: 'bottom'
+     }));
 });
