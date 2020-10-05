@@ -73,10 +73,10 @@ $(function(){
 });
 $(function(){
   $(ScrollReveal().reveal('.about-center', {
-       duration: 3000, // アニメーションの完了にかかる時間
-       viewFactor: 1, // 0~1,どれくらい見えたら実行するか
-       reset: false, // 何回もアニメーション表示するか
-       distance: '200px',//500pxの距離から
+       duration: 3000,
+       viewFactor: 1,
+       reset: false,
+       distance: '200px',
        origin: 'bottom'
      }));
 });
@@ -84,10 +84,24 @@ $(function(){
 //topページ　introduction-img//
 $(function(){
   $(ScrollReveal().reveal('.top-introduction-img1,.top-introduction-img2,.top-introduction-img3,.top-introduction-img4,.top-introduction-img5', {
-       duration: 3000, // アニメーションの完了にかかる時間
-       viewFactor: 1, // 0~1,どれくらい見えたら実行するか
-       reset: false, // 何回もアニメーション表示するか
-       distance: '100px',//500pxの距離から
+       duration: 3000,
+       viewFactor: 1,
+       reset: false,
+       distance: '100px',
        origin: 'bottom'
      }));
+});
+
+//spot-showページ//
+$(function () {
+    $('.comment-click').on('click', () => {
+        $('.img-box').hide();
+        $('.comment-box').show();
+    });
+});
+$(function () {
+    $('.img-click').on('click', () => {
+        $('.comment-box').hide();
+        $('.img-box').show();
+    });
 });

@@ -1,0 +1,25 @@
+
+				<% if current_member %>
+					<span class="user-img"><img src="<%= asset_path('moai.jpg') %>"></span>
+					<%= current_member.nick_name %>さん
+				<% end %>
+					<% if params[:genre_id] %>
+						<h5 class="rank-name"><strong><%= genre.name %>ランキング</strong></h5>
+							<% spots.each.with_index(1) do |spot, i| %>
+								<nav>
+									<ul class="index-nav">
+										<li><%= i %>位  　<%= link_to spot.name, member_spot_path(spot.id) %></li>
+									</ul>
+								</nav>
+							<% end %>
+					<% else %>
+						<h5 class="rank-name"><strong>総合ランキング</strong></h5>
+							<% spots.each.with_index(1) do |spot, i| %>
+								<nav>
+									<ul class="index-nav">
+										<li><%= i %>位　  <%= link_to spot.name,member_spot_path(spot.id) %></li>
+									</ul>
+								</nav>
+							<% end %>
+					<% end %>
+					<p>※当サイト内レビュー順位です。</p>

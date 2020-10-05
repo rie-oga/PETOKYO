@@ -8,7 +8,6 @@ class Member::SpotsController < ApplicationController
   end
 
   def index
-    @genres = Genre.all
     @spots = Spot.order(ave_rate:"DESC")#spotコントローラにave_rageカラムあり。コメント保存の時点でaverageを出している←commentコントローラに記述
     if params[:genre_id]
        @genre = Genre.find(params[:genre_id])
@@ -21,6 +20,12 @@ class Member::SpotsController < ApplicationController
   end
 
   def show
+    @spots = Spot.order(ave_rate:"DESC")
+    @spot_images = @spot.spot_images.page(params[:page]).per(15)
+    if params[:genre_id]
+       @genre = Genre.find(params[:genre_id])
+       @spots = @spots.where(genre_id: params[:genre_id])
+    end
   	@comment = Comment.new
     @comments = @spot.comments.order(id:"DESC")#降順
   end
@@ -38,7 +43,6 @@ class Member::SpotsController < ApplicationController
   end
 
   def edit
-    @spot = Spot.find(params[:id])
   end
 
   def update

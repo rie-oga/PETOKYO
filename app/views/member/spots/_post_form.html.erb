@@ -5,7 +5,7 @@
 		<div class="col-sm-4">
 			<%= form_with(model: [:member, spot], local: true) do |form| %>
 			  <%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選ぶ" %>
-			  <%= form.attachment_field :spot_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->
+			  <%= form.attachment_field :spot_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->※複数選択可能です。
 			  <%= form.text_field :name, class: 'col-sm-12' %>
 			  <%= form.text_field :address, class: 'col-sm-12' %>
 			  <%= form.text_area :introduction, class: 'col-sm-12' %>
