@@ -74,7 +74,7 @@
 							<tr>
 								<td><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
 								<td><%= comment.spot.name %></td>
-								<td><img src="assets/star-on.png"><%= comment.rate %></td>
+								<td> <img src="<%= asset_path('star-on.jpg') %>"><%= comment.rate %></td>
 								<td><%= comment.comment %></td>
 								<td><%= link_to "編集する", root_path, class: "btn btn-default" %>
 									<%= link_to "投稿を削除する", root_path, class: "btn btn-default" %>

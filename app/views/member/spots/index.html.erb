@@ -1,25 +1,31 @@
 <div class="container">
 		<div class="row">
-			<div class="col-sm-3 spot-name-rank">
+			<div class="spot-name-rank" id="fixed">
+				<% if current_member %>
+					<span class="user-img"><img src="<%= asset_path('moai.jpg') %>"></span>
+					<%= current_member.nick_name %>さん
+				<% end %>
 					<% if params[:genre_id] %>
-						<h4 class="rank-name"><%= @genre.name %>ランキング</h4>
+						<h5 class="rank-name"><strong><%= @genre.name %>ランキング</strong></h5>
 							<% @spots.each.with_index(1) do |spot, i| %>
 								<nav>
 									<ul class="index-nav">
-										<li><%= i %>位  <%= spot.name %></li>
+										<li><%= i %>位  　<%= spot.name %></li>
 									</ul>
 								</nav>
 							<% end %>
 					<% else %>
-						<h4 class="rank-name">総合ランキング</h4>
+						<h5 class="rank-name"><strong>総合ランキング</strong></h5>
 							<% @spots.each.with_index(1) do |spot, i| %>
 								<nav>
 									<ul class="index-nav">
-										<li><%= i %>位  <%= spot.name %></li>
+										<li><%= i %>位　  <%= spot.name %></li>
 									</ul>
 								</nav>
 							<% end %>
 					<% end %>
+			</div>
+			<div class="col-sm-3">
 			</div>
 		    <div class="col-sm-8 spots-ranking">
 		    	<%= render 'spots_ranking', spots: @spots %>
