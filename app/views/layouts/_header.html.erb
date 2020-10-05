@@ -7,6 +7,7 @@
 					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png"><br>About</a></li>
 					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search
 						<ul>
+							<li><%= link_to '全て', member_spots_path %></li>
 							<% @genres.each do |genre| %>
 								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
 							<% end %>
@@ -30,6 +31,7 @@
 					<li class="col-sm-4"><%= link_to '会員一覧', admin_members_path %></li>
 					<li class="col-sm-2 nav-li">スポット一覧
 						<ul>
+							<li><%= link_to '全て', member_spots_path %></li>
 							<% @genres.each do |genre| %>
 								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
 							<% end %>
@@ -44,6 +46,7 @@
 					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png"><br>About</a></li>
 					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search
 						<ul>
+							<li><%= link_to '全て', member_spots_path %></li>
 							<% @genres.each do |genre| %>
 								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
 							<% end %>
