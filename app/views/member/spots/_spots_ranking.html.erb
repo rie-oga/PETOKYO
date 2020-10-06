@@ -1,16 +1,6 @@
 	<div class="row spot-box-parent">
 		<% spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box">
-			<div class="btn">
-				<% if current_member || current_admin %>
-          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
-          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},class:'btn btn-default' %>
-        		<% else %>
-							<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
-							<%= link_to 'レビューする', member_spots_path, remote: true, class:"btn btn-default" %>
-								<div id="comment-form"></div>
-				<% end %>
-			</div>
 					<div>
 						<% if spot.comments.present? %>
 							<%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></span><%= spot.ave_rate&.round(1) %>点
@@ -48,6 +38,17 @@
 						<%= spot.url %>
 					</div>
 					<div class="spot-introduction-td"><span class="spot-introduction"><%= spot.introduction %></span>
+					</div>
+					<div class="btn">
+						<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
+						<% if current_member || current_admin %>
+		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
+		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
+		          				class:'btn btn-default' %>
+		        		<% elsif %>
+								<%= link_to 'レビューする', member_spots_path, remote: true, class:"btn btn-default" %>
+										<div id="comment-form"></div>
+						<% end %>
 					</div>
 		</div>
 		<% end %>
