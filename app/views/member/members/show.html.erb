@@ -24,7 +24,21 @@
 	</div>
 
 	<div class="row　my-spots-box">
-		<h5>ご投稿一覧</h5>
+		<nav class="nav-show">
+			<ul class="nav-list">
+				<li class="nav-list-item">
+					<button class="comment-click">投稿履歴</button>
+				</li>
+				<li class="nav-list-item">
+					<button class="img-click">レビュー履歴</button>
+				</li>
+				<li class="nav-list-item">
+					<button class="img-click">投稿写真一覧</button>
+				</li>
+			</ul>
+		</nav>
+		<div class="member-spot-index-box">
+			<h5>ご投稿一覧</h5>
 				<table class="table">
 				<thead>
 					<tr>
@@ -56,9 +70,9 @@
 					<% end %>
 				</tbody>
 			    </table>
-	</div>
-	<div class="row review-box">
-		<h5>レビュー一覧</h5>
+		</div>
+		<div class="review-box">
+			<h5>レビュー一覧</h5>
 				<table class="table">
 					<thead>
 						<tr>
@@ -83,5 +97,6 @@
 						<% end %>
 					</tbody>
 			    </table>
+		</div>
 	</div>
 </div>
