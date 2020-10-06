@@ -1,18 +1,36 @@
-<div class="container">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 		</div>
-		<div class="col-sm-4">
-			<%= form_with(model: [:member, spot], local: true) do |form| %>
-			  <%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選ぶ" %>
-			  <%= form.attachment_field :spot_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->※複数選択可能です。
-			  <%= form.text_field :name, class: 'col-sm-12' %>
-			  <%= form.text_field :address, class: 'col-sm-12' %>
-			  <%= form.text_area :introduction, class: 'col-sm-12' %>
-			  <%= form.submit '投稿',class: 'col-sm-12 btn btn-primary' %>
-			<% end %>
-		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+        		<div class="panel-heading">Spot編集</div>
+        			<div class="panel-body">
+						<%= form_with(model: [:member, spot], local: true) do |form| %>
+							<div class="form-group">
+								<label class="control-label">ジャンル選択</label>
+			  					<%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選ぶ" %>
+			  				</div>
+			  				<div class="form-group">
+			  					<label class="control-label">画像を選ぶ</label>
+			  					<%= form.attachment_field :spot_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる -->
+			  				</div>
+			  				<div class="form-group">
+			  					<label class="control-label">名所</label>
+			  					<%= form.text_field :name,class:'form-control' %>
+			  				</div>
+			  				<div class="form-group">
+			  					<label class="control-label">住所</label>
+			  					<%= form.text_field :address,class:'form-control' %>
+			  				</div>
+			  				<div class="form-group">
+			  					<label class="control-label">紹介文</label>
+			  					<%= form.text_field :introduction,class:'form-control' %>
+			  				</div>
+			  				<div class="form-group">
+			  					<%= form.submit '投稿',class: 'btn btn-primary' %>
+			  				</div>
+			  			<% end %>
+			  		</div>
+			</div>
 		</div>
 	</div>
-</div>
