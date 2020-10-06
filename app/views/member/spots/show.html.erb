@@ -21,20 +21,19 @@
 				    <div class="img-box">
 						<% if @spot.spot_images.present? %>
 							<% @spot_images.each do |image| %>
-								<div class="list-box clearfix">
+								<div class="list-box">
 								    <%= attachment_image_tag image, :image, :fill, 250, 250 %>
 								</div>
 							<% end %>
-							<%= paginate @spot_images %>
 						<% end %>
 					</div>
+					<%= paginate @spot_images %>
 					<!-- コメント一覧 -->
 					<div class="comment-box">
 			 			<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 		</div>
 
 			</div>
-
 
 				<%= link_to new_member_spot_path, class:"btn" do %>
 					<i class="fas fa-plus-circle">投稿する</i>

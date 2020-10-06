@@ -34,7 +34,7 @@
   margin: 5px;
 }
 .images-border {
- margin: 40px 0 0 15px;
+ margin: 20px 0 0 15px;
 }
 .p-small {
   font-size: 8px;
@@ -44,10 +44,18 @@
   border-radius: 2px;
   background-color: #fff;
   margin: 5px;
-  padding: 30px 10px 10px 15px;
+  padding: 0 10px 10px 15px;
 }
 .nav-show2 {
   width: 970px;
   margin: 0 auto;
   border-top: solid 2px #dcdcdc;
+}
+.post-subject-parent, .review-subject-parent {
+    text-align: center;
+}
+.post-subject, .review-subject {
+    background-color: #dcdcdc;
+    padding: 2px;
+    margin-bottom: 20px;
 }
