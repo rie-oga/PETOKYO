@@ -7,15 +7,15 @@
 				<table class="table">
 					<tr>
 						<th>Name</th>
-						<th><%= current_member.name %></th>
+						<td><%= current_member.name %></td>
 					</tr>
 					<tr>
 						<th>Nickname</th>
-						<th><%= current_member.nick_name %></th>
+						<td><%= current_member.nick_name %></td>
 					</tr>
 					<tr>
 						<th>Email</th>
-						<th><%= current_member.email %></th>
+						<td><%= current_member.email %></td>
 					</tr>
 				</table>
 		</div>
@@ -23,8 +23,8 @@
 		</div>
 	</div>
 
-	<div class="row　my-spots-box">
-		<nav class="nav-show">
+	<div class="my-nav">
+		<nav class="nav-show2">
 			<ul class="nav-list">
 				<li class="nav-list-item">
 					<button class="comment-click">投稿履歴</button>
@@ -32,12 +32,13 @@
 				<li class="nav-list-item">
 					<button class="img-click">レビュー履歴</button>
 				</li>
-				<li class="nav-list-item">
-					<button class="img-click">投稿写真一覧</button>
-				</li>
 			</ul>
 		</nav>
-		<div class="member-spot-index-box">
+	</div>
+	<div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-10 member-boxes">
 			<h5>ご投稿一覧</h5>
 				<table class="table">
 				<thead>
@@ -52,26 +53,53 @@
 				<tbody>
 					<% @spots.each do |spot| %>
 						<tr>
-							<td><%= spot.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+							<td><!-- lメソッド：時間を表示 --><%= l spot.created_at, format: :short %></td>
 
 							<% if spot.spot_images.present? %>
-				  				<td><% spot.spot_images.each do |image| %>
-				    				<%= attachment_image_tag image, :image, :fill, 50, 50 %></td>
-			    				<% end %>
+				  				<td>
+				  					<% spot.spot_images.first(1).each do |image| %>
+				  						<%= link_to member_member_path(spot_id: image.spot, anchor: "view-more") do %>
+				    						<%= attachment_image_tag image, :image, :fill, 80, 60 %>
+				    							<% if spot.spot_images.count > 2 %>
+				    								<div class="p-small">view more</div>
+				    							<% end %>
+				    					<% end %>
+									<% end %>
+								</td>
 			  				<% else %>
 			  					<td>no image</td>
 			  			    <% end %>
 							<td><%= spot.name %></td>
-							<td><%= spot.introduction %></td>
-							<td><btn><%= link_to "編集する", root_path, class: "btn btn-default" %></btn>
-								<%= link_to "投稿を削除する", root_path, class: "btn btn-default" %>
+							<td class="p-small"><%= spot.introduction %></td>
+							<td><%= link_to "編集", root_path, class: "btn btn-default" %>
+								<%= link_to "削除", root_path, class: "btn btn-default" %>
 							</td>
 						</tr>
 					<% end %>
 				</tbody>
 			    </table>
+	</div>
+	</div>
+	<section id="view-more">
+	<% if params[:spot_id] %>
+	<div class="row">
+		<div class="col-sm-1">
 		</div>
-		<div class="review-box">
+		<div class="col-sm-10 member-boxes">
+				<div class="images-border"><strong>images</strong></div>
+					<% @spot.spot_images.each do |image| %>
+						<div class="list-box2 clearfix">
+							<%= attachment_image_tag image, :image, :fill, 225, 225 %>
+						</div>
+					<% end %>
+		</div>
+	</div>
+	<% end %>
+	</section>
+	<div class="row">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-10 member-boxes">
 			<h5>レビュー一覧</h5>
 				<table class="table">
 					<thead>
@@ -80,18 +108,17 @@
 							<th>Spot</th>
 							<th>Evaluation</th>
 							<th>Comment</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						<% @comments.each do |comment| %>
 							<tr>
-								<td><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+								<td><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></td>
 								<td><%= comment.spot.name %></td>
 								<td> <img src="<%= asset_path('star-on.jpg') %>"><%= comment.rate %></td>
 								<td><%= comment.comment %></td>
-								<td><%= link_to "編集する", root_path, class: "btn btn-default" %>
-									<%= link_to "投稿を削除する", root_path, class: "btn btn-default" %>
+								<td><%= link_to "編集", root_path, class: "btn btn-default" %>
+									<%= link_to "削除", root_path, class: "btn btn-default" %>
 								</td>
 							</tr>
 						<% end %>
