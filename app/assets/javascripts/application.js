@@ -30,53 +30,80 @@ $(function() {
 
 //topページ main-visual//
 $(function(){
-  $('.main-visual:nth-child(1)').slideDown(300);
+  $(ScrollReveal().reveal('.main-visual:nth-child(1)', {
+       duration: 1500,
+       viewFactor: 1,
+       reset: false,
+       distance: '200px',
+       origin: 'top',
+       delay: 100//実行されるまでの時間//
+     }));
 });
 $(function(){
-  $('.main-visual:nth-child(2)').slideDown(500);
+  $(ScrollReveal().reveal('.main-visual:nth-child(2)', {
+       duration: 1500,
+       viewFactor: 1,
+       reset: false,
+       distance: '200px',
+       origin: 'top',
+       delay: 600
+     }));
 });
 $(function(){
-  $('.main-visual:nth-child(3)').slideDown(700);
+  $(ScrollReveal().reveal('.main-visual:nth-child(3)', {
+       duration: 1500,
+       viewFactor: 1,
+       reset: false,
+       distance: '200px',
+       origin: 'top',
+       delay: 1100
+     }));
 });
 $(function(){
-  $('.main-visual:nth-child(4)').slideDown(900);
+  $(ScrollReveal().reveal('.main-visual:nth-child(4)', {
+       duration: 1500,
+       viewFactor: 1,
+       reset: false,
+       distance: '200px',
+       origin: 'top',
+       delay: 1600
+     }));
 });
 
 //topページ　about//
 $(function(){
   $(ScrollReveal().reveal('.about-container:nth-child(2)', {
-       duration: 2000, // アニメーションの完了にかかる時間
+       duration: 1500, // アニメーションの完了にかかる時間
        viewFactor: 1, // 0~1,どれくらい見えたら実行するか
        reset: false, // 何回もアニメーション表示するか
-       distance: '200px',//500pxの距離から
+       distance: '150px',//500pxの距離から
        origin: 'left',//表示される方向
-       delay: 2000 //実行されるまでの時間
      }));
 });
 $(function(){
   $(ScrollReveal().reveal('.about-container:nth-child(3)', {
-       duration: 2000,
+       duration: 1500,
        viewFactor: 1,
        reset: false,
-       distance: '-200px',
+       distance: '-150px',
        origin: 'left'
      }));
 });
 $(function(){
   $(ScrollReveal().reveal('.about-container:nth-child(4)', {
-       duration: 2000,
+       duration: 1500,
        viewFactor: 1,
        reset: false,
-       distance: '200px',
+       distance: '150px',
        origin: 'left'
      }));
 });
 $(function(){
   $(ScrollReveal().reveal('.about-center', {
-       duration: 3000,
+       duration: 2000,
        viewFactor: 1,
        reset: false,
-       distance: '200px',
+       distance: '150px',
        origin: 'bottom'
      }));
 });
@@ -84,7 +111,7 @@ $(function(){
 //topページ　introduction-img//
 $(function(){
   $(ScrollReveal().reveal('.top-introduction-img1,.top-introduction-img2,.top-introduction-img3,.top-introduction-img4,.top-introduction-img5', {
-       duration: 3000,
+       duration: 1500,
        viewFactor: 1,
        reset: false,
        distance: '100px',
