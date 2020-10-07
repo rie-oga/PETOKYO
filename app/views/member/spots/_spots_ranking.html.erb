@@ -1,19 +1,9 @@
 	<div class="row spot-box-parent">
 		<% spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box">
-			<table clas="table">
-				<% if current_member || current_admin %>
-          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
-          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},class:'btn btn-default' %>
-        		<% end %>
-        		<% if current_member != spot.member %>
-							<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
-							<%= link_to 'レビューする', member_spots_path, remote: true, class:"btn btn-default" %>
-								<div id="comment-form"></div>
-				<% end %>
-					<tr>
+					<div>
 						<% if spot.comments.present? %>
-							<td><%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値表示 --></span><%= spot.ave_rate&.round(1) %>点</td>
+							<%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値ここに表示 --></span><%= spot.ave_rate&.round(1) %>点
 							<!--星評価-->
 							 <script>
 					          $('#star-rate-<%= spot.id %>').raty({
@@ -28,29 +18,41 @@
 					         </script>
 					        <!--/星評価-->
 						<% end %>
-					</tr>
-					<tr>
+					</div>
+				<%= link_to member_spot_path(spot), class:"under_line_none" do %>
+					<div class="padding-top">
+						名所：　<span class="font-size-big1"><strong><%= spot.name %></strong></span>
+					</div>
+					<div>
+						住所：　<span class="font-size-big"><%= spot.address %></span>
+					</div>
+					<div>
+						<%= spot.url %>
+					</div>
+					<div class="spot-introduction-td"><span class="spot-introduction"><%= spot.introduction %></span>
+					</div>
+					<div>
 						<% if spot.spot_images.present? %>
-			  				<td><% spot.spot_images.each do |image| %>
-			    				<%= attachment_image_tag image, :image, :fill, 550, 500 %></td>
+			  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
+			    				<%= attachment_image_tag image, :image, :fill, 550, 500 %>
 			    			<% end %>
 			  			<% else %>
-			    			<td><%= image_tag 'anea.jpg', size: '550x500' %></td>
+			    			<%= image_tag 'anea.jpg', size: '550x500' %>
 						<% end %>
-					</tr>
-					<tr>
-						<td>名所：　<span class="font-size-big"><%= spot.name %></span></td>
-					</tr>
-					<tr>
-						<td>住所：　<span class="font-size-big"><%= spot.address %></span></td>
-					</tr>
-					<tr>
-						<td><%= spot.url %></td>
-					</tr>
-					<tr>
-						<td class="spot-introduction-td"><span class="spot-introduction"><%= spot.introduction %></span></td>
-					</tr>
-			</table>
+					</div>
+				<% end %>
+					<div class="btns">
+						<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
+						<% if current_member == spot.member_id || current_admin %>
+		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
+		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
+		          				class:'btn btn-default' %>
+		        		<% elsif %>
+		        				<!-- コメントフォームAjax -->
+								<%= link_to 'レビューする', member_spots_path(spot_id: spot.id), remote: true, class:"btn btn-default" %>
+						<% end %>
+					</div>
+				<div id="comment-form-<%= spot.id %>"><!-- コメントフォームここに表示 --></div>
 		</div>
 		<% end %>
 	</div>

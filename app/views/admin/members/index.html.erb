@@ -1,2 +1,28 @@
-<h1>Admin::Members#index</h1>
-<p>Find me in app/views/admin/members/index.html.erb</p>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>id</th>
+				<th>name</th>
+				<th>email</th>
+				<th>spot投稿数</th>
+				<th>review投稿数</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @members.each do |member| %>
+				<tr>
+					<td><%= member.is_withdeawal_status %></td>
+					<td><%= member.id %></td>
+					<td><%= member.name %></td>
+					<td><%= member.email %></td>
+					<td><%= link_to member.spots.count, member_member_path(member, anchor: "spot") %></td>
+					<td><%= link_to member.comments.count, member_member_path(member, anchor: "comment") %></td>
+					<td><%= link_to "Mypageへ", member_member_path(member), class: "btn btn-default" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

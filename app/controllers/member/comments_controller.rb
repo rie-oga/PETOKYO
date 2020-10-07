@@ -5,13 +5,17 @@ class Member::CommentsController < ApplicationController
 		comment.member_id = current_member.id
 		comment.spot_id = params[:comment][:spot_id]
 		comment.save
-		redirect_to member_spots_path
+		redirect_to member_spot_path(comment.spot_id)
 	end
 
 	def destroy
-		comment = current_member.comments.find(params[:id])
+		member = Member.find(params[:id])
+		comment = member.comments.find(params[:id])
 		comment.destroy
-    	redirect_to member_spots_path
+    	redirect_to member_member_path(mmeber)
+	end
+
+	def edit
 	end
 
 	private

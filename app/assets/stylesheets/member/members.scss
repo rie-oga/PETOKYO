@@ -11,21 +11,61 @@
 	margin-bottom: 50px;
 }
 .mypage {
-	margin-top: 50px;
+	margin-top: 30px;
 	margin-bottom: 50px;
 }
 
 //影ボックスここから
 .mydate-box {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: #fff;
     margin-bottom: 50px;
 }
 .mydate-box h5 {
-    margin: 50;
-    padding: 30px;
+    padding: 20px;
     letter-spacing: 0.2em;
   	line-height: 25px;
 }
 //影ボックスここまで
+
+.list-box2 {
+  display: flex;
+}
+.list-box2 div {
+  margin: 5px;
+}
+.images-border {
+ margin: 20px 0 0 15px;
+}
+.p-small {
+  font-size: 8px;
+}
+.member-boxes {
+  border: 1px solid #000;
+  border-radius: 2px;
+  background-color: #fff;
+  margin: 5px;
+  padding: 0 10px 10px 15px;
+}
+.nav-show2 {
+  width: 970px;
+  margin: 0 auto;
+  border-top: solid 2px #dcdcdc;
+}
+.post-subject-parent, .review-subject-parent {
+    text-align: center;
+}
+.post-subject, .review-subject {
+    background-color: #dcdcdc;
+    padding: 2px;
+    margin-bottom: 20px;
+}
+.width-fix {
+  width: 400px;
+}
+
+.unsubscribe {
+  margin: 100px 0;
+  text-align: center;
+}

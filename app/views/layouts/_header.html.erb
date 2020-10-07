@@ -4,8 +4,8 @@
 		<% if member_signed_in? %>
 			<nav>
 				<ul class="header-nav header-dropmenu">
-					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png"><br>About</a></li>
-					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search
+					<li class="col-sm-2 nav-li"><a href="#about"><%= image_tag '1.png' %><br>About</a></li>
+					<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Search
 						<ul>
 							<li><%= link_to '全て', member_spots_path %></li>
 							<% @genres.each do |genre| %>
@@ -14,20 +14,20 @@
 						</ul>
 					</li>
 					<%= link_to root_path do %>
-						<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo3.png" alt="PETOKYO"></li>
+						<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
 					<% end %>
 					<%= link_to member_member_path(current_member) do %>
-						<li class="col-sm-2 nav-li"><img src="assets/5.png"><br>My page</li>
+						<li class="col-sm-2 nav-li"><%= image_tag '5.png' %><br>My page</li>
 					<% end %>
 					<%= link_to destroy_member_session_path, method: :delete do %>
-						<li class="col-sm-2 nav-li logout"><img src="assets/3.png"><br>Log out</li>
+						<li class="col-sm-2 nav-li logout"><%= image_tag '3.png' %><br>Log out</li>
 					<% end %>
 				</ul>
 			</nav>
 		<% elsif admin_signed_in? %>
 			<nav>
 				<ul class="header-nav header-dropmenu">
-					<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo2.png"></li>
+					<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
 					<li class="col-sm-4"><%= link_to '会員一覧', admin_members_path %></li>
 					<li class="col-sm-2 nav-li">スポット一覧
 						<ul>
@@ -43,8 +43,8 @@
 		<% else %>
 			<nav>
 				<ul class="header-nav header-dropmenu">
-					<li class="col-sm-2 nav-li"><a href="#about"><img src="assets/1.png"><br>About</a></li>
-					<li class="col-sm-2 nav-li"><img src="assets/4.png"><br>Search
+					<li class="col-sm-2 nav-li"><a href="#about"><%= image_tag '1.png' %><br>About</a></li>
+					<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Search
 						<ul>
 							<li><%= link_to '全て', member_spots_path %></li>
 							<% @genres.each do |genre| %>
@@ -53,13 +53,13 @@
 						</ul>
 					</li>
 					<%= link_to root_path do %>
-						<li class="col-sm-4 logo"><img src="assets/PETOKYO_logo3.png" alt="PETOKYO"></li>
+						<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
 					<% end %>
 					<%= link_to new_member_registration_path do %>
-						<li class="col-sm-2 nav-li touroku"><img src="assets/7.png"><br>新規登録</li>
+						<li class="col-sm-2 nav-li touroku"><%= image_tag '7.png' %><br>新規登録</li>
 					<% end %>
 					<%= link_to new_member_session_path do %>
-						<li class="col-sm-2 nav-li login"><img src="assets/6.png"><br>ログイン</li>
+						<li class="col-sm-2 nav-li login"><%= image_tag '6.png' %><br>ログイン</li>
 					<% end %>
 				</ul>
 			</nav>

@@ -2,9 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* ↓　記載順 */
+/* top(350行くらい) */
+/* index */
+/* spots_ranking */
+/* show */
+/* edit */
+
 /* topページここから */
 .slide-image {
- margin-top: 100px;
+  margin-top: 100px;
 	width: 0 auto;
 	height: 400px;
 	background-size: cover;
@@ -43,7 +50,6 @@
     display: flex;
 }
 .main-visual {
-  display: none;
 	width: 24%;
 	height: 400px;
 	margin: 8px;
@@ -346,6 +352,10 @@ h5 {
 
 /*　_spots_rankingページここから　*/
 
+.under_line_none {
+  text-decoration: none !important;
+}
+
 //影付きボックスここから
 .spot-box {
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
@@ -361,62 +371,82 @@ h5 {
 .font-size-big {
   font-size: 13px;
 }
-
+.font-size-big1 {
+  font-size: 15px;
+}
+.padding-top {
+  padding-top: 10px;
+}
 /* _spots_rankingページここまで */
+
+
+
+
+
+
 
 
 /* showページここから */
 
-.comment-index {
-  margin-left: 200px;
+.show-subject {
+  text-align: center;
 }
-
-//吹き出し左
-.comment-left {
-  position: relative;
+.show-subject h2 {
+  padding: 13px;
+  border-top: 1.5px solid #696969;
+  border-bottom: 1.5px solid #696969;
+  margin: 30px 0 0 14px;
+  width: 820px;
+}
+.nav-show {
+  width: 820px;
+  margin: 0 auto;
+  border-top: solid 2px #dcdcdc;
+}
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+.nav-list-item {
+  list-style: none;
   display: inline-block;
-  margin: 1.5em 0 1.5em 15px;
-  padding: 30px 30px;
-  min-width: 120px;
-  max-width: 100%;
-  color: #555;
-  font-size: 16px;
-  background: #FFF;
-  border: solid 1px #555;
-  box-sizing: border-box;
-  border-radius: 25px;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+  margin: 10px 10px 5px;
+}
+.img-box {
+  display: flex;
+}
+.img-box div {
+  margin: 15px;
 }
 
-.comment-left:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -24px;
-  margin-top: -12px;
-  border: 12px solid transparent;
-  border-right: 12px solid #FFF;
-  z-index: 2;
+.comment-index {
+  margin: 20px 0 0 200px;
 }
 
-.comment-left:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  margin-top: -14px;
-  border: 14px solid transparent;
-  border-right: 14px solid #555;
-  z-index: 1;
+
+
+.comment-box {
+  border: 1px solid #000;
+  border-radius: 2px;
+  background-color: #fff;
+  margin: 5px;
+  padding: 0 10px 10px 15px;
 }
 
-.comment-left h5 {
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0.2em;
-  line-height: 25px;
+.user-img2 img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
-//吹き出し左ここまで
+.date {
+  color: #a9a9a9;
+}
+
+.spot_address, .spot_url {
+  text-align: left;
+  margin: 10px 0 5px 270px;
+}
 
 /* showページここまで */
 
@@ -424,12 +454,11 @@ h5 {
 
 
 /* editページここから */
-.spot-edit {
-  text-align: center;
+.panel {
   margin-top: 50px;
-  padding-bottom: 20px;
 }
-.spot-edit-row {
-  margin-bottom: 50px;
+.spot-subject-center {
+  text-align: center;
+  margin-top: 30px;
 }
 /* editページここまで */
