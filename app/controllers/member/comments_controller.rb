@@ -9,9 +9,13 @@ class Member::CommentsController < ApplicationController
 	end
 
 	def destroy
-		comment = current_member.comments.find(params[:id])
+		member = Member.find(params[:id])
+		comment = member.comments.find(params[:id])
 		comment.destroy
-    	redirect_to member_spots_path
+    	redirect_to member_member_path(mmeber)
+	end
+
+	def edit
 	end
 
 	private

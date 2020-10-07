@@ -1,2 +1,7 @@
-<h1>Member::Members#unsubscribe</h1>
-<p>Find me in app/views/member/members/unsubscribe.html.erb</p>
+<div class="container unsubscribe">
+	<h3>本当に退会しますか？</h3>
+		<p>退会する場合は、「退会する」をクリックしてください。</p>
+			<%= link_to "退会しない",member_member_path(current_member), class: "btn btn-default" %>
+			<%= link_to "退会する",member_path(current_member), method: :patch, data: {confirm: "本当に退会しますか？"},class: "btn btn-danger" %>
+</div>
+

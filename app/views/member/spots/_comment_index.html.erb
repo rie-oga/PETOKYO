@@ -10,7 +10,7 @@
       <div class="col-md-3">
         <div class=" posts-content">
           <!--星評価-->
-          <div id="star-rate-<%= comment.id %>"><!-- 星表示 --></div><!-- 繰り返し処理を実行してもidを一意に保てるようにpost.idを埋め込む-->
+          <div id="star-rate-<%= comment.id %>"><!-- 星表示 --></div><!-- 繰り返し処理を実行してもidを一意に保てるようにcomment.idを埋め込む-->
           <script>
           $('#star-rate-<%= comment.id %>').raty({
             size: 36,

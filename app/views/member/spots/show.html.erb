@@ -25,6 +25,7 @@
 					        	</button>
 				      	</ul>
 				    </nav>
+
 				    <!-- 写真一覧 -->
 				    <div class="img-box">
 						<% if @spot.spot_images.present? %>
@@ -34,13 +35,16 @@
 						<% end %>
 					</div>
 					<%= paginate @spot_images %>
+
 					<!-- コメント一覧 -->
 					<div class="comment-box">
 			 			<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 		</div>
+
 					<!-- コメント投稿フォーム -->
 					<p>レビューをお願いします。</p>
-					<%= render partial: 'comment_form', locals: { comment: @comment } %>
+					<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
+
 					<!-- 写真のみの投稿フォーム -->
 			</div>
 		</div>

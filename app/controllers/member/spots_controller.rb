@@ -13,6 +13,9 @@ class Member::SpotsController < ApplicationController
        @genre = Genre.find(params[:genre_id])
        @spots = @spots.where(genre_id: params[:genre_id])
     end
+    if params[:spot_id]
+      @spot = Spot.find(params[:spot_id])
+    end
     respond_to do |format|#respond_toメソッドを使って結果をどのフォーマットで返すかを指定
       format.html
       format.js#ajaxで実行すると、このformat.jsに該当するindex.js.erbを返す
@@ -20,6 +23,7 @@ class Member::SpotsController < ApplicationController
   end
 
   def show
+    @spot = Spot.find(params[:id])
     @spots = Spot.order(ave_rate:"DESC")#降順
     @spot_images = @spot.spot_images.page(params[:page]).per(15)
     if params[:genre_id]

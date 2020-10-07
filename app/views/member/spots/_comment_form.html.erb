@@ -4,7 +4,7 @@
   <!--エラーメッセージ-->
   <%= render 'layouts/errors', obj: comment %>
 
-  <%= form.hidden_field :spot_id, { value: params[:id]} %>
+  <%= form.hidden_field :spot_id, { value: spot_id } %>
 
   <!-- 評価 -->
   <div class="form-group row" id="star">
