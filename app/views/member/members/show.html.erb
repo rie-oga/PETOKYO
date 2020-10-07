@@ -27,19 +27,19 @@
 		<nav class="nav-show2">
 			<ul class="nav-list">
 				<li class="nav-list-item">
-					<button class="comment-click">　投稿履歴　</button>
+					<button class="spot-click">　投稿履歴　</button>
 				</li>
 				<li class="nav-list-item">
-					<button class="img-click">　レビュー履歴　</button>
+					<button class="comment-click">　レビュー履歴　</button>
 				</li>
 			</ul>
 		</nav>
 	</div>
-	<div class="row">
+	<div class="row member-spot-box">
 	<div class="col-sm-1">
 	</div>
 	<div class="col-sm-10 member-boxes">
-		<div class="post-subject-parent">
+		<div class="post-subject-parent" id="spot">
 			<h5 class="post-subject">ご投稿一覧</h5>
 		</div>
 				<table class="table">
@@ -89,20 +89,20 @@
 		</div>
 		<div class="col-sm-10 member-boxes">
 				<div class="images-border"><strong>images</strong></div>
+				<div class="list-box2">
 					<% @spot.spot_images.each do |image| %>
-						<div class="list-box2 clearfix">
-							<%= attachment_image_tag image, :image, :fill, 225, 225 %>
-						</div>
+							<div><%= attachment_image_tag image, :image, :fill, 225, 225 %></div>
 					<% end %>
+				</div>
 		</div>
 	</div>
 	<% end %>
 	</section>
-	<div class="row">
+	<div class="row review-box">
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-10 member-boxes">
-			<div class="review-subject-parent">
+			<div class="review-subject-parent" id="comment">
 				<h5 class="review-subject">レビュー一覧</h5>
 			</div>
 				<table class="table">
@@ -112,6 +112,7 @@
 							<th>Spot</th>
 							<th>Evaluation</th>
 							<th>Comment</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -119,8 +120,8 @@
 							<tr>
 								<td><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></td>
 								<td><%= comment.spot.name %></td>
-								<td> <img src="<%= asset_path('star-on.jpg') %>"><%= comment.rate %></td>
-								<td><%= comment.comment %></td>
+								<td><img src="<%= asset_path('star-on.png') %>"><%= comment.rate %></td>
+								<td class="width-fix"><%= comment.comment %></td>
 								<td><%= link_to "編集", root_path, class: "btn btn-default" %>
 									<%= link_to "削除", root_path, class: "btn btn-default" %>
 								</td>

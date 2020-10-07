@@ -30,7 +30,9 @@
 //影ボックスここまで
 
 .list-box2 {
-  float:left;
+  display: flex;
+}
+.list-box2 div {
   margin: 5px;
 }
 .images-border {
@@ -58,4 +60,7 @@
     background-color: #dcdcdc;
     padding: 2px;
     margin-bottom: 20px;
+}
+.width-fix {
+  width: 400px;
 }

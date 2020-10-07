@@ -1,29 +1,35 @@
 <div class="container">
 		<div class="row">
-			<div class="spot-name-rank" id="fixed2">
-				<%= render partial: 'left_side_bar', locals: { genre: @genre, spots: @spots } %>
-			</div>
 			<div class="col-sm-3">
+				<div class="spot-name-rank" id="fixed2"><!-- 位置固定 -->
+					<%= render partial: 'left_side_bar', locals: { genre: @genre, spots: @spots } %>
+				</div>
 			</div>
 			<div class="col-sm-9 show-subject">
-				<h1><%= @spot.name %></h1>
+				<h2><%= @spot.name %></h2>
 					<nav class="nav-show">
+					<div class="spot_address">住所:　<%= @spot.address %></div>
+					<div class="spot_url">URL:　<%= @spot.url %></div>
 				      	<ul class="nav-list">
 					        <li class="nav-list-item">
-					          <button class="comment-click">コメント</button>
+					          <button class="comment-click">レビュー / コメント</button>
 					        </li>
 					        <li class="nav-list-item">
 					       		<button class="img-click">写真</button>
 					        </li>
+					        <li class="nav-list-item">
+					        	<button class="img-click">
+					        		<%= link_to new_member_spot_path do %>
+					        			<i class="fas fa-plus-circle"></i>写真を投稿
+					        		<% end %>
+					        	</button>
 				      	</ul>
 				    </nav>
 				    <!-- 写真一覧 -->
 				    <div class="img-box">
 						<% if @spot.spot_images.present? %>
 							<% @spot_images.each do |image| %>
-								<div class="list-box">
-								    <%= attachment_image_tag image, :image, :fill, 250, 250 %>
-								</div>
+								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
 							<% end %>
 						<% end %>
 					</div>
@@ -32,18 +38,10 @@
 					<div class="comment-box">
 			 			<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 		</div>
-
-			</div>
-
-				<%= link_to new_member_spot_path, class:"btn" do %>
-					<i class="fas fa-plus-circle">投稿する</i>
-				<% end %>
-				<%= @spot.address %>
-				<%= @spot.url %>
-			<!-- コメント投稿フォーム -->
-				<%= render partial: 'comment_form', locals: { comment: @comment } %>
-			</div>
-			<div class="col-sm-1">
+					<!-- コメント投稿フォーム -->
+					<p>レビューをお願いします。</p>
+					<%= render partial: 'comment_form', locals: { comment: @comment } %>
+					<!-- 写真のみの投稿フォーム -->
 			</div>
 		</div>
  </div>

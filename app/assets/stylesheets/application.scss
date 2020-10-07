@@ -28,6 +28,9 @@ a {
 a:hover {
 　text-decoration: none;
 }
+a:focus {
+  text-decoration: none;
+}
 
 .clearfix::after {
   content: "";
@@ -35,10 +38,10 @@ a:hover {
   clear: both;
 }
 header {
-	background-color: #FFFAFA;
+	background-color: #fafafa;
 }
 .main {
-	margin-top: 2px;
+	padding-top: 2px;
   background-color: #fafafa;
 }
 footer {
@@ -125,6 +128,6 @@ ul.header-dropmenu > li:hover {
   border-bottom: none;
 }
 ul.header-dropmenu li:hover ul li:hover {
-  background: #cdcdcd;
+  background: #f5f5f5;
 }
 /* searchプルダウンここまで */

@@ -1,7 +1,7 @@
 
 				<% if current_member %>
 					<span class="user-img"><img src="<%= asset_path('moai.jpg') %>"></span>
-					<%= current_member.nick_name %>さん
+					ようこそ！<%= current_member.nick_name %>さん
 				<% end %>
 					<% if params[:genre_id] %>
 						<h5 class="rank-name"><strong><%= genre.name %>ランキング</strong></h5>

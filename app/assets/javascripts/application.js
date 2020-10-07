@@ -74,7 +74,7 @@ $(function(){
 $(function(){
   $(ScrollReveal().reveal('.about-container:nth-child(2)', {
        duration: 1500, // アニメーションの完了にかかる時間
-       viewFactor: 1, // 0~1,どれくらい見えたら実行するか
+       viewFactor: 0.2, // 0~1,どれくらい見えたら実行するか
        reset: false, // 何回もアニメーション表示するか
        distance: '150px',//500pxの距離から
        origin: 'left',//表示される方向
@@ -83,7 +83,7 @@ $(function(){
 $(function(){
   $(ScrollReveal().reveal('.about-container:nth-child(3)', {
        duration: 1500,
-       viewFactor: 1,
+       viewFactor: 0.2,
        reset: false,
        distance: '-150px',
        origin: 'left'
@@ -92,7 +92,7 @@ $(function(){
 $(function(){
   $(ScrollReveal().reveal('.about-container:nth-child(4)', {
        duration: 1500,
-       viewFactor: 1,
+       viewFactor: 0.2,
        reset: false,
        distance: '150px',
        origin: 'left'
@@ -101,7 +101,7 @@ $(function(){
 $(function(){
   $(ScrollReveal().reveal('.about-center', {
        duration: 2000,
-       viewFactor: 1,
+       viewFactor: 0.5,
        reset: false,
        distance: '150px',
        origin: 'bottom'
@@ -112,7 +112,7 @@ $(function(){
 $(function(){
   $(ScrollReveal().reveal('.top-introduction-img1,.top-introduction-img2,.top-introduction-img3,.top-introduction-img4,.top-introduction-img5', {
        duration: 1500,
-       viewFactor: 1,
+       viewFactor: 0.3,
        reset: false,
        distance: '100px',
        origin: 'bottom'
@@ -130,5 +130,19 @@ $(function () {
     $('.img-click').on('click', () => {
         $('.comment-box').hide();
         $('.img-box').show();
+    });
+});
+
+//member-showページ//
+$(function () {
+    $('.spot-click').on('click', () => {
+        $('.review-box').hide();
+        $('.member-spot-box').show();
+    });
+});
+$(function () {
+    $('.comment-click').on('click', () => {
+        $('.member-spot-box').hide();
+        $('.review-box').show();
     });
 });
