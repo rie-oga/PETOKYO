@@ -23,7 +23,6 @@ class Member::SpotsController < ApplicationController
   end
 
   def show
-    @spot = Spot.find(params[:id])
     @spots = Spot.order(ave_rate:"DESC")#降順
     @spot_images = @spot.spot_images.page(params[:page]).per(15)
     if params[:genre_id]

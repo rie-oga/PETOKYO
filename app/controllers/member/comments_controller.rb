@@ -9,13 +9,19 @@ class Member::CommentsController < ApplicationController
 	end
 
 	def destroy
-		member = Member.find(params[:id])
-		comment = member.comments.find(params[:id])
+		comment = Comment.find(params[:id])
 		comment.destroy
-    	redirect_to member_member_path(mmeber)
+      	flash[:success] = "Review was successfully deleted."
+    	redirect_to member_member_path(comment.member)
 	end
 
-	def edit
+	def update
+		 member = Member.find(params[:id])
+    	 if @member.update(member_params)
+      		redirect_to member_members_my_page_path
+    	 else
+      		render :edit
+    	 end
 	end
 
 	private

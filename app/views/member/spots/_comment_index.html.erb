@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-2">
         <span class="user-img2"><img src="<%= asset_path('moai.jpg') %>"></span>
-        <p><%= comment.member.name %></p>
+        <p class="under-line_none"><%= comment.member.name %></p>
       </div>
       <div class="col-md-3">
         <div class=" posts-content">
@@ -36,7 +36,7 @@
       </div>
       <% if current_member == comment.member || current_admin %>
         <div class="col-md-1 edit-button">
-          <%= link_to '編集', member_member_path(current_member), method: :get, class:'btn btn-default' %>
+          <%= link_to '編集', edit_member_comment_path(comment), method: :get, class:'btn btn-default' %>
         </div>
         <div class="col-md-1 edit-button">
           <%= link_to '削除', member_comment_path(comment.id), method: :delete, data: { confirm: '本当に消しますか？'},class:'btn btn-default' %>

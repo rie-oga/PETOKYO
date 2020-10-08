@@ -23,8 +23,7 @@ Rails.application.routes.draw do
       resources :members, only: [:index,:show,:edit,:update]
       get 'spots/about' => 'spots#about'
       resources :spots
-      resources :comments, only: [:create,:destroy]
-      resources :dogs, only: [:edit,:update,:destroy]
+      resources :comments, only: [:edit,:update,:create,:destroy]
   end
 
   root to: 'member/spots#top'

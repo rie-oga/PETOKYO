@@ -6,6 +6,10 @@
         		<div class="panel-heading"></div>
         			<div class="panel-body">
 						<%= form_with(model: [:member, spot], local: true) do |form| %>
+
+						<!--エラーメッセージ-->
+  						<%= render 'layouts/errors', obj: spot %>
+
 							<div class="form-group">
 								<label class="control-label">ジャンル選択</label>
 			  					<%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選ぶ" %>
