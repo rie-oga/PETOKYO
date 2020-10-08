@@ -1,5 +1,5 @@
 class Member::SpotsController < ApplicationController
-  before_action :ensure_spot, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_spot, only: [:edit, :update, :destroy]
 
   def top
   end
@@ -23,6 +23,7 @@ class Member::SpotsController < ApplicationController
   end
 
   def show
+    @spot = Spot.find(params[:id])
     @spots = Spot.order(ave_rate:"DESC")#降順
     @spot_images = @spot.spot_images.page(params[:page]).per(15)
     if params[:genre_id]
@@ -68,5 +69,8 @@ class Member::SpotsController < ApplicationController
 
   def ensure_spot
     @spot = Spot.find(params[:id])
+    unless comment.member == current_member || current_admin
+           redirect_to member_spots_path
+    end
   end
 end

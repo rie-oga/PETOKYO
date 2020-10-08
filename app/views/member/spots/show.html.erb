@@ -43,9 +43,11 @@
 			 			<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 		</div>
 
-					<!-- コメント投稿フォーム -->
-					<p>レビューをお願いします。</p>
-					<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
+					<!-- コメント投稿フォーム / すでにコメントしていたら表示しない -->
+					<% if current_member.comments.empty? && current_member.spots.empty? %>
+					 	<p>レビューをお願いします。</p>
+						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
+					<% end %>
 
 					<!-- 写真のみの投稿フォーム -->
 			</div>

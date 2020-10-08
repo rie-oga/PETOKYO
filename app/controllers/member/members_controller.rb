@@ -1,11 +1,12 @@
 class Member::MembersController < ApplicationController
+  before_action :authenticate_member!
+  before_action :ensure_correct_member, only: [:show, :edit, :update]
 
   def index
   	@spots = current_member.spots
   end
 
   def show
-    @member = Member.find(params[:id])
   	@spots = @member.spots.order(id:"DESC")#降順
     @comments = @member.comments.order(id:"DESC")#降順
     @spot = Spot.find_by(id: params[:spot_id])
@@ -15,11 +16,9 @@ class Member::MembersController < ApplicationController
   end
 
   def edit
-  	@member = Member.find(current_member.id)
   end
 
    def update
-    @member = Member.find(current_member.id)
     if @member.update(member_params)
       redirect_to member_member_path(current_member.id)
     else
@@ -40,6 +39,13 @@ class Member::MembersController < ApplicationController
   private
   def member_params
     params.require(:member).permit(:is_withdeawal_status,:name, :nick_name)
+  end
+
+  def ensure_correct_member
+    @member = Member.find(params[:id])
+    unless @member == current_member || current_admin
+           redirect_to member_spots_path
+    end
   end
 
 end

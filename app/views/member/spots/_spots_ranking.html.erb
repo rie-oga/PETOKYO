@@ -43,7 +43,7 @@
 				<% end %>
 					<div class="btns">
 						<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
-						<% if current_member == spot.member_id || current_admin %>
+						<% if current_member == spot.member_id && current_member.comments.empty? || current_admin %>
 		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
 		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
 		          				class:'btn btn-default' %>

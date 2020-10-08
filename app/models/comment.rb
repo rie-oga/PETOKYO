@@ -7,4 +7,8 @@ class Comment < ApplicationRecord
 		self.spot.ave_rate = spot.comments.average(:rate)
 		self.spot.save
 	end
+
+	validates :rate, presence: true
+	validates :comment, length: { maximum: 200 }
+
 end

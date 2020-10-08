@@ -25,21 +25,10 @@ ActiveRecord::Schema.define(version: 2020_10_03_110443) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.float "rate"
+    t.float "rate", null: false
     t.text "comment"
-    t.integer "member_id"
-    t.integer "spot_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dogs", force: :cascade do |t|
-    t.integer "member_id"
-    t.string "kind", null: false
-    t.string "age", null: false
-    t.string "name"
-    t.string "image_id"
-    t.string "sex"
+    t.integer "member_id", null: false
+    t.integer "spot_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,10 +40,10 @@ ActiveRecord::Schema.define(version: 2020_10_03_110443) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "name"
-    t.string "nick_name"
-    t.string "email", default: ""
-    t.string "encrypted_password", default: ""
+    t.string "name", null: false
+    t.string "nick_name", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.boolean "is_withdeawal_status", default: true
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -66,19 +55,19 @@ ActiveRecord::Schema.define(version: 2020_10_03_110443) do
   end
 
   create_table "spot_images", force: :cascade do |t|
-    t.integer "spot_id"
-    t.string "image_id"
+    t.integer "spot_id", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "spots", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "genre_id"
+    t.integer "genre_id", null: false
     t.string "name", null: false
-    t.string "address"
+    t.string "address", null: false
     t.string "url"
-    t.string "introduction"
+    t.string "introduction", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "ave_rate"

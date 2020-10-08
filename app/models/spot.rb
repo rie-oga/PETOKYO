@@ -5,4 +5,7 @@ class Spot < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	belongs_to :member
 	belongs_to :genre
+
+	validates :name, presence: true, uniqueness: true
+	validates :address, presence: true
 end
