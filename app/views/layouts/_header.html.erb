@@ -28,7 +28,7 @@
 			<nav>
 				<ul class="header-nav header-dropmenu">
 					<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
-					<li class="col-sm-4"><%= link_to '会員一覧', admin_members_path %></li>
+					<li class="col-sm-2"><%= link_to '会員一覧', admin_members_path %></li>
 					<li class="col-sm-2 nav-li">スポット一覧
 						<ul>
 							<li><%= link_to '全て', member_spots_path %></li>
@@ -37,7 +37,7 @@
 							<% end %>
 						</ul>
 					</li>
-					<li class="col-sm-4"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+					<li class="col-sm-2"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
 				</ul>
 			</nav>
 		<% else %>

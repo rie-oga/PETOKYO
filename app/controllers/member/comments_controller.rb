@@ -1,21 +1,35 @@
 class Member::CommentsController < ApplicationController
+	before_action :authenticate_member!
+	before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
 	def create
 		comment = Comment.new(comment_params)
 		comment.member_id = current_member.id
 		comment.spot_id = params[:comment][:spot_id]
-		comment.save
-		redirect_to member_spot_path(comment.spot_id)
+		if comment.save
+		   redirect_to member_spot_path(comment.spot)
+		else
+		   @comment = Comment.find(params[:id])
+		   render :edit
+		end
 	end
 
 	def destroy
-		member = Member.find(params[:id])
-		comment = member.comments.find(params[:id])
-		comment.destroy
-    	redirect_to member_member_path(mmeber)
+		@comment.destroy
+      	flash[:success] = "Review was successfully deleted."
+    	redirect_to member_member_path(@comment.member)
 	end
 
 	def edit
+		@spot = @comment.spot
+	end
+
+	def update
+    	 if @comment.update(comment_params)
+      		redirect_to member_member_path(@comment.member)
+    	 else
+      		render :edit
+    	 end
 	end
 
 	private
@@ -23,6 +37,8 @@ class Member::CommentsController < ApplicationController
     	params.require(:comment).permit(:comment, :rate)
   	end
 
-
+  	def ensure_correct_user
+  		@comment = Comment.find(params[:id])
+  	end
 
 end

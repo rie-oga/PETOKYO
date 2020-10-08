@@ -6,20 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
-   email: 'kkou.kotetsuu@gmail.com',
+   email: 'kou.koottetsu@gmail.com',
    password: 'dogdog'
 )
 
 Member.create!(
-	email: 'v@v',
+	name: 'xx',
+	nick_name: 'xx',
+	email: 'x@x',
 	password: 'aaaaaa'
 )
 Member.create!(
-	email: 'b@b',
+	name: 'yy',
+	nick_name: 'yy',
+	email: 'y@y',
 	password: 'aaaaaa'
 )
 Member.create!(
-	email: 'c@c',
+	name: 'zz',
+	nick_name: 'zz',
+	email: 'z@z',
 	password: 'aaaaaa'
 )
 
@@ -67,10 +73,4 @@ Spot.create!(
 	introduction: 'とても広い、犬いっぱい',
 	member_id: 1,
 	genre_id: 3
-)
-
-Dog.create!(
-	kind: 'パピヨン',
-	age: '3',
-	member_id: 1
 )

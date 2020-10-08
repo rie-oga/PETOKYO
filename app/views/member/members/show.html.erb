@@ -2,6 +2,7 @@
 	<!-- 登録情報 -->
 	<div class="row">
 		<div class="col-sm-4">
+			<%= flash[:success] %>
 		</div>
 		<div class="col-sm-4 mydate-box">
 			<h5>ご登録情報　　　<btn><%= link_to "編集する", edit_member_member_path(@member), class: "btn btn-primary" %></btn></h5>
@@ -86,9 +87,9 @@
 				  			    <% end %>
 
 								<td><%= spot.name %></td>
-								<td class="p-small"><%= spot.introduction %></td>
-								<td><%= link_to "編集", root_path, class: "btn btn-default" %>
-									<%= link_to "削除", root_path, class: "btn btn-default" %>
+								<td class="p-small width-fix"><%= spot.introduction %></td>
+								<td><%= link_to "編集", edit_member_spot_path, class: "btn btn-default" %>
+									<%= link_to "削除", member_spot_path(spot), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-default" %>
 								</td>
 							</tr>
 						<% end %>
@@ -141,9 +142,9 @@
 								<td><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></td>
 								<td><%= comment.spot.name %></td>
 								<td><img src="<%= asset_path('star-on.png') %>"><%= comment.rate %></td>
-								<td class="width-fix"><%= comment.comment %></td>
-								<td><%= link_to "編集", root_path, class: "btn btn-default" %>
-									<%= link_to "削除", member_comment_path(comment), method: :delete, class: "btn btn-default" %>
+								<td class="p-small width-fix"><%= comment.comment %></td>
+								<td><%= link_to "編集", edit_member_comment_path(comment), class: "btn btn-default" %>
+									<%= link_to "削除", member_comment_path(comment), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-default" %>
 								</td>
 							</tr>
 						<% end %>

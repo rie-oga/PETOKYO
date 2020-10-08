@@ -27,13 +27,15 @@
 				    </nav>
 
 				    <!-- 写真一覧 -->
-				    <div class="img-box">
-						<% if @spot.spot_images.present? %>
+				    <% if @spot.spot_images.present? %>
+				    	<div class="img-box">
 							<% @spot_images.each do |image| %>
 								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
 							<% end %>
-						<% end %>
-					</div>
+						</div>
+					<% else %>
+						<p>写真はまだありません。ぜひ、投稿お願いします。</p>
+					<% end %>
 					<%= paginate @spot_images %>
 
 					<!-- コメント一覧 -->
@@ -41,9 +43,11 @@
 			 			<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 		</div>
 
-					<!-- コメント投稿フォーム -->
-					<p>レビューをお願いします。</p>
-					<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
+					<!-- コメント投稿フォーム / すでにコメントしていたら表示しない -->
+					<% if current_member.comments.empty? && current_member.spots.empty? %>
+					 	<p>レビューをお願いします。</p>
+						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
+					<% end %>
 
 					<!-- 写真のみの投稿フォーム -->
 			</div>
