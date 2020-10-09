@@ -31,7 +31,7 @@ class Member::SpotsController < ApplicationController
        @spots = @spots.where(genre_id: params[:genre_id])
     end
   	@comment = Comment.new
-    @comments = @spot.comments.order(id:"DESC")#降順
+    @comments = @spot.comments.order(id:"DESC").page(params[:page]).per(20)#降順
   end
 
   def new
@@ -42,8 +42,11 @@ class Member::SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     @spot.member_id = current_member.id
-    @spot.save
-    redirect_to member_spots_path
+    if @spot.save
+       redirect_to member_spot_path(@spot)
+    else
+       render :new
+    end
   end
 
   def edit

@@ -17,16 +17,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-$(function() {
-	$('.slider').slick({
-		dots: true,//下部ドットナビゲーション
-		autoplay: true,//trueで自動再生
-		autoplaySpeed: 4000,
-		infinite: true,//無限にスライド
-		fade: true,//trueでスライド切り替え時にフェードインアウト
-		pauseOnFocus: true//ドットクリック時、自動再生を一時中止
-	});
-});
 
 //topページ main-visual//
 $(function(){
@@ -123,12 +113,12 @@ $(function(){
 $(function () {
     $('.comment-click').on('click', () => {
         $('.img-box').hide();
-        $('.comment-box').show();
+        $('.comment-box-parent').show();
     });
 });
 $(function () {
     $('.img-click').on('click', () => {
-        $('.comment-box').hide();
+        $('.comment-box-parent').hide();
         $('.img-box').show();
     });
 });
