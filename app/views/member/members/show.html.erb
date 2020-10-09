@@ -6,6 +6,7 @@
 		</div>
 		<div class="col-sm-4 mydate-box">
 			<h5>ご登録情報　　　<btn><%= link_to "編集する", edit_member_member_path(@member), class: "btn btn-primary" %></btn></h5>
+				<div style="margin:0 90px 10px;"><%= attachment_image_tag(current_member, :profile_image_id, class: "img-circle profile-img", fallback: "no_image.jpg", size: "150x150") %></div>
 				<table class="table">
 					<tr>
 						<th>Name</th>

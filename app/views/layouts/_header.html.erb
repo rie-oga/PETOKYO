@@ -4,7 +4,9 @@
 		<% if member_signed_in? %>
 			<nav>
 				<ul class="header-nav header-dropmenu">
-					<li class="col-sm-2 nav-li"><a href="#about"><%= image_tag '1.png' %><br>About</a></li>
+					<%= link_to new_member_spot_path do %>
+					    <li class="col-sm-2 nav-li"><i class="fas fa-plus-circle header-spot-plus"></i><br> Spotを投稿</li>
+					<% end %>
 					<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Search
 						<ul>
 							<li><%= link_to '全て', member_spots_path %></li>
@@ -19,6 +21,8 @@
 					<%= link_to member_member_path(current_member) do %>
 						<li class="col-sm-2 nav-li"><%= image_tag '5.png' %><br>My page</li>
 					<% end %>
+
+
 					<%= link_to destroy_member_session_path, method: :delete do %>
 						<li class="col-sm-2 nav-li logout"><%= image_tag '3.png' %><br>Log out</li>
 					<% end %>
@@ -43,7 +47,9 @@
 		<% else %>
 			<nav>
 				<ul class="header-nav header-dropmenu">
-					<li class="col-sm-2 nav-li"><a href="#about"><%= image_tag '1.png' %><br>About</a></li>
+					<%= link_to root_path(anchor: "about") do %>
+						<li class="col-sm-2 nav-li"><%= image_tag '1.png' %><br>About</li>
+					<% end %>
 					<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Search
 						<ul>
 							<li><%= link_to '全て', member_spots_path %></li>

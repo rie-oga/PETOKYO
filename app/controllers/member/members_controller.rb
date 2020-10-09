@@ -27,7 +27,7 @@ class Member::MembersController < ApplicationController
   end
 
   def withdraw
-    @member = Member.find(current_member.id)
+    @member = Member.find(params[:id])
     #現在ログインしているユーザーを@userに格納
     @member.update(is_withdeawal_status: false)
     #updateで登録情報をfalseに変更
@@ -38,7 +38,7 @@ class Member::MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:is_withdeawal_status,:name, :nick_name)
+    params.require(:member).permit(:is_withdeawal_status,:name, :nick_name, :profile_image)
   end
 
   def ensure_correct_member

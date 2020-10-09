@@ -1,15 +1,19 @@
-<div class="container">
+<div class="container spot-show">
 		<div class="row">
+			<!-- サイドバー -->
 			<div class="col-sm-3">
 				<div class="spot-name-rank" id="fixed2"><!-- 位置固定 -->
 					<%= render partial: 'left_side_bar', locals: { genre: @genre, spots: @spots } %>
 				</div>
 			</div>
+			<!-- spot情報 -->
 			<div class="col-sm-9 show-subject">
 				<h2><%= @spot.name %></h2>
 					<nav class="nav-show">
 					<div class="spot_address">住所:　<%= @spot.address %></div>
-					<div class="spot_url">URL:　<%= @spot.url %></div>
+					<% if @spot.url.present? %>
+						<div class="spot_url">URL:　<%= @spot.url %></div>
+					<% end %>
 				      	<ul class="nav-list">
 					        <li class="nav-list-item">
 					          <button class="comment-click">レビュー / コメント</button>
@@ -23,28 +27,35 @@
 					        			<i class="fas fa-plus-circle"></i>写真を投稿
 					        		<% end %>
 					        	</button>
+					        </li>
 				      	</ul>
 				    </nav>
 
 				    <!-- 写真一覧 -->
-				    <% if @spot.spot_images.present? %>
-				    	<div class="img-box">
+				    <div class="img-box">
+					    <% if @spot.spot_images.present? %>
 							<% @spot_images.each do |image| %>
 								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
 							<% end %>
-						</div>
-					<% else %>
-						<p>写真はまだありません。ぜひ、投稿お願いします。</p>
-					<% end %>
-					<%= paginate @spot_images %>
+						<% else %>
+							<p>写真はまだありません。ぜひ、投稿お願いします。</p>
+						<% end %>
+						<%= paginate @spot_images %>
+					</div>
 
 					<!-- コメント一覧 -->
-					<div class="comment-box">
-			 			<%= render partial: 'comment_index', locals: {comments: @comments} %>
+					<div class="comment-box-parent">
+						<% if @spot.comments.present? %>
+							<div class="comment-box">
+			 					<%= render partial: 'comment_index', locals: {comments: @comments} %>
+			 				</div>
+			 			<% else %>
+			 				<p>コメントはまだありません。</p>
+			 			<% end %>
 			 		</div>
 
 					<!-- コメント投稿フォーム / すでにコメントしていたら表示しない -->
-					<% if current_member.comments.empty? && current_member.spots.empty? %>
+					<% if current_member && current_member.comments.empty? && current_member.spots.empty? %>
 					 	<p>レビューをお願いします。</p>
 						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
 					<% end %>

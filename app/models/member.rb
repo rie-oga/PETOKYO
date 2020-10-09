@@ -6,7 +6,7 @@ class Member < ApplicationRecord
 
    has_many :spots
    has_many :comments, dependent: :destroy
-   attachment :image
+   attachment :profile_image
 
    validates :name, presence: true, length: { maximum: 20 }
    validates :nick_name, presence: true, uniqueness: true, length: { maximum: 20 }
@@ -18,5 +18,10 @@ class Member < ApplicationRecord
     else
         "退会済み"
     end
+  end
+
+  #退会済みならログインできない
+  def active_for_authentication?
+    super && self.is_withdeawal_status
   end
 end

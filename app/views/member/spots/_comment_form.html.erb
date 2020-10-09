@@ -1,5 +1,5 @@
-<!-- rate/口コミ入力フォーム -->
-<%= form_with(model: comment, url: member_comments_path, local: true) do |form| %>
+<!-- ☆/口コミ入力フォーム -->
+<%= form_with(model: [:member, comment], local: true) do |form| %>
 
   <!--エラーメッセージ-->
   <%= render 'layouts/errors', obj: comment %>
@@ -7,7 +7,7 @@
   <%= form.hidden_field :spot_id, { value: spot_id } %>
 
   <!-- 評価 -->
-  <div class="form-group row" id="star">
+  <div class="form-group row" id="star" form="form1">
     <%= form.label :rate,'評価 ', class:'col-md-2 col-form-label' %>
     <%= form.hidden_field :rate, id: :review_star %>
   </div>
@@ -20,7 +20,8 @@
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
     scoreName: 'comment[rate]',//commentモデルのrateカラムに値を保存
-    half: true//★の半分の入力を行う
+    half: true,//★の半分の入力を行う
+    number: 5//星の数５個まで
   });
   </script>
 
