@@ -22,12 +22,19 @@
   });
   </script>
 
+  <!-- 画像 -->
+  <div class="form-group row">
+    <%= form.label :comment_images, '写真', class:'col-md-2 col-form-label' %>
+    <div class="col-md-3"></div>
+    <%= form.attachment_field :comment_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる -->
+                </div>
+
   <!-- 口コミ -->
   <div class="form-group row">
-    <%= form.label :comment, '口コミ ', class:'col-md-2 col-form-label' %>
+    <%= form.label :comment, '口コミ', class:'col-md-2 col-form-label' %>
     <div class="col-md-9">
       <%= form.text_area :comment, class: "form-control", rows: "8",
-        placeholder:'口コミ内容がなくても、評価のみで投稿できます。
+        placeholder:'口コミ内容や写真がなくても、評価のみで投稿できます。
 まずは投稿してみましょう！投稿してから編集もできますよ！' %>
     </div>
   </div>

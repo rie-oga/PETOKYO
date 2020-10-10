@@ -10,6 +10,7 @@ class Member::MembersController < ApplicationController
   	@spots = @member.spots.order(id:"DESC")#降順
     @comments = @member.comments.order(id:"DESC")#降順
     @spot = Spot.find_by(id: params[:spot_id])
+    @comment = Comment.find_by(id: params[:comment_id])
   end
 
   def unsubscribe

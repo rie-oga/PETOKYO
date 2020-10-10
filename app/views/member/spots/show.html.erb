@@ -33,6 +33,7 @@
 
 				    <!-- 写真一覧 -->
 				    <div class="img-box">
+				    	<!-- スポット投稿時の写真 -->
 					    <% if @spot.spot_images.present? %>
 							<% @spot_images.each do |image| %>
 								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
@@ -41,6 +42,13 @@
 							<p>写真はまだありません。ぜひ、投稿お願いします。</p>
 						<% end %>
 						<%= paginate @spot_images %>
+						<!-- コメント投稿時の写真 -->
+						<% if @comment_images.present? %>
+							<% @comment_images.each do |image| %>
+								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
+							<% end %>
+							<%= paginate @comment_images %>
+						<% end %>
 					</div>
 
 					<!-- コメント一覧 -->
@@ -55,7 +63,7 @@
 			 		</div>
 
 					<!-- コメント投稿フォーム / すでにコメントしていたら表示しない -->
-					<% if current_member && current_member.comments.empty? && current_member.spots.empty? %>
+					<% if current_member && current_member.spots.where(id:@spot).empty? && current_member.comments.where(id:@spot).empty? %>
 					 	<p>レビューをお願いします。</p>
 						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
 					<% end %>
