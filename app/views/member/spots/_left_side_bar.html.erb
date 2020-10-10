@@ -1,7 +1,7 @@
 				<!-- memberがログインしていたらユーザー情報表示 -->
 				<% if current_member %>
 					<div class="welcome">ようこそ！<%= current_member.nick_name %>さん</div>
-					<div class="user-img"><%= attachment_image_tag(current_member, :profile_image_id, class: "img-circle pull-left profile-img", fallback: "moai.jpg", size: "70x70") %></div>
+					<div class="user-img"><%= attachment_image_tag(current_member, :profile_image, class: "img-circle pull-left profile-img", fallback: "moai.jpg", size: "70x70") %></div>
 				<% end %>
 				<div>
 					<!-- ジャンルで検索されたら -->
