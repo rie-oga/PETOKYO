@@ -111,28 +111,10 @@ $(function(){
 
 //spot-showページ//
 $(function () {
-    $('.comment-click').on('click', () => {
-        $('.img-box').hide();
-        $('.comment-box-parent').show();
-    });
-});
-$(function () {
-    $('.img-click').on('click', () => {
-        $('.comment-box-parent').hide();
-        $('.img-box').show();
-    });
-});
-
-//member-showページ//
-$(function () {
-    $('.spot-click').on('click', () => {
+    $('.spot-click').on('click', function() {
         $('.review-box').hide();
         $('.member-spot-box').show();
     });
 });
-$(function () {
-    $('.comment-click').on('click', () => {
-        $('.member-spot-box').hide();
-        $('.review-box').show();
-    });
-});
+
+//member-showページ//
