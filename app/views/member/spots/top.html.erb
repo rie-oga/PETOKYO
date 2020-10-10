@@ -7,17 +7,17 @@
 <section id ="about">
 <div class="about">
 	<div class="container about-container shake-hard">
-		<span class="man"><img src="assets/man1.png"></span><div class=" about-left row"><h4 class="under-line">What's PETOKYO?</h4></div>
+		<span class="man"><%= image_tag 'man1.png' %></span><div class=" about-left row"><h4 class="under-line">What's PETOKYO?</h4></div>
 	</div>
 	<div class="container about-container">
 		<div class="about-right row">
-		<h5>ワンちゃんを連れていけるお店って限られてるんだよねー。<br>もっと新しいお店を知りたいな！</h5></div><span class="man"><img src="assets/man2.png"></span>
+		<h5>ワンちゃんを連れていけるお店って限られてるんだよねー。<br>もっと新しいお店を知りたいな！</h5></div><span class="man"><%= image_tag 'man2.png' %></span>
 	</div>
 	<div class="container about-container">
-		<span class="man"><img src="assets/man3.png"></span><div class="about-left row"><h5>最近できたっていうあのお店。<br>行ってみたんだけど、ワンちゃんは床です！って言われたの。</h5></div>
+		<span class="man"><%= image_tag 'man3.png' %></span><div class="about-left row"><h5>最近できたっていうあのお店。<br>行ってみたんだけど、ワンちゃんは床です！って言われたの。</h5></div>
 	</div>
 	<div class="container about-container">
-		<div class="about-right row"><h5>ペットと行ける人気の公園だってネットで見て行ったけど、<br>ワンちゃんは芝生禁止だったよ、、</h5></div><span class="man"><img src="assets/man4.png"></span>
+		<div class="about-right row"><h5>ペットと行ける人気の公園だってネットで見て行ったけど、<br>ワンちゃんは芝生禁止だったよ、、</h5></div><span class="man"><%= image_tag 'man4.png' %></span>
 	</div>
 	<div class="background-color-2way">
 		<div class="container about-container">
@@ -25,7 +25,8 @@
 			</div>
 			<div class="about-center col-sm-8">
 				<h5>、、そんな経験ありませんか？<br>
-				ワンちゃんの飼い主目線でレビューを共有できるサイトって少ないですよね。<br><strong>PETOKYO</strong>は、日常使いできるようなカフェや公園を飼い主同士でもっと共有したい!という思いから生まれました。<br>調べるだけでも良し、レビュー、投稿していただいても良し。<br>一緒に、もっともっと、ペットライフを楽しみましょう！</h5>
+				ワンちゃんの飼い主目線でレビューを共有できるサイトって少ないですよね。<br><strong>PETOKYO</strong>は、東京都内で日常使いできるようなカフェや公園を飼い主同士でもっと共有したい!という思いから生まれました。<br>皆さまの有益な情報により成り立っておりますので、ぜひ、ご投稿をお願います。<br>
+				それでは、ごゆっくりお過ごしください。</h5>
 			</div>
 			<div class="col-sm-2">
 			</div>
@@ -36,11 +37,27 @@
 <div class="top-introduction background-color-2way-reverse">
 	<p class="p-white">~ 管理人おすすめスポット ~</p>
 		<div class="top-introduction-img-box">
-			<div class="top-introduction-img1"><label class="label1">Moazan Cafe</label></div><p class="top-introduction-text1">#おいしい料理<br>#キレイ<br>#オシャレ</p>
-			<p class="top-introduction-text2">#個室あり<br>#おいしい料理<br>#犬いっぱい</p><div class="top-introduction-img2"><label class="label2">Anea Cafe</label></div>
-			<p class="top-introduction-text2">#話題！<br>#カフェあり<br>#犬いっぱい</p><div class="top-introduction-img3"><label class="label3">新宿中央公園</label></div>
-			<div class="top-introduction-img4"><label class="label4">代々木公園</label></div><p class="top-introduction-text4">#とても広い<br>#キレイ<br>#犬いっぱい</p>
-			<div class="top-introduction-img5"><label class="label5">やすらぎ公園</label></div><p class="top-introduction-text5">#広い<br>#新しい<br>#閑静</p>
+			<%= link_to member_spot_path(1) do %>
+				<div class="margin"></div>
+				<div class="top-introduction-img1"><label class="label1">Morethan</label></div>
+			<% end %>
+			<p class="top-introduction-text1">#おいしい料理<br>#キレイ<br>#オシャレ</p>
+			<p class="top-introduction-text2">#個室あり<br>#おいしい料理<br>#犬いっぱい</p>
+			<%= link_to member_spot_path(2) do %>
+				<div class="top-introduction-img2"><label class="label2">Anea Cafe</label></div>
+			<% end %>
+			<p class="top-introduction-text2">#話題！<br>#カフェあり<br>#犬いっぱい</p>
+			<%= link_to member_spot_path(3) do %>
+				<div class="top-introduction-img3"><label class="label3">新宿中央公園</label></div>
+			<% end %>
+			<%= link_to member_spot_path(4) do %>
+				<div class="top-introduction-img4"><label class="label4">代々木公園</label></div>
+			<% end %>
+			<p class="top-introduction-text4">#とても広い<br>#キレイ<br>#犬いっぱい</p>
+			<%= link_to member_spot_path(5) do %>
+				<div class="top-introduction-img5"><label class="label5">やすらぎ公園</label></div>
+			<% end %>
+			<p class="top-introduction-text5">#広い<br>#新しい<br>#閑静</p>
 		</div>
 </div>
 </body>
