@@ -9,7 +9,8 @@ class Member::CommentsController < ApplicationController
 		if comment.save
 		   redirect_to member_spot_path(comment.spot)
 		else
-		   @comment = Comment.find(params[:id])
+		   @spot = comment.spot_id
+		   @comment = Comment.new
 		   render :edit
 		end
 	end
@@ -28,6 +29,7 @@ class Member::CommentsController < ApplicationController
     	 if @comment.update(comment_params)
       		redirect_to member_member_path(@comment.member)
     	 else
+    	 	flash[:notice] = "☆評価は必須です。"
       		render :edit
     	 end
 	end

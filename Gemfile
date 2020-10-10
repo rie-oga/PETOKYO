@@ -74,3 +74,4 @@ group :production do
   gem 'mysql2'
 end
 gem 'order_as_specified'
+gem 'rails-i18n'

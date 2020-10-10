@@ -8,4 +8,5 @@ class Spot < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true
 	validates :address, presence: true
+	validates :introduction, presence: true
 end

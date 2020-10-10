@@ -1,9 +1,6 @@
 <!-- ☆/口コミ入力フォーム -->
 <%= form_with(model: [:member, comment], local: true) do |form| %>
 
-  <!--エラーメッセージ-->
-  <%= render 'layouts/errors', obj: comment %>
-
   <%= form.hidden_field :spot_id, { value: spot_id } %>
 
   <!-- 評価 -->
