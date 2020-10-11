@@ -48,7 +48,7 @@
 		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
 		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
 		          				class:'btn btn-default' %>
-		        		<% elsif current_member && current_member.comments.where(spot_id:@spot).empty? %>
+		        		<% elsif current_member && current_member.comments.where(spot_id: spot.id).empty? %>
 		        				<!-- コメントフォームAjax -->
 								<%= link_to 'レビューする', member_spots_path(spot_id: spot.id), remote: true, class:"btn btn-default" %>
 						<% end %>

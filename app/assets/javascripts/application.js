@@ -110,31 +110,41 @@ $(function(){
 });
 
 //spot-showページ//
-$(function () {
+$(document).on('turbolinks:load', function() {
+  $(function () {
     $('.comment-click').on('click', function() {
         $('.img-box').hide();
         $('.comment-box-parent').show();
     });
+  });
 });
-$(function () {
+
+$(document).on('turbolinks:load', function() {
+  $(function () {
     $('.img-click').on('click', function() {
         $('.comment-box-parent').hide();
         $('.img-box').show();
     });
+  });
 });
+
 
 
 //member-showページ//
 $(function () {
+    $(function () {
     $('.spot-click').on('click', function() {
         $('.review-box').hide();
         $('.member-spot-box').show();
     });
+  });
 });
 
 $(function () {
+   $(function () {
     $('.review-click').on('click', function() {
         $('.member-spot-box').hide();
         $('.review-box').show();
     });
+  });
 });
