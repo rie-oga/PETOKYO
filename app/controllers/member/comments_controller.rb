@@ -36,7 +36,7 @@ class Member::CommentsController < ApplicationController
 
 	private
   	def comment_params
-    	params.require(:comment).permit(:comment, :rate)
+    	params.require(:comment).permit(:comment, :rate, comment_images_images: [])
   	end
 
   	def ensure_correct_user

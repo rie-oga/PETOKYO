@@ -35,7 +35,7 @@
 					<div>
 						<% if spot.spot_images.present? %>
 			  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
-			    				<%= attachment_image_tag image, :image, :fill, 550, 500 %>
+			    				<%= attachment_image_tag image, :image, :fill, 550, 400 %>
 			    			<% end %>
 			  			<% else %>
 			    			<%= image_tag 'anea.jpg', size: '550x500' %>
@@ -48,7 +48,7 @@
 		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
 		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
 		          				class:'btn btn-default' %>
-		        		<% elsif current_member.comments.empty? %>
+		        		<% elsif current_member && current_member.comments.where(spot_id:@spot).empty? %>
 		        				<!-- コメントフォームAjax -->
 								<%= link_to 'レビューする', member_spots_path(spot_id: spot.id), remote: true, class:"btn btn-default" %>
 						<% end %>
