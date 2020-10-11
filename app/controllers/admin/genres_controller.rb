@@ -1,4 +1,6 @@
 class Admin::GenresController < ApplicationController
+  before_action :ensure_genre, only: [:edit, :update, :destroy]
+
   def index
   	@genres = Genre.all
   	@genre = Genre.new
@@ -21,23 +23,27 @@ class Admin::GenresController < ApplicationController
   end
 
   def edit
-    @genre = Genre.find(params[:id])
   end
 
   def update
-    @genre = Genre.find(params[:id])
-    @genre.update
+    @genre.update(genre_params)
     redirect_to admin_genres_path
   end
 
   def destroy
-    @genre = Genre.find(params[:id])
-    @genre.destroy_all
+    @genre.destroy
     redirect_to admin_genres_path
   end
 
   private
   def genre_params
-  	params.permit(:name)
+  	params.require(:genre).permit(:name)
+  end
+
+  def ensure_genre
+    @genre = Genre.find(params[:id])
+    unless current_admin
+           redirect_to member_spots_path
+    end
   end
 end
