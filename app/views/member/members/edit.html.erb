@@ -7,6 +7,9 @@
           <div class="panel-heading">プロフィール編集</div>
             <div class="panel-body">
               <%= form_with(model:[:member, @member], local: true) do |form| %>
+
+                <%= render 'layouts/errors', obj: @member %>
+
                 <div class="form-group">
                   <label class="control-label">Image</label>
                   <%= form.attachment_field :profile_image,class:'form-controll' %>
