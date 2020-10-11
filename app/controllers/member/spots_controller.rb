@@ -25,11 +25,6 @@ class Member::SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @spots = Spot.order(ave_rate:"DESC")#降順
-    @spot_images = @spot.spot_images.page(params[:page]).per(15)
-    if @spot.comments.present?
-      comment = Comment.find_by(spot_id: params[:id])
-      @comment_images = comment.comment_images.page(params[:page]).per(15)
-    end
     if params[:genre_id]
        @genre = Genre.find(params[:genre_id])
        @spots = @spots.where(genre_id: params[:genre_id])
@@ -72,7 +67,7 @@ class Member::SpotsController < ApplicationController
 
   private
   def spot_params
-    params.require(:spot).permit(:name, :address, :genre_id, :introduction, spot_images_images: [], comment_images_images: [])
+    params.require(:spot).permit(:name, :address, :genre_id, :introduction, spot_images_images: [])
   end
 
   def ensure_spot

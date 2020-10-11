@@ -35,19 +35,20 @@
 				    <div class="img-box">
 				    	<!-- スポット投稿時の写真 -->
 					    <% if @spot.spot_images.present? %>
-							<% @spot_images.each do |image| %>
+							<% @spot.spot_images.each do |image| %>
 								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
 							<% end %>
-						<% else %>
-							<p>写真はまだありません。ぜひ、投稿お願いします。</p>
 						<% end %>
-						<%= paginate @spot_images %>
+
 						<!-- コメント投稿時の写真 -->
-						<% if @comment_images.present? %>
-							<% @comment_images.each do |image| %>
-								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
-							<% end %>
-							<%= paginate @comment_images %>
+						<% if @spot.comments.present? %>
+							<% @spot.comments.each do |comment| %>
+							  	<% if comment.comment_images.present? %>
+							  		<% comment.comment_images.each do |image| %>
+										<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
+						      		<% end %>
+					        	<% end %>
+					        <% end %>
 						<% end %>
 					</div>
 
