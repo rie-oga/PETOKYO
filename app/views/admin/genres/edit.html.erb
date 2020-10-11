@@ -1,0 +1,6 @@
+<%= form_with(model: [:member, @genre],local: true) do |form| %>
+  <%= form.text_field :name %>
+  <%= form.submit "変更" %>
+<% end %>
+
+

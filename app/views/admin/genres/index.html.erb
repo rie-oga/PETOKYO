@@ -1,16 +1,28 @@
-<div class="container">
+<div class="container admin-genre">
   <div class="row">
-    <div class="col-sm-3">
-      <h3>ジャンル</h3>
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-5">
+      <h3>ジャンル一覧</h3>
         <%= link_to admin_genres_path, remote: true do %><!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にする --><!-- admin_genres_pathと記述することで、genre/indexアクションが起きる -->
           <i class="fas fa-plus-circle">ジャンルを追加</i>
         <% end %>
         <div id="genre-form"><!-- ここにajaxのformを表示 --></div>
-        <table class="table" id="genres">
-          <%= render "genre", genres: @genres %>
-        </table>
-    </div>
-    <div class="col-sm-9">
+
+        <!-- ジャンル一覧 -->
+        <div id="genres">
+          <% @genres.each do |genre| %>
+            <div class="genre col-sm-7">
+              <%= genre.name %>
+            </div>
+            <div class="col-sm-2 button-margin">
+              <button><%= link_to "編集", edit_admin_genre_path(genre) %></button>
+            </div>
+            <div class="col-sm-2 button-margin">
+              <button><%= link_to "削除", admin_genre_path(genre), method: :delete %></button>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>

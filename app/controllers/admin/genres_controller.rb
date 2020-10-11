@@ -20,9 +20,19 @@ class Admin::GenresController < ApplicationController
   	end
   end
 
+  def edit
+    @genre = Genre.find(params[:id])
+  end
+
+  def update
+    @genre = Genre.find(params[:id])
+    @genre.update
+    redirect_to admin_genres_path
+  end
+
   def destroy
     @genre = Genre.find(params[:id])
-    @genre.destroy
+    @genre.destroy_all
     redirect_to admin_genres_path
   end
 

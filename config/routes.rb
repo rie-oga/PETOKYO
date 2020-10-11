@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
       get '/' => 'tops#top'
       resources :members, only: [:index]
-      resources :genres, only: [:index,:create,:update,:destroy]
-      resources :spots
+      resources :genres
   end
 
   namespace :member, path:'' do
