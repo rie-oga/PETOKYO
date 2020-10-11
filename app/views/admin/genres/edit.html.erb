@@ -1,6 +1,14 @@
-<%= form_with(model: [:member, @genre],local: true) do |form| %>
-  <%= form.text_field :name %>
-  <%= form.submit "変更" %>
-<% end %>
+<div class="container genre-edit">
+	<div class="row">
+		<div class="col-sm-5">
+		</div>
+		<div clas="col-sm-5">
+			<%= form_with(model: [:admin, @genre], local: true) do |form| %>
+  				<%= form.text_field :name %>
+  				<%= form.submit "変更" %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 

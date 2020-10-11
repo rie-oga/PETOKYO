@@ -11,17 +11,7 @@
 
         <!-- ジャンル一覧 -->
         <div id="genres">
-          <% @genres.each do |genre| %>
-            <div class="genre col-sm-7">
-              <%= genre.name %>
-            </div>
-            <div class="col-sm-2 button-margin">
-              <button><%= link_to "編集", edit_admin_genre_path(genre) %></button>
-            </div>
-            <div class="col-sm-2 button-margin">
-              <button><%= link_to "削除", admin_genre_path(genre), method: :delete %></button>
-            </div>
-          <% end %>
+          <%= render partial: 'genre', locals: { genres: @genres } %>
         </div>
     </div>
   </div>
