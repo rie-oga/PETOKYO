@@ -1,0 +1,50 @@
+<!-- ☆/口コミ入力フォーム -->
+<%= form_with(model: [:member, comment], local: true) do |form| %>
+
+  <%= form.hidden_field :spot_id, { value: spot_id } %>
+
+  <!-- 評価 -->
+  <div class="form-group row" id=<%=raw "#{comment.spot.id}".to_json %> form="form1">
+    <%= form.label :rate,'評価 ', class:'col-md-2 col-form-label' %>
+    <%= form.hidden_field :rate, id: :review_star %>
+  </div>
+  <!-- 評価javascript -->
+    <script>
+      $('#<%= comment.spot.id %>').raty({
+        size: 36,
+        starOff: '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,//星の半分入力
+        number: 5,//星の数５個まで
+        scoreName: 'comment[rate]',//commentモデルのrateカラムに値を保存
+        score: <%= comment.rate %>//表示
+      });
+  　</script>
+
+  <!-- 画像 -->
+  <div class="form-group row">
+    <%= form.label :comment_images, '写真', class:'col-md-2 col-form-label' %>
+    <div class="col-md-3">
+    <%= form.attachment_field :comment_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる --></div>
+  </div>
+
+  <!-- 口コミ -->
+  <div class="form-group row">
+    <%= form.label :comment, '口コミ', class:'col-md-2 col-form-label' %>
+    <div class="col-md-9">
+      <%= form.text_area :comment, class: "form-control", rows: "8",
+        placeholder:'口コミ内容や写真がなくても、評価のみで投稿できます。
+まずは投稿してみましょう！投稿してから編集もできますよ！' %>
+    </div>
+  </div>
+
+  <!-- 投稿ボタン -->
+  <div class="form-group row">
+      <div class="col-md-9">
+      </div>
+      <%= form.submit '投稿する', class:"col-md-2 btn btn-success" %>
+  </div>
+
+<% end %>
+<!-- /口コミ入力フォーム -->

@@ -23,6 +23,7 @@ class Member::CommentsController < ApplicationController
 
 	def edit
 		@spot = @comment.spot
+		@index = params[:index]
 	end
 
 	def update
