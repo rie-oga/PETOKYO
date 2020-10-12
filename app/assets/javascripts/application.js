@@ -131,8 +131,8 @@ $(document).on('turbolinks:load', function() {
 
 
 //member-showページ//
-$(function () {
-    $(function () {
+$(document).on('turbolinks:load', function() {
+  $(function () {
     $('.spot-click').on('click', function() {
         $('.review-box').hide();
         $('.member-spot-box').show();
@@ -140,8 +140,8 @@ $(function () {
   });
 });
 
-$(function () {
-   $(function () {
+$(document).on('turbolinks:load', function() {
+  $(function () {
     $('.review-click').on('click', function() {
         $('.member-spot-box').hide();
         $('.review-box').show();
