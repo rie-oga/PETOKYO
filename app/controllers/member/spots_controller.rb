@@ -72,7 +72,7 @@ class Member::SpotsController < ApplicationController
 
   def ensure_spot
     @spot = Spot.find(params[:id])
-    unless comment.member == current_member || current_admin
+    unless @spot.member == current_member || current_admin
            redirect_to member_spots_path
     end
   end
