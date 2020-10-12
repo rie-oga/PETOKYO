@@ -17,7 +17,7 @@ class Member::CommentsController < ApplicationController
 
 	def destroy
 		@comment.destroy
-      	flash[:success] = "Review was successfully deleted."
+      	flash[:success] = "レビューは削除されました。"
     	redirect_to member_member_path(@comment.member)
 	end
 
