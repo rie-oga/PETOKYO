@@ -4,14 +4,14 @@
   <%= form.hidden_field :spot_id, { value: spot_id } %>
 
   <!-- 評価 -->
-  <div class="form-group row" id="star" form="form1">
+  <div class="form-group row" id=<%=raw "star#{i}".to_json %> form="form1">
     <%= form.label :rate,'評価 ', class:'col-md-2 col-form-label' %>
     <%= form.hidden_field :rate, id: :review_star %>
   </div>
 
   <!-- 評価javascript -->
   <script>
-  $('#star').raty({
+  $(<%=raw "#star#{i}".to_json %>).raty({
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
@@ -25,9 +25,9 @@
   <!-- 画像 -->
   <div class="form-group row">
     <%= form.label :comment_images, '写真', class:'col-md-2 col-form-label' %>
-    <div class="col-md-3"></div>
-    <%= form.attachment_field :comment_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる -->
-                </div>
+    <div class="col-md-3">
+    <%= form.attachment_field :comment_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる --></div>
+  </div>
 
   <!-- 口コミ -->
   <div class="form-group row">

@@ -6,7 +6,8 @@
 							<%= i %>位<span id="star-rate-<%= spot.id %>"><!-- ☆平均値ここに表示 --></span><%= spot.ave_rate.round(1) %>点
 							<!--星評価-->
 							 <script>
-					          $('#star-rate-<%= spot.id %>').raty({
+							 $(document).on('turbolinks:load', function(){
+							 	$('#star-rate-<%= spot.id %>').raty({
 					            size: 36,
 					            starOff: '<%= asset_path('star-off.png') %>',
 					            starOn : '<%= asset_path('star-on.png') %>',
@@ -16,11 +17,12 @@
 					            readOnly: true,//読み取り専用
 					            score: <%= spot.ave_rate || 0 %>
 					          });
+							 });
 					         </script>
 					        <!--/星評価-->
 						<% end %>
 					</div>
-				<%= link_to member_spot_path(spot), class:"under_line_none" do %>
+				<%= link_to member_spot_path(spot, index: i), class:"under_line_none" do %>
 					<div class="padding-top">
 						名所：　<span class="font-size-big1"><strong><%= spot.name %></strong></span>
 					</div>
@@ -51,7 +53,7 @@
 		          				class:'btn btn-default' %>
 		          			<% elsif current_member.comments.where(spot_id: spot.id).empty? %>
 		        				<!-- コメントフォームAjax -->
-								<%= link_to 'レビューする', member_spots_path(spot_id: spot.id), remote: true, class:"btn btn-default" %>
+								<%= link_to 'レビューする', member_spots_path(spot_id: spot.id, index: i), remote: true, class:"btn btn-default" %>
 							<% end %>
 		          		<% elsif current_admin %>
 		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>

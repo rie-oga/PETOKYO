@@ -66,7 +66,7 @@
 					<!-- コメント投稿フォーム / 投稿主であったり、すでにコメントしていたら表示しない -->
 					<% if current_member && current_member.spots.where(id: @spot.id).empty? && current_member.comments.where(spot_id: @spot.id).empty? %>
 					 	<p>レビューをお願いします。</p>
-						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id } %>
+						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id, i: @index } %>
 					<% end %>
 
 					<!-- 写真のみの投稿フォーム -->
