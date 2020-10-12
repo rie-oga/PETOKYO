@@ -6,7 +6,7 @@
 			<!--エラーメッセージ-->
   			<%= h(flash[:notice]) %>
 
-			<%= render partial: 'member/spots/comment_form', locals: { comment: @comment, spot_id: @spot } %>
+			<%= render partial: 'member/comments/comment_form', locals: { comment: @comment, spot_id: @spot } %>
 		</div>
 		<div class="col-sm-3">
 		</div>
