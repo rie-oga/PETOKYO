@@ -66,7 +66,7 @@ class Member::SpotsController < ApplicationController
 
   def destroy
     @spot.destroy
-    redirect_to member_spots_path
+    redirect_to member_member_path(@spot.member)
   end
 
   private

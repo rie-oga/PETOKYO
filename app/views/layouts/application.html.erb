@@ -4,6 +4,8 @@
     <title>あなたの街のおすすめのドッグカフェとドッグランが見つかる！PETOKYO</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!-- 要素を揺らすため（topページ what's petokyo?） -->
     <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
     <!-- fontawesome -->
@@ -12,21 +14,22 @@
     <!-- slick使用のため -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <!-- -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!-- ページ左　user/ranking固定のため -->
-  <style>
-    #fixed1 {
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  }
-   #fixed2 {
-  position: fixed;
-  top: 100px;
-  left: 50px;
-  }
-  </style>
+    <!-- spotページ左　user/ranking固定のため -->
+    <style>
+      #fixed1 {
+        position: fixed;
+        top: 100px;
+        left: 100px;
+      }
+      #fixed2 {
+        position: fixed;
+        top: 100px;
+        left: 50px;
+      }
+    </style>
   </head>
 
   <body>

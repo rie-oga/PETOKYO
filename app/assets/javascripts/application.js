@@ -19,6 +19,7 @@
 //= require_tree .
 
 //topページ main-visual//
+if(!navigator.userAgent.match(/(iPhone|Android)/)){
 $(function(){
   $(ScrollReveal().reveal('.main-visual:nth-child(1)', {
        duration: 1500,
@@ -29,6 +30,7 @@ $(function(){
        delay: 100//実行されるまでの時間//
      }));
 });
+}
 $(function(){
   $(ScrollReveal().reveal('.main-visual:nth-child(2)', {
        duration: 1500,
