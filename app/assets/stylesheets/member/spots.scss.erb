@@ -8,6 +8,7 @@
 /* spots_ranking */
 /* show */
 /* edit */
+/* new */
 /* レスポンシブ　500行目から */
 
 /* topページここから */
@@ -48,7 +49,7 @@ h5 {
   margin: 1.5em 0 1.5em 15px;
   padding: 30px 30px;
   min-width: 120px;
-  max-width: 100%;
+  max-width: 90%;
   color: #555;
   font-size: 16px;
   background: #FFF;
@@ -95,7 +96,7 @@ h5 {
   margin: 1.5em 15px 1.5em 0;
   padding: 30px 30px;
   min-width: 120px;
-  max-width: 100%;
+  max-width: 90%;
   color: #555;
   font-size: 16px;
   background: #FFF;
@@ -448,6 +449,12 @@ h5 {
 
 /* editページここまで */
 
+/* newページここから */
+.panel-heading {
+  text-align: center;
+}
+/* ここまで */
+
 
 
 
@@ -467,10 +474,7 @@ h5 {
 @media screen and (max-width:640px) {
   /* topページここから */
 
-.top-introduction {
-  display:none;
-}
-
+/* メインビジュアル */
 .main-visuals {
     display: block;
 }
@@ -490,48 +494,21 @@ h5 {
   display: none;
 }
 
+/* アバウト */
+.about-container:nth-child(2),.about-container:nth-child(3),.about-container:nth-child(4) {
+  margin: 0;
+}
+.about-container:nth-child(2) {
+  padding-left: 0;
+}
 .about-left {
   margin: 0;
 }
-
-.about-left h5 {
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0.1em;
-  line-height: 15px;
-  font-size: 8px;
+.about-left {
+  padding: 18px;
 }
-
-.about-right h5 {
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0.1em;
-  line-height: 15px;
-  font-size: 8px;
-}
-
-//吹き出し無　影付きボックスここから
-.about-center {
-    display: inline-block;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
-    border-radius: 25px;
-    background-color: #fff;
-}
-.about-center h5 {
-    padding: 30px;
-    letter-spacing: 0.1em;
-    line-height: 15px;
-    font-size: 8px;
-}
-//吹き出し無　影付きボックスここまで
-
-.background-color-2way {
-    /*上から下へ*/
-  background: linear-gradient(180deg,#fff 0%,#fff 100px,#365C92 100px,#365C92 100%);
-}
-.background-color-2way-reverse {
-  background: linear-gradient(180deg,#365C92 0%,#365C92 300px,#fff 300px,#fff 55%,#fff 300px,#365C92 300px,#365C92 75%,#365C92 100px,#fff 100px, #fff 100%);
-  width: 100%;
+.about-right {
+  padding: 18px;
 }
 
 .man {
@@ -545,112 +522,12 @@ h5 {
   display: none;
 }
 
-.about-container:nth-child(2) {
-  padding-left:20px;
-}
-.about-container:nth-child(2),.about-container:nth-child(3),.about-container:nth-child(4) {
-  margin-top: 0;
-}
-.about-left {
-  padding: 18px;
-}
-.about-right {
-  padding: 18px;
+/* 管理者紹介は非表示 */
+.top-introduction {
+  display:none;
 }
 
 
-
-.p-white {
-  padding-top: 100px;
-  text-align:center;
-  font-size: 16px;
-  color: #fff;
-  letter-spacing: 0.3em;
-}
-
-.top-introduction-img-box {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 100px;
-}
-.margin {
-  width: 50px;
-  height: 150px;
-}
-.top-introduction-img1 {
-  background-image: image-url("<%= asset_path('moazan-kote.jpg') %>");
-  transform: rotate( -5deg );
-  width: 220px;
-  height: 250px;
-  border-radius: 25px;
-  background-size: cover;
-  background-position: center;
-  padding: 0 20px 20px 0;
-  position: relative;
-  margin-left: 50px;
-}
-.top-introduction-text1 {
-  transform: rotate( -7deg );
-  margin: 220px 0 0 20px;
-}
-.top-introduction-img2 {
-  background-image: image-url("<%= asset_path('anea.jpg') %>");
-  transform: rotate( 5deg );
-  width: 250px;
-  height: 250px;
-  border-radius: 25px;
-  background-size: cover;
-  background-position: center;
-  margin: 20px 100px 20px 30px;
-  position: relative;
-}
-.top-introduction-text2 {
-  transform: rotate( 5deg );
-  margin: 100px 0 0 0;
-}
-.top-introduction-img3 {
-  background-image: image-url("<%= asset_path('yoyogi.huri-.jpg') %>");
-  width: 250px;
-  height: 250px;
-  border-radius: 25px;
-  background-size: cover;
-  background-position: center;
-  margin: 150px 20px 20px 20px;
-  transform: rotate( -7deg );
-  position: relative;
-}
-.top-introduction-text3 {
-  transform: rotate( -7deg );
-  margin: 100px 0 0 0;
-}
-.top-introduction-img4 {
-  background-image: image-url("<%= asset_path('park2.jpg') %>");
-  width: 250px;
-  height: 250px;
-  border-radius: 25px;
-  background-size: cover;
-  background-position: center;
-  margin: 70px 10px 100px 250px;
-  transform: rotate( 5deg );
-  position: relative;
-}
-.top-introduction-text4 {
-  transform: rotate( 5deg );
-  margin: 250px 70px 0 0;
-}
-.top-introduction-img5 {
-  display: none;
-}
-.top-introduction-text5 {
-  margin-top: 50px;
-  color: #fff;
-}
-.label1, .label2, .label3, .label4, .label5 {
-  potision: absolute;
-  background-color: #fff;
-  border-radius: 25px;
-  padding: 5px;
-}
 /* topページここまで */
 }
 
