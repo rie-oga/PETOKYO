@@ -4,7 +4,9 @@
 		</div>
 		<div class="col-sm-6">
 			<!--エラーメッセージ-->
-  			<%= h(flash[:notice]) %>
+			<div class="red">
+  				<%= h(flash[:notice]) %>
+  			</div>
 
 			<%= render partial: 'member/comments/comment_form', locals: { comment: @comment, spot_id: @spot } %>
 		</div>

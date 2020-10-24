@@ -1,16 +1,26 @@
 <!-- ☆/口コミ入力フォーム -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if params[:id] %>
+      <h5>レビュー編集</h5>
+    <% else %>
+      <h5>レビュー投稿</h5>
+    <% end %>
+  </div>
+  <div class="panel-body">
 <%= form_with(model: [:member, comment], local: true) do |form| %>
+  <!--エラーメッセージ-->
 
   <%= form.hidden_field :spot_id, { value: spot_id } %>
 
   <!-- 評価 -->
-  <div class="form-group row" id=<%=raw "#{comment.spot.id}".to_json %> form="form1">
+  <div class="form-group row" id=<%=raw "#{comment.spot_id}".to_json %> form="form1">
     <%= form.label :rate,'評価 ', class:'col-md-2 col-form-label' %>
     <%= form.hidden_field :rate, id: :review_star %>
   </div>
   <!-- 評価javascript -->
     <script>
-      $('#<%= comment.spot.id %>').raty({
+      $('#<%= comment.spot_id %>').raty({
         size: 36,
         starOff: '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
@@ -26,7 +36,9 @@
   <div class="form-group row">
     <%= form.label :comment_images, '写真', class:'col-md-2 col-form-label' %>
     <div class="col-md-3">
-    <%= form.attachment_field :comment_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる --></div>
+      <%= form.attachment_field :comment_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->
+      <div class="point-down">※複数選択可能です。</div>
+    </div>
   </div>
 
   <!-- 口コミ -->
@@ -48,3 +60,4 @@
 
 <% end %>
 <!-- /口コミ入力フォーム -->
+</div>

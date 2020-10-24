@@ -3,7 +3,13 @@
 		</div>
 		<div class="col-sm-6">
 			<div class="panel panel-default">
-        		<div class="panel-heading"></div>
+        		<div class="panel-heading">
+        			<% if params[:id] %>
+        				<h4>Spot編集</h4>
+        			<% else %>
+        				<h4>Spot投稿</h4>
+        			<% end %>
+        		</div>
         			<div class="panel-body">
 						<%= form_with(model: [:member, spot], local: true) do |form| %>
 
@@ -30,10 +36,10 @@
 			  				</div>
 			  				<div class="form-group">
 			  					<label class="control-label">紹介文</label>
-			  					<%= form.text_area :introduction,class:'form-control' %>
+			  					<%= form.text_area :introduction,class:'form-control', rows:'6' %>
 			  				</div>
 			  				<div class="form-group">
-			  					<%= form.submit '投稿',class: 'btn btn-primary' %>
+			  						<%= form.submit '投稿',class:'btn btn-primary form-control' %>
 			  				</div>
 			  			<% end %>
 			  		</div>

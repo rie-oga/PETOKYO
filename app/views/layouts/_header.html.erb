@@ -1,76 +1,145 @@
 <header>
-	<div class="container-fluid">
-		<div class="row">
-		<% if member_signed_in? %>
-			<nav>
-				<ul class="header-nav header-dropmenu">
-					<%= link_to new_member_spot_path do %>
-					    <li class="col-sm-2 nav-li"><i class="fas fa-plus-circle header-spot-plus"></i><br> Spotを投稿</li>
-					<% end %>
-					<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Search
-						<ul>
-							<li><%= link_to '全て', member_spots_path %></li>
-							<% @genres.each do |genre| %>
-								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
-							<% end %>
-						</ul>
-					</li>
-					<%= link_to root_path do %>
+	<!-- PC用ヘッダー -->
+	<div class="pc-header">
+		<div class="container-fluid">
+			<div class="row">
+			<% if member_signed_in? %>
+				<nav>
+					<ul class="header-nav header-dropmenu">
+						<%= link_to new_member_spot_path do %>
+						    <li class="col-sm-2 nav-li"><i class="fas fa-plus-circle header-spot-plus"></i><br> Spotを投稿</li>
+						<% end %>
+						<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Category
+							<ul>
+								<li><%= link_to '全て', member_spots_path %></li>
+								<% @genres.each do |genre| %>
+									<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+								<% end %>
+							</ul>
+						</li>
+						<%= link_to root_path do %>
+							<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
+						<% end %>
+						<%= link_to member_member_path(current_member) do %>
+							<li class="col-sm-2 nav-li"><%= image_tag '5.png' %><br>My page</li>
+						<% end %>
+
+
+						<%= link_to destroy_member_session_path, method: :delete do %>
+							<li class="col-sm-2 nav-li logout"><%= image_tag '3.png' %><br>Log out</li>
+						<% end %>
+					</ul>
+				</nav>
+			<% elsif admin_signed_in? %>
+				<nav>
+					<ul class="header-nav header-dropmenu">
 						<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
-					<% end %>
-					<%= link_to member_member_path(current_member) do %>
-						<li class="col-sm-2 nav-li"><%= image_tag '5.png' %><br>My page</li>
-					<% end %>
+						<li class="col-sm-2"><%= link_to 'ジャンル編集', admin_genres_path %></li>
+						<li class="col-sm-2"><%= link_to '会員一覧', admin_members_path %></li>
+						<li class="col-sm-2 nav-li">スポット一覧
+							<ul>
+								<li><%= link_to '全て', member_spots_path %></li>
+								<% @genres.each do |genre| %>
+									<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+								<% end %>
+							</ul>
+						</li>
+						<li class="col-sm-2"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+					</ul>
+				</nav>
+			<% else %>
+				<nav>
+					<ul class="header-nav header-dropmenu">
+						<%= link_to root_path(anchor: "about") do %>
+							<li class="col-sm-2 nav-li"><%= image_tag '1.png' %><br>About</li>
+						<% end %>
+						<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Category
+							<ul>
+								<li><%= link_to '全て', member_spots_path %></li>
+								<% @genres.each do |genre| %>
+									<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+								<% end %>
+							</ul>
+						</li>
+						<%= link_to root_path do %>
+							<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
+						<% end %>
+						<%= link_to new_member_registration_path do %>
+							<li class="col-sm-2 nav-li touroku"><%= image_tag '7.png' %><br>新規登録</li>
+						<% end %>
+						<%= link_to new_member_session_path do %>
+							<li class="col-sm-2 nav-li login"><%= image_tag '6.png' %><br>ログイン</li>
+						<% end %>
+					</ul>
+				</nav>
+			<% end %>
+			</div>
+		</div>
+	</div>
+	<!-- モバイル用ヘッダー -->
+	<div class="mobile-header">
+		<% if member_signed_in? %>
+			<nav class="sp-nav">
+		    	<ul class="header-nav">
+						<li class="sp-li"><%= link_to 'Spotを投稿', new_member_spot_path %></li>
+						<li class="sp-li">Category
+							<ul>
+								<li class="sp-li2"><%= link_to '全て', member_spots_path %></li>
+								<% @genres.each do |genre| %>
+									<li class="sp-li2"><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+								<% end %>
+							</ul>
+						</li>
+						<li class="sp-li"><%= link_to 'My page', member_member_path(current_member) %></li>
 
 
-					<%= link_to destroy_member_session_path, method: :delete do %>
-						<li class="col-sm-2 nav-li logout"><%= image_tag '3.png' %><br>Log out</li>
-					<% end %>
-				</ul>
+						<li class="sp-li"><%= link_to 'Log out',destroy_member_session_path, method: :delete %></li>
+		      			<li class="close pc-li"><span class="white">閉じる</span></li>
+			   </ul>
 			</nav>
 		<% elsif admin_signed_in? %>
-			<nav>
-				<ul class="header-nav header-dropmenu">
-					<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
-					<li class="col-sm-2"><%= link_to 'ジャンル一覧/追加', admin_genres_path %></li>
-					<li class="col-sm-2"><%= link_to '会員一覧', admin_members_path %></li>
-					<li class="col-sm-2 nav-li">スポット一覧
-						<ul>
-							<li><%= link_to '全て', member_spots_path %></li>
-							<% @genres.each do |genre| %>
-								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
-							<% end %>
-						</ul>
-					</li>
-					<li class="col-sm-2"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-				</ul>
-			</nav>
+				<nav class="sp-nav">
+					<ul class="header-nav">
+						<li class="sp-li"><%= link_to 'ジャンル編集', admin_genres_path %></li>
+						<li class="sp-li"><%= link_to '会員一覧', admin_members_path %></li>
+						<li class="sp-li">スポット一覧
+							<ul>
+								<li class="sp-li2"><%= link_to '全て', member_spots_path %></li>
+								<% @genres.each do |genre| %>
+									<li class="sp-li2"><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+								<% end %>
+							</ul>
+						</li>
+						<li class="sp-li"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+						<li class="close pc-li"><span class="white">閉じる</span></li>
+					</ul>
+				</nav>
 		<% else %>
-			<nav>
-				<ul class="header-nav header-dropmenu">
-					<%= link_to root_path(anchor: "about") do %>
-						<li class="col-sm-2 nav-li"><%= image_tag '1.png' %><br>About</li>
-					<% end %>
-					<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Search
-						<ul>
-							<li><%= link_to '全て', member_spots_path %></li>
-							<% @genres.each do |genre| %>
-								<li><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
-							<% end %>
-						</ul>
-					</li>
-					<%= link_to root_path do %>
-						<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
-					<% end %>
-					<%= link_to new_member_registration_path do %>
-						<li class="col-sm-2 nav-li touroku"><%= image_tag '7.png' %><br>新規登録</li>
-					<% end %>
-					<%= link_to new_member_session_path do %>
-						<li class="col-sm-2 nav-li login"><%= image_tag '6.png' %><br>ログイン</li>
-					<% end %>
-				</ul>
-			</nav>
+				<nav class="sp-nav">
+					<ul class="header-nav">
+						<li class="sp-li"><%= link_to 'About', root_path(anchor: "about") %></li>
+						<li class="sp-li">Category
+							<ul>
+								<li class="sp-li2"><%= link_to '全て', member_spots_path %></li>
+								<% @genres.each do |genre| %>
+									<li class="sp-li2"><%= link_to genre.name, member_spots_path(genre_id: genre.id) %></li>
+								<% end %>
+							</ul>
+						</li>
+						<li class="sp-li"><%= link_to '新規登録', new_member_registration_path %></li>
+						<li class="sp-li"><%= link_to 'ログイン', new_member_session_path %></li>
+						<li class="close pc-li"><span class="white">閉じる</span></li>
+					</ul>
+				</nav>
 		<% end %>
+		<!-- ハンバーガーメニュー表示 -->
+		<div class="header-flex">
+			<%= link_to root_path do %>
+				<div class="logo"><%= image_tag 'PETOKYO_logo3.png' %></div>
+			<% end %>
+			<div id="hamburger">
+				<span></span>
+			</div>
 		</div>
 	</div>
 </header>
