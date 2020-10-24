@@ -152,6 +152,7 @@ ul.header-dropmenu li:hover ul li:hover {
   }
 }
 @media screen and (max-width:640px) {
+   /* headerここから */
   .pc-header {
     display:none;
   }
@@ -286,4 +287,12 @@ ul.header-dropmenu li:hover ul li:hover {
     z-index: 1;
     position: relative;
   }
+  /* headerここまで */
+
+  /* footerここから */
+  footer {
+   height: 100px;
+   line-height: 100px;
+  }
+  /* footerここまで */
 }

@@ -1,5 +1,5 @@
-	<div class="row spot-box-parent">
-		<% spots.each.with_index(1) do |spot, i| %>
+<div class="row spot-box-parent">
+	<% spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box">
 					<div>
 						<% if spot.comments.present? %>
@@ -21,10 +21,11 @@
 					         </script>
 					        <!--/星評価-->
 						<% end %>
+						<span class="font-size-big1"><strong><%= spot.name %></strong></span>
 					</div>
 				<%= link_to member_spot_path(spot, index: i), class:"under_line_none" do %>
 					<div class="padding-top">
-						名所：　<span class="font-size-big1"><strong><%= spot.name %></strong></span>
+						名所：
 					</div>
 					<div>
 						最寄り駅：　<span class="font-size-big"><%= spot.address %></span>
@@ -37,10 +38,11 @@
 					<div>
 						<% if spot.spot_images.present? %>
 			  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
-			    				<%= attachment_image_tag image, :image, :fill, 550, 400 %>
+			    				<div class="image"><%= attachment_image_tag image, :image, :fill, 550, 400 %>
+			    				</div>
 			    			<% end %>
 			  			<% else %>
-			    			<%= image_tag 'anea.jpg', size: '550x500' %>
+			    			<div class="image"><%= image_tag 'anea.jpg', size: '550x500' %></div>
 						<% end %>
 					</div>
 				<% end %>
@@ -63,5 +65,5 @@
 					</div>
 				<div id="comment-form-<%= spot.id %>"><!-- コメントフォームここに表示 --></div>
 		</div>
-		<% end %>
-	</div>
+	<% end %>
+</div>

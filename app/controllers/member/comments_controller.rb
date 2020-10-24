@@ -11,6 +11,7 @@ class Member::CommentsController < ApplicationController
 		else
 		   @spot = comment.spot_id
 		   @comment = Comment.new
+		   flash[:notice] = "☆評価は必須です。"
 		   render :edit
 		end
 	end

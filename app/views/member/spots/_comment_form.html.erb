@@ -5,7 +5,7 @@
 
   <!-- 評価 -->
   <div class="form-group row" id=<%=raw "star#{i}".to_json %> form="form1">
-    <%= form.label :rate,'評価 ', class:'col-md-2 col-form-label' %>
+    <%= form.label :rate,'評価 ', class:'col-sm-2 col-form-label' %>
     <%= form.hidden_field :rate, id: :review_star %>
   </div>
 
@@ -24,15 +24,17 @@
 
   <!-- 画像 -->
   <div class="form-group row">
-    <%= form.label :comment_images, '写真', class:'col-md-2 col-form-label' %>
-    <div class="col-md-3">
-    <%= form.attachment_field :comment_images_images, multiple: true %>※複数選択可能です。<!-- multiple: trueの記述で、複数画像選択可能になる --></div>
+    <%= form.label :comment_images, '写真', class:'col-sm-2 col-form-label' %>
+    <div class="col-sm-3">
+      <%= form.attachment_field :comment_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->
+      <div>※複数選択可能です。</div>
+    </div>
   </div>
 
   <!-- 口コミ -->
   <div class="form-group row">
-    <%= form.label :comment, '口コミ', class:'col-md-2 col-form-label' %>
-    <div class="col-md-9">
+    <%= form.label :comment, '口コミ', class:'col-sm-2 col-form-label' %>
+    <div class="col-sm-9">
       <%= form.text_area :comment, class: "form-control", rows: "8",
         placeholder:'口コミ内容や写真がなくても、評価のみで投稿できます。
 まずは投稿してみましょう！投稿してから編集もできますよ！' %>
@@ -41,9 +43,11 @@
 
   <!-- 投稿ボタン -->
   <div class="form-group row">
-      <div class="col-md-9">
-      </div>
-      <%= form.submit '投稿する', class:"col-md-2 btn btn-success" %>
+    <div class="col-sm-9">
+    </div>
+    <div class="comment-btn">
+      <%= form.submit '投稿する', class:"btn btn-success" %>
+    </div>
   </div>
 
 <% end %>
