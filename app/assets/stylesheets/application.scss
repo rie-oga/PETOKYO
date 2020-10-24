@@ -82,7 +82,7 @@ footer {
 	margin-top: 12px;
 	margin-bottom: 7px;
 }
-.logout, .touroku {
+.logout img, .touroku img {
 	opacity: 0.7;
 }
 .header-spot-plus {
@@ -152,6 +152,7 @@ ul.header-dropmenu li:hover ul li:hover {
   }
 }
 @media screen and (max-width:640px) {
+   /* headerここから */
   .pc-header {
     display:none;
   }
@@ -286,4 +287,12 @@ ul.header-dropmenu li:hover ul li:hover {
     z-index: 1;
     position: relative;
   }
+  /* headerここまで */
+
+  /* footerここから */
+  footer {
+   height: 100px;
+   line-height: 100px;
+  }
+  /* footerここまで */
 }
