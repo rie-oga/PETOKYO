@@ -8,7 +8,7 @@
 				  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
 				    				<div class="spot_ranking_image"><%= attachment_image_tag image, :image %>
 				    					<div class="img-count-view">
-				    					＞＞<%= spot.spot_images.count %>件の写真
+				    					＞＞<%= spot.spot_images.count %>枚の写真
 				    					</div>
 				    				</div>
 				    			<% end %>
