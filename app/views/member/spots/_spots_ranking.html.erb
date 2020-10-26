@@ -1,68 +1,89 @@
 <div class="row spot-box-parent">
 	<% spots.each.with_index(1) do |spot, i| %>
-		<div class="spot-box">
-					<div>
-						<span class="font-size-big1"><strong><%= spot.name %></strong></span>
-						<% if spot.comments.present? %>
-							<span id="star-rate-<%= spot.id %>"><!-- ☆平均値ここに表示 --></span><%= spot.ave_rate.round(1) %>点
-							<!--星評価-->
-							 <script>
-							 $(document).on('turbolinks:load', function(){
-							 	$('#star-rate-<%= spot.id %>').raty({
-					            size: 36,
-					            starOff: '<%= asset_path('star-off.png') %>',
-					            starOn : '<%= asset_path('star-on.png') %>',
-					            starHalf: '<%= asset_path('star-half.png') %>',
-					            half: true,//星の半分入力
-					            number: 5,//星の数５個まで
-					            readOnly: true,//読み取り専用
-					            score: <%= spot.ave_rate || 0 %>
-					          });
-							 });
-					         </script>
-					        <!--/星評価-->
-						<% end %>
-					</div>
-				<%= link_to member_spot_path(spot, index: i), class:"under_line_none" do %>
-					<div class="padding-top">
-						最寄り駅：　<span class="font-size-big"><%= spot.address %></span>
-					</div>
-					<div>
-						<%= spot.url %>
-					</div>
-					<% if  %>
-						<div class="spot-introduction-td"><span class="spot-introduction"><%= spot.introduction %></span>
-						</div>
-					<% end %>
-					<div>
-						<% if spot.spot_images.present? %>
-			  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
-			    				<div class="spot_ranking_image"><%= attachment_image_tag image, :image, :fill, 550, 400 %>
-			    				</div>
-			    			<% end %>
-			  			<% else %>
-			    			<div class="spot_ranking_image"><%= image_tag 'anea.jpg', size: '550x500' %></div>
-						<% end %>
-					</div>
-				<% end %>
-					<div class="btns">
-						<%= link_to '…', member_spot_path(spot.id), class:"btn btn-default" %>
-						<% if current_member %>
-							<% if current_member.id == spot.member_id %>
-		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
-		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
-		          				class:'btn btn-default' %>
-		          			<% elsif current_member.comments.where(spot_id: spot.id).empty? %>
-		        				<!-- コメントフォームAjax -->
-								<%= link_to 'レビューする', member_spots_path(spot_id: spot.id, index: i), remote: true, class:"btn btn-default" %>
+		<div class="spot-box row">
+			<%= link_to member_spot_path(spot, index: i), class:"under_line_none" do %>
+				<div class="spot-box-left col-xs-4">
+						<div>
+							<% if spot.spot_images.present? %>
+				  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
+				    				<div class="spot_ranking_image"><%= attachment_image_tag image, :image %>
+				    					<div class="img-count-view">
+				    					＞＞<%= spot.spot_images.count %>件の写真
+				    					</div>
+				    				</div>
+				    			<% end %>
+				  			<% else %>
+				    			<div class="spot_ranking_image"><%= image_tag 'anea.jpg' %></div>
 							<% end %>
-		          		<% elsif current_admin %>
-		          				<%= link_to '編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
-		          				<%= link_to '削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
-		          				class:'btn btn-default' %>
-		          	 	<% end %>
+						</div>
+				</div>
+				<div class="spot-box-right col-xs-6">
+						<div>
+							<span class="font-size-big1"><strong><%= spot.name %></strong></span>
+							<% if spot.comments.present? %>
+								<span id="star-rate-<%= spot.id %>" class="star"><!-- ☆平均値ここに表示 --></span><%= spot.ave_rate.round(1) %>点
+								<!--星評価-->
+								 <script>
+								 $(document).on('turbolinks:load', function(){
+								 	$('#star-rate-<%= spot.id %>').raty({
+						            size: 36,
+						            starOff: '<%= asset_path('star-off.png') %>',
+						            starOn : '<%= asset_path('star-on.png') %>',
+						            starHalf: '<%= asset_path('star-half.png') %>',
+						            half: true,//星の半分入力
+						            number: 5,//星の数５個まで
+						            readOnly: true,//読み取り専用
+						            score: <%= spot.ave_rate || 0 %>
+						          });
+								 });
+						         </script>
+						        <!--/星評価-->
+							<% end %>
+						</div>
+						<div class="station">
+							<i class="fas fa-map-marker-alt icon-size"></i>
+							最寄り駅：　<span class="font-size-big"><%= spot.address %></span>
+						</div>
+						<div>
+							<%= spot.url %>
+						</div>
+						<div class="spot-introduction-td">
+							<span class="spot-introduction"><%= spot.introduction %></span>
+						</div>
+						<div class="spot_ranking_btns mobile-none">
+							<% if current_member %>
+								<% if current_member.id == spot.member_id %>
+			          				<%= link_to '投稿を編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
+			          				<%= link_to '投稿を削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
+			          				class:'btn btn-default' %>
+								<% elsif current_member.comments.where(spot_id: spot.id).empty? %>
+			        				<!-- コメントフォームAjax -->
+									<%= link_to 'レビューする', member_spots_path(spot_id: spot.id, index: i), remote: true, class:"btn btn-default" %>
+								<% end %>
+			          		<% elsif current_admin %>
+			          				<%= link_to '投稿を編集', edit_member_spot_path(spot.id), method: :get, class:'btn btn-default' %>
+			          				<%= link_to '投稿を削除', member_spot_path(spot.id), method: :delete, data: { confirm: '本当に消しますか？'},
+			          				class:'btn btn-default' %>
+			          	 	<% end %>
+						</div>
+						<div id="comment-form-<%= spot.id %>"><!-- コメントフォームここに表示 --></div>
+				</div>
+			<% end %>
+				<div class="col-xs-2 mobile-none">
+					<div class="btns">
+						<div class="mobile-none">
+							<% if spot.comments.exists? %>
+								<p class="review-count">レビュー<%= spot.comments.count %>件</p>
+							<% end %>
+							<%= link_to '詳細を見る', member_spot_path(spot.id), class:"btn btn-primary col-sm-12" %>
+						</div>
+						<div class="pc-none for-icon">
+							<%= link_to member_spot_path(spot.id) do %>
+								<i class="fas fa-chevron-right yazirusi-icon"></i>
+							<% end %>
+						</div>
 					</div>
-				<div id="comment-form-<%= spot.id %>"><!-- コメントフォームここに表示 --></div>
+				</div>
 		</div>
 	<% end %>
 </div>
