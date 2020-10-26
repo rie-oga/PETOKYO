@@ -1,29 +1,31 @@
-				<!-- memberがログインしていたらユーザー情報表示 -->
-				<% if current_member %>
-					<div class="welcome">ようこそ！<%= current_member.nick_name %>さん</div>
-					<div class="user-img"><%= attachment_image_tag(current_member, :profile_image, class: "img-circle pull-left profile-img", fallback: "moai.jpg", size: "70x70") %></div>
+<div class="left_side_bar_parent">
+	<!-- memberがログインしていたらユーザー情報表示 -->
+	<% if current_member %>
+		<div class="welcome">ようこそ！<%= current_member.nick_name %>さん</div>
+		<div class="user-img"><%= attachment_image_tag(current_member, :profile_image, class: "img-circle pull-left profile-img", fallback: "moai.jpg", size: "70x70") %></div>
+	<% end %>
+	<div>
+		<!-- ジャンルで検索されたら -->
+		<% if params[:genre_id] %>
+			<h5 class="rank-name"><strong><%= genre.name %>ランキング</strong></h5>
+				<% spots.first(8).each.with_index(1) do |spot, i| %>
+					<nav>
+						<ul class="index-nav">
+							<li><%= i %>位  　<%= link_to spot.name, member_spot_path(spot.id) %></li>
+						</ul>
+					</nav>
 				<% end %>
-				<div>
-					<!-- ジャンルで検索されたら -->
-					<% if params[:genre_id] %>
-						<h5 class="rank-name"><strong><%= genre.name %>ランキング</strong></h5>
-							<% spots.first(8).each.with_index(1) do |spot, i| %>
-								<nav>
-									<ul class="index-nav">
-										<li><%= i %>位  　<%= link_to spot.name, member_spot_path(spot.id) %></li>
-									</ul>
-								</nav>
-							<% end %>
-					<% else %>
-						<h5 class="rank-name"><strong>総合ランキング</strong></h5>
-							<% spots.first(8).each.with_index(1) do |spot, i| %>
-								<nav>
-									<ul class="index-nav">
-										<li><%= i %>位　  <%= link_to spot.name,member_spot_path(spot.id) %></li>
-									</ul>
-								</nav>
-							<% end %>
-					<% end %>
-					<p>※当サイト内レビュー順位です。</p>
-				</div>
+		<% else %>
+			<h5 class="rank-name"><strong>総合ランキング</strong></h5>
+				<% spots.first(8).each.with_index(1) do |spot, i| %>
+					<nav>
+						<ul class="index-nav">
+							<li><%= i %>位　  <%= link_to spot.name,member_spot_path(spot.id) %></li>
+						</ul>
+					</nav>
+				<% end %>
+		<% end %>
+		<p>※当サイト内レビュー順位です。</p>
+	</div>
+</div>
 
