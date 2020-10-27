@@ -1,33 +1,72 @@
 <div class="spot-show">
+	<div class="container">
 		<div class="row">
 			<!-- サイドバー -->
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<div class="spot-name-rank" id="fixed2"><!-- 位置固定 -->
 					<%= render partial: 'left_side_bar', locals: { genre: @genre, spots: @spots } %>
 				</div>
 			</div>
 			<!-- spot情報 -->
-			<div class="col-sm-8 show-subject">
-				<h2><%= @spot.name %></h2>
+			<div class="col-sm-9 show-subject">
+				<div class="return-index">
+					<%= link_to member_spots_path do %>
+						<i class="fas fa-reply">一覧へ戻る</i>
+					<% end %>
+				</div>
+				<div class="row">
+					<div class="col-xs-9">
+						<h1><%= @spot.name %>
+							<% if @spot.comments.present? %>
+								<span id="star-rate" class="star2"><!-- ☆平均値ここに表示 --></span>
+								<span class="show-star"><%= @spot.ave_rate.round(1) %>点
+								</span>
+							<% end %>
+						</h1>
+					</div>
+					<div class="col-xs-2">
+						<div class="mobile-none">
+							<%= link_to new_member_spot_path do %>
+								<i class="far fa-thumbs-up btn btn-default">レビューする</i>
+							<% end %>
+						</div>
+						<div class="pc-none">
+							<%= link_to new_member_spot_path do %>
+								<i class="far fa-thumbs-up btn btn-default font-size-5"></i>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div>
+					<!--星評価-->
+					 <script>
+					 $(document).on('turbolinks:load', function(){
+					 	$('#star-rate').raty({
+			            size: 36,
+			            starOff: '<%= asset_path('star-off.png') %>',
+			            starOn : '<%= asset_path('star-on.png') %>',
+			            starHalf: '<%= asset_path('star-half.png') %>',
+			            half: true,//星の半分入力
+			            number: 5,//星の数５個まで
+			            readOnly: true,//読み取り専用
+			            score: <%= @spot.ave_rate || 0 %>
+			          });
+					 });
+			         </script>
+			        <!--/星評価-->
+				</div>
 					<nav class="nav-show">
-					<div class="spot_address">最寄り駅:　<%= @spot.address %></div>
+					<div class="spot_address font-size-5">
+						<i class="fas fa-map-marker-alt icon-size icon-padding"></i>最寄り駅:　<%= @spot.address %>
+					</div>
 					<% if @spot.url.present? %>
-						<div class="spot_url">URL:　<%= @spot.url %></div>
+						<div class="spot_url">
+							<i class="fas fa-globe icon-size icon-padding"></i>URL:　<%= @spot.url %></div>
 					<% end %>
 				      	<ul class="nav-list">
-					        <li class="nav-list-item">
-					          <button class="comment-click">レビュー / コメント</button>
-					        </li>
-					        <li class="nav-list-item">
-					       		<button class="img-click">写真</button>
-					        </li>
-					        <li class="nav-list-item">
-					        	<button>
-					        		<%= link_to new_member_spot_path do %>
-					        			<i class="fas fa-plus-circle"></i>写真を投稿
-					        		<% end %>
-					        	</button>
-					        </li>
+				      		<li class="nav-list-item img-click" id="img-click"><span class="font-size-5">写真</span>
+				      		</li>
+					        <li class="nav-list-item comment-click" id="comment-click"><span class="font-size-5">レビュー / コメント</span></li>
 				      	</ul>
 				    </nav>
 
@@ -36,7 +75,7 @@
 				    	<!-- スポット投稿時の写真 -->
 					    <% if @spot.spot_images.present? %>
 							<% @spot.spot_images.each do |image| %>
-								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
+								<div><%= attachment_image_tag image, :image %></div>
 							<% end %>
 						<% end %>
 
@@ -72,4 +111,5 @@
 					<!-- 写真のみの投稿フォーム -->
 			</div>
 		</div>
+	</div>
  </div>
