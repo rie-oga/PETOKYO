@@ -25,8 +25,9 @@
 						</h1>
 					</div>
 					<div class="col-xs-2">
+					<% if member_signed_in? || admin_signed_in? %>
 						<div class="mobile-none">
-							<%= link_to new_member_spot_path do %>
+							<%= link_to member_spot_path(anchor: "comment-form") do %>
 								<i class="far fa-thumbs-up btn btn-default">レビューする</i>
 							<% end %>
 						</div>
@@ -35,6 +36,13 @@
 								<i class="far fa-thumbs-up btn btn-default font-size-5"></i>
 							<% end %>
 						</div>
+					<% else %>
+						<div class="mobile-none">
+							<%= link_to new_member_session_path do %>
+									<i class="far fa-thumbs-up btn btn-default">レビューする</i>
+							<% end %>
+						</div>
+					<% end %>
 					</div>
 				</div>
 				<div>
@@ -98,17 +106,23 @@
 			 					<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 				</div>
 			 			<% else %>
-			 				<p>レビュー / コメントはまだありません。</p>
+			 				<p class="text-align-center">レビュー / コメントはまだありません。
+			 				</p>
 			 			<% end %>
 			 		</div>
 
 					<!-- コメント投稿フォーム / 投稿主であったり、すでにコメントしていたら表示しない -->
-					<% if current_member && current_member.spots.where(id: @spot.id).empty? && current_member.comments.where(spot_id: @spot.id).empty? %>
-					 	<p>レビューをお願いします。</p>
-						<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id, i: @index } %>
-					<% end %>
-
-					<!-- 写真のみの投稿フォーム -->
+					<section id="comment-form">
+						<div class="col-sm-1">
+						</div>
+						<div class="col-sm-10">
+							<% if current_member && current_member.spots.where(id: @spot.id).empty? && current_member.comments.where(spot_id: @spot.id).empty? %>
+								<%= render partial: 'comment_form', locals: { comment: @comment, spot_id: @spot.id, i: @index } %>
+							<% end %>
+						</div>
+						<div class="col-sm-1">
+						</div>
+					</section>
 			</div>
 		</div>
 	</div>

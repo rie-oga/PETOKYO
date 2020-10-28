@@ -2,15 +2,19 @@
 
 <% if comments.present? %>
   <% comments.each do |comment| %>
+  <div class="comment-each">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 comment-member">
         <span class="user-img2"><img src="<%= asset_path('moai.jpg') %>"></span>
         <p class="under-line_none"><%= comment.member.name %></p>
       </div>
-      <div class="col-md-3">
-        <div class=" posts-content">
+      <div class="col-md-8">
+        <div class="posts-content">
           <!--星評価-->
-          <div id="star-rate-<%= comment.id %>"><!-- 星表示 --></div><!-- 繰り返し処理を実行してもidを一意に保てるようにcomment.idを埋め込む-->
+          <span id="star-rate-<%= comment.id %>"><!-- 星表示 -->
+          </span><!-- 繰り返し処理を実行してもidを一意に保てるようにcomment.idを埋め込む-->
+           <span>評価：<%= comment.rate %>点 </span>
+            <p class="date"><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></p>
           <script>
           $('#star-rate-<%= comment.id %>').raty({
             size: 36,
@@ -23,16 +27,14 @@
           });
           </script>
         <!--/星評価-->
-          <h5>評価：<%= comment.rate %>点 </h5>
-          <p class="date"><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></p>
+          <p><%= comment.comment %></p>
         </div>
-      </div>
-      <div class="col-md-6">
-        <p><%= comment.comment %></p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-7 comment-bottom-padding">
       </div>
       <% if current_member == comment.member || current_admin %>
         <div class="col-md-1 edit-button">
@@ -43,6 +45,7 @@
         </div>
       <% end %>
     </div>
+  </div>
   <% end %>
 <% end %>
 

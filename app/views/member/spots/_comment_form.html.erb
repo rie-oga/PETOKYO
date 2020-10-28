@@ -26,9 +26,9 @@
   <!-- 画像 -->
   <div class="form-group row">
     <%= form.label :comment_images, '写真', class:'col-sm-2 col-form-label' %>
-    <div class="col-sm-3">
+    <div class="col-sm-5">
       <%= form.attachment_field :comment_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->
-      <div>※複数選択可能です。</div>
+      <div class="font-size-10">※複数選択可能です。</div>
     </div>
   </div>
 
@@ -44,10 +44,10 @@
 
   <!-- 投稿ボタン -->
   <div class="form-group row">
-    <div class="col-sm-9">
+    <div class="col-sm-10">
     </div>
     <div class="comment-btn">
-      <%= form.submit '投稿する', class:"btn btn-success" %>
+      <%= form.submit '投稿', class:"btn btn-primary" %>
     </div>
   </div>
 
