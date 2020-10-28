@@ -10,17 +10,23 @@
 
           <div class="field">
               <h7>Name<span class="tag">必須</span></h7>
-              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"名前", class:"col-sm-12" %>
+              <div>
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"名前", class:"col-sm-12" %>
+              </div>
           </div>
 
           <div class="field">
               <h7>Nickname<span class="tag">必須</span></h7>
-              <%= f.text_field :nick_name, placeholder:"ニックネーム", class:"col-sm-12" %>
+              <div>
+                <%= f.text_field :nick_name, placeholder:"ニックネーム", class:"col-sm-12" %>
+              </div>
           </div>
 
           <div class="field">
               <h7>Email<span class="tag">必須</span></h7>
-              <%= f.email_field :email, autocomplete: "email", placeholder:"メールアドレス", class:"col-sm-12" %>
+              <div>
+                <%= f.email_field :email, autocomplete: "email", placeholder:"メールアドレス", class:"col-sm-12" %>
+              </div>
           </div>
 
           <div class="field">
@@ -28,12 +34,16 @@
               <% if @minimum_password_length %>
               <em>(英数字<%= @minimum_password_length %>文字以上)</em>
               <% end %><br>
-              <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード", class:"col-sm-12" %>
+              <div>
+                <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード", class:"col-sm-12" %>
+              </div>
           </div>
 
           <div class="field">
               <h7>Password<span class="tag">必須</span></h7>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード確認", class:"col-sm-12" %>
+              <div>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード確認", class:"col-sm-12" %>
+              </div>
           </div>
 
           <div class="actions">

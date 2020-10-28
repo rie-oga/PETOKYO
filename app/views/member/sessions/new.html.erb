@@ -1,5 +1,5 @@
-<div class="container member-session">
-  <div class="row">
+<div class="container">
+  <div class="row member-session">
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
@@ -8,11 +8,15 @@
 
           <div class="field">
             <h7>Email</h7>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス", class:"col-sm-12" %>
+            <div>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス", class:"col-sm-12" %>
+            </div>
           </div>
           <div class="field">
             <h7>Password</h7>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder:"パスワード", class:"col-sm-12" %>
+            <div>
+              <%= f.password_field :password, autocomplete: "current-password", placeholder:"パスワード", class:"col-sm-12" %>
+            </div>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="field">
