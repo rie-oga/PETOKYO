@@ -1,58 +1,51 @@
-<div class="container member-registration">
-   <div class="row">
+<div class="container">
+  <div class="row">
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-      <div class="registration-title">
-        <h4>新規登録フォーム</h4>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          新規登録
+        </div>
+        <div class="panel-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <!-- エラーメッセージ -->
+            <%= flash[:danger] %>
+
+              <div class="form-group">
+                <label class="control-label">Nickname<span class="tag">必須</span></label>
+                <%= f.text_field :nick_name, autofocus: true, placeholder:"ニックネーム", class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label">Email<span class="tag">必須</span></label>
+                <%= f.email_field :email, autocomplete: "email", placeholder:"メールアドレス", class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label">Password<span class="tag">必須</span></label>
+                  <% if @minimum_password_length %>
+                    <em>(英数字<%= @minimum_password_length %>文字以上)</em>
+                  <% end %>
+                  <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード", class:"form-control" %>
+              </div>
+              <div class="form-group">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード確認", class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <P>※ニックネームのみ公開されます</P>
+                <%= f.submit "登録", class:"form-control btn btn-primary" %>
+              </div>
+          <% end %>
+
+          <div class="render-links">
+            <%= render "member/shared/links" %>
+          </div>
+        </div>
       </div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-          <div class="field">
-              <h7>Name<span class="tag">必須</span></h7>
-              <div>
-                <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"名前", class:"col-sm-12" %>
-              </div>
-          </div>
-
-          <div class="field">
-              <h7>Nickname<span class="tag">必須</span></h7>
-              <div>
-                <%= f.text_field :nick_name, placeholder:"ニックネーム", class:"col-sm-12" %>
-              </div>
-          </div>
-
-          <div class="field">
-              <h7>Email<span class="tag">必須</span></h7>
-              <div>
-                <%= f.email_field :email, autocomplete: "email", placeholder:"メールアドレス", class:"col-sm-12" %>
-              </div>
-          </div>
-
-          <div class="field">
-              <h7>Password<span class="tag">必須</span></h7>
-              <% if @minimum_password_length %>
-              <em>(英数字<%= @minimum_password_length %>文字以上)</em>
-              <% end %><br>
-              <div>
-                <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード", class:"col-sm-12" %>
-              </div>
-          </div>
-
-          <div class="field">
-              <h7>Password<span class="tag">必須</span></h7>
-              <div>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード確認", class:"col-sm-12" %>
-              </div>
-          </div>
-
-          <div class="actions">
-              <P>※ニックネームのみ公開されます</P>
-              <%= f.submit "登録", class:"col-sm-12 btn btn-primary" %>
-          </div>
-      <% end %>
-
-      <%= render "member/shared/links" %>
+    </div>
+    <div class="col-sm-4">
     </div>
   </div>
 </div>

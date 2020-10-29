@@ -384,14 +384,19 @@ h5 {
   position: relative;
 }
 .img-count-view {
+  color: #fff;
+  font-size: 15px;
+  opacity: 0;
   position: absolute;
+  top: 50%;
+  right: 10px;
 }
 
 .spot_ranking_image .image:hover {
-  opacity: 0.5;
-  .img-count-view {
-    color: #fff;
-  }
+  opacity: 0.4;
+}
+.spot_ranking_image .image:hover + .img-count-view {
+  opacity: 1;
 }
 .review-count {
   font-size: 15px;
@@ -592,6 +597,12 @@ h5 {
 }
 /* left_side_barここまで */
 
+/* post-formここから */
+.spot-form-error-message {
+  padding: 10px 0 0 20px;
+}
+/* post-formここまで */
+
 
 
 
@@ -692,14 +703,14 @@ h5 {
 .spot-box {
   border-radius: 0;
   padding: 10px;
-  margin: 5px 0 0 0;
+  margin: 2px 0;
   font-size: 10px;
   line-height: 20px;
 }
 //影付きボックスここまで
 
 .spot-box-parent {
-  background-color: #dcdcdc;
+  background-color: #c0c0c0;
 }
 .spot_ranking_image, .spot_ranking_image .image {
   width: 110px;

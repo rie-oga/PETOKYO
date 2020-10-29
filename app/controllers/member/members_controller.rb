@@ -39,7 +39,7 @@ class Member::MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:is_withdeawal_status,:name, :nick_name, :profile_image)
+    params.require(:member).permit(:is_withdeawal_status, :nick_name, :profile_image)
   end
 
   def ensure_correct_member

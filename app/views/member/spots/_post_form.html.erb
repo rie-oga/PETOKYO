@@ -1,48 +1,50 @@
-	<div class="row">
-		<div class="col-sm-3">
-		</div>
-		<div class="col-sm-6">
-			<div class="panel panel-default">
-        		<div class="panel-heading">
-        			<% if params[:id] %>
-        				<h4>Spot編集</h4>
-        			<% else %>
-        				<h4>Spot投稿</h4>
-        			<% end %>
-        		</div>
-        			<div class="panel-body">
-						<%= form_with(model: [:member, spot], local: true) do |form| %>
+<div class="row">
+	<div class="col-sm-3">
+	</div>
+	<div class="col-sm-6">
+		<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<% if params[:id] %>
+    				<h4>Spot編集</h4>
+    			<% else %>
+    				<h4>Spot投稿</h4>
+    			<% end %>
+    		</div>
+			<div class="panel-body">
+				<%= form_with(model: [:member, spot], local: true) do |form| %>
 
-						<!--エラーメッセージ-->
-  						<%= render 'layouts/errors', obj: spot %>
+					<!--エラーメッセージ-->
+					<div class="red spot-form-error-message">
+						<%= render 'layouts/errors', obj: spot %>
+					</div>
 
-							<div class="form-group">
-								<label class="control-label">ジャンル選択</label>
-			  					<%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選ぶ" %>
-			  					<div class="point-down">※ご利用になったものをお選びください。</div>
-			  				</div>
-			  				<div class="form-group">
-			  					<label class="control-label">画像を選ぶ</label>
-			  					<%= form.attachment_field :spot_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->
-			  					<div class="point-down">※複数選択可能です。</div>
-			  				</div>
-			  				<div class="form-group">
-			  					<label class="control-label">名所</label>
-			  					<%= form.text_field :name,class:'form-control' %>
-			  				</div>
-			  				<div class="form-group">
-			  					<label class="control-label">最寄り駅</label>
-			  					<%= form.text_field :address, placeholder:"〇〇駅  複数可",class:'form-control' %>
-			  				</div>
-			  				<div class="form-group">
-			  					<label class="control-label">紹介文</label>
-			  					<%= form.text_area :introduction,class:'form-control', rows:'6' %>
-			  				</div>
-			  				<div class="form-group">
-			  					<%= form.submit '投稿',class:'btn btn-primary form-control' %>
-			  				</div>
-			  			<% end %>
-			  		</div>
-			</div>
+					<div class="form-group">
+						<label class="control-label">ジャンル選択</label>
+	  					<%= form.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選ぶ" %>
+	  					<div class="point-down">※ご利用になったものをお選びください。</div>
+	  				</div>
+	  				<div class="form-group">
+	  					<label class="control-label">画像を選ぶ</label>
+	  					<%= form.attachment_field :spot_images_images, multiple: true %><!-- multiple: trueの記述で、複数画像選択可能になる -->
+	  					<div class="point-down">※複数選択可能です。</div>
+	  				</div>
+	  				<div class="form-group">
+	  					<label class="control-label">名所</label>
+	  					<%= form.text_field :name, placeholder:"",class:'form-control' %>
+	  				</div>
+	  				<div class="form-group">
+	  					<label class="control-label">最寄り駅</label>
+	  					<%= form.text_field :address, placeholder:"〇〇駅  複数可",class:'form-control' %>
+	  				</div>
+	  				<div class="form-group">
+	  					<label class="control-label">紹介文</label>
+	  					<%= form.text_area :introduction, placeholder:"200文字以内",class:'form-control', rows:'6' %>
+	  				</div>
+	  				<div class="form-group">
+	  					<%= form.submit '投稿',class:'btn btn-primary form-control' %>
+	  				</div>
+	  			<% end %>
+	  		</div>
 		</div>
 	</div>
+</div>
