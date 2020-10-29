@@ -384,14 +384,19 @@ h5 {
   position: relative;
 }
 .img-count-view {
+  color: #fff;
+  font-size: 15px;
+  opacity: 0;
   position: absolute;
+  top: 50%;
+  right: 10px;
 }
 
 .spot_ranking_image .image:hover {
-  opacity: 0.5;
-  .img-count-view {
-    color: #fff;
-  }
+  opacity: 0.4;
+}
+.spot_ranking_image .image:hover + .img-count-view {
+  opacity: 1;
 }
 .review-count {
   font-size: 15px;
