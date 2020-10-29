@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2020_10_10_144805) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string "name", null: false
     t.string "nick_name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
