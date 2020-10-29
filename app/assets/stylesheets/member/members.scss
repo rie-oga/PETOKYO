@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .member-session {
-	margin-top: 50px;
 	margin-bottom: 50px;
 }
 .member-registration {
@@ -87,4 +86,9 @@
 .registration-title {
   text-align: center;
   margin-bottom: 40px;
+}
+
+/*（640px）以下の際に適用される設定 */
+@media screen and (max-width:640px) {
+
 }
