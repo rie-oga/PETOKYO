@@ -4,7 +4,7 @@
 			<tr>
 				<th></th>
 				<th>id</th>
-				<th>name</th>
+				<th>nick_name</th>
 				<th>email</th>
 				<th>spot投稿数</th>
 				<th>review投稿数</th>
@@ -16,7 +16,7 @@
 				<tr>
 					<td><%= member.member_status %></td>
 					<td><%= member.id %></td>
-					<td><%= member.name %></td>
+					<td><%= member.nick_name %></td>
 					<td><%= member.email %></td>
 					<td><%= link_to member.spots.count, member_member_path(member, anchor: "spot") %></td>
 					<td><%= link_to member.comments.count, member_member_path(member, anchor: "comment") %></td>
