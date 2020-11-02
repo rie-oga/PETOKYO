@@ -114,11 +114,20 @@ $(function(){
 //spot-showページ//
 $(document).on('turbolinks:load', function() {
   $(function () {
+    $('.nav-list-item').click(function() {
+      $('.nav-list-item').removeClass('pointer pointer2');
+      $(this).addClass('pointer');
+    });
+  });
+});
+
+
+
+$(document).on('turbolinks:load', function() {
+  $(function () {
     $('.comment-click').on('click', function() {
         $('.img-box').hide();
         $('.comment-box-parent').show();
-        $('.img-click').toggleClass('js-border-white');
-        $('.comment-click').toggleClass('js-border-blue');
     });
   });
 });
@@ -128,8 +137,6 @@ $(document).on('turbolinks:load', function() {
     $('.img-click').on('click', function() {
         $('.comment-box-parent').hide();
         $('.img-box').show();
-        $('.comment-click').toggleClass('js-border-white');
-        $('.img-click').toggleClass('js-border-blue');
     });
   });
 });
