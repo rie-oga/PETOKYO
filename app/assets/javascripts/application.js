@@ -114,8 +114,8 @@ $(function(){
 //spot-showページ//
 $(document).on('turbolinks:load', function() {
   $(function () {
-    $('.nav-list-item').click(function() {
-      $('.nav-list-item').removeClass('pointer pointer2');
+    $('.spot-nav-list-item').click(function() {
+      $('.spot-nav-list-item').removeClass('pointer pointer2');
       $(this).addClass('pointer');
     });
   });
