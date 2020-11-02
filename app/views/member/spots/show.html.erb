@@ -25,17 +25,19 @@
 						</h1>
 					</div>
 					<div class="col-xs-2">
-					<% if member_signed_in? || admin_signed_in? %>
-						<div class="mobile-none">
-							<%= link_to member_spot_path(anchor: "comment-form") do %>
-								<i class="far fa-thumbs-up btn btn-default">レビューする</i>
-							<% end %>
-						</div>
-						<div class="pc-none">
-							<%= link_to new_member_spot_path do %>
-								<i class="far fa-thumbs-up btn btn-default font-size-5"></i>
-							<% end %>
-						</div>
+					<% if current_member || current_admin %>
+						<% if current_member.spots.where(id: @spot.id).empty? && current_member.comments.where(spot_id: @spot.id).empty? %>
+							<div class="mobile-none">
+								<%= link_to member_spot_path(anchor: "comment-form") do %>
+									<i class="far fa-thumbs-up btn btn-default">レビューする</i>
+								<% end %>
+							</div>
+							<div class="pc-none">
+								<%= link_to new_member_spot_path do %>
+									<i class="far fa-thumbs-up btn btn-default font-size-5"></i>
+								<% end %>
+							</div>
+						<% end %>
 					<% else %>
 						<div class="mobile-none">
 							<%= link_to new_member_session_path do %>

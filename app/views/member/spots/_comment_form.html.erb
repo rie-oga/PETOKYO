@@ -5,7 +5,7 @@
   <%= form.hidden_field :spot_id, { value: spot_id } %>
 
   <!-- 評価 -->
-  <div class="form-group row" id=<%=raw "star#{i}".to_json %> form="form1">
+  <div class="form-group row" id=<%=raw "star#{i}".to_json %>>
     <%= form.label :rate,'評価 ', class:'col-sm-2 col-form-label' %>
     <%= form.hidden_field :rate, id: :review_star %>
   </div>
@@ -47,7 +47,7 @@
     <div class="col-sm-10">
     </div>
     <div class="comment-btn">
-      <%= form.submit '投稿', class:"btn btn-primary" %>
+      <%= form.submit '投稿', class:"btn btn-default" %>
     </div>
   </div>
 
