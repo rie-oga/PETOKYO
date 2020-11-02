@@ -34,68 +34,61 @@
 				<li class="nav-list-item">
 					<button class="review-click">　レビュー履歴　</button>
 				</li>
-				<li class="nav-list-item">
-					<button class="click">
-						<%= link_to new_member_spot_path do %>
-					        <i class="fas fa-plus-circle"></i> 投稿する
-					    <% end %>
-					</button>
-				</li>
 			</ul>
 		</nav>
 	</div>
 
 	<!-- 投稿履歴一覧 -->
 	<div class="row">
-	<div class="member-spot-box">
-		<div class="col-sm-1">
-		</div>
-		<div class="col-sm-10 member-boxes">
-			<div class="post-subject-parent" id="spot">
-				<h5 class="post-subject">ご投稿一覧</h5>
+		<div class="member-spot-box">
+			<div class="col-sm-1">
 			</div>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>Image</th>
-							<th>Spot</th>
-							<th>Introduction</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @spots.each do |spot| %>
+			<div class="col-sm-10 member-boxes">
+				<div class="post-subject-parent" id="spot">
+					<h5 class="post-subject">ご投稿一覧</h5>
+				</div>
+					<table class="table">
+						<thead>
 							<tr>
-								<td><!-- lメソッド：時間を表示 --><%= l spot.created_at, format: :short %></td>
-
-								<!-- 画像一覧 -->
-								<% if spot.spot_images.present? %>
-					  				<td>
-					  					<% spot.spot_images.first(1).each do |image| %>
-					  						<%= link_to member_member_path(spot_id: image.spot, anchor: "view-more") do %>
-					    						<%= attachment_image_tag image, :image, :fill, 80, 60 %>
-					    							<% if spot.spot_images.count > 1 %>
-					    								<div class="p-small">view more</div>
-					    							<% end %>
-					    					<% end %>
-										<% end %>
-									</td>
-				  				<% else %>
-				  					<td>no image</td>
-				  			    <% end %>
-
-								<td><%= spot.name %></td>
-								<td class="p-small width-fix"><%= spot.introduction %></td>
-								<td><%= link_to "編集", edit_member_spot_path(spot), class: "btn btn-default" %>
-									<%= link_to "削除", member_spot_path(spot), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-default" %>
-								</td>
+								<th>Date</th>
+								<th>Image</th>
+								<th>Spot</th>
+								<th>Introduction</th>
+								<th></th>
 							</tr>
-						<% end %>
-					</tbody>
-			    </table>
+						</thead>
+						<tbody>
+							<% @spots.each do |spot| %>
+								<tr>
+									<td><!-- lメソッド：時間を表示 --><%= l spot.created_at, format: :short %></td>
+
+									<!-- 画像一覧 -->
+									<% if spot.spot_images.present? %>
+						  				<td>
+						  					<% spot.spot_images.first(1).each do |image| %>
+						  						<%= link_to member_member_path(spot_id: image.spot, anchor: "view-more") do %>
+						    						<%= attachment_image_tag image, :image, :fill, 80, 60 %>
+						    							<% if spot.spot_images.count > 1 %>
+						    								<div class="p-small">view more</div>
+						    							<% end %>
+						    					<% end %>
+											<% end %>
+										</td>
+					  				<% else %>
+					  					<td>no image</td>
+					  			    <% end %>
+
+									<td><%= spot.name %></td>
+									<td class="p-small width-fix"><%= spot.introduction %></td>
+									<td><%= link_to "編集", edit_member_spot_path(spot), class: "btn btn-default" %>
+										<%= link_to "削除", member_spot_path(spot), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-default" %>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+				    </table>
+			</div>
 		</div>
-	</div>
 	</div>
 
 	<!-- 投稿ごとの画像一覧 view-moreがクリックされたら表示-->
@@ -118,55 +111,55 @@
 
 	<!-- レビュー一覧 -->
 	<div class="row">
-	<div class="review-box">
-		<div class="col-sm-1">
-		</div>
-		<div class="col-sm-10 member-boxes">
-			<div class="review-subject-parent" id="comment">
-				<h5 class="review-subject">レビュー一覧</h5>
+		<div class="review-box">
+			<div class="col-sm-1">
 			</div>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>Spot</th>
-							<th>Image</th>
-							<th></th>
-							<th>Comment</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @comments.each do |comment| %>
+			<div class="col-sm-10 member-boxes">
+				<div class="review-subject-parent" id="comment">
+					<h5 class="review-subject">レビュー一覧</h5>
+				</div>
+					<table class="table">
+						<thead>
 							<tr>
-								<td><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></td>
-								<td><%= comment.spot.name %></td>
-								<!-- 画像一覧 -->
-								<% if comment.comment_images.present? %>
-					  				<td>
-					  					<% comment.comment_images.first(1).each do |image| %>
-					  						<%= link_to member_member_path(comment_id: image.comment, anchor: "view-more2") do %>
-					    						<%= attachment_image_tag image, :image, :fill, 80, 60 %>
-					    							<% if comment.comment_images.count > 2 %>
-					    								<div class="p-small">view more</div>
-					    							<% end %>
-					    					<% end %>
-										<% end %>
-									</td>
-				  				<% else %>
-				  					<td>no image</td>
-				  			    <% end %>
-								<td><img src="<%= asset_path('star-on.png') %>"><%= comment.rate %></td>
-								<td class="p-small width-fix"><%= comment.comment %></td>
-								<td><%= link_to "編集", edit_member_comment_path(comment), class: "btn btn-default" %>
-									<%= link_to "削除", member_comment_path(comment), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-default" %>
-								</td>
+								<th>Date</th>
+								<th>Spot</th>
+								<th>Image</th>
+								<th></th>
+								<th>Comment</th>
+								<th></th>
 							</tr>
-						<% end %>
-					</tbody>
-			    </table>
+						</thead>
+						<tbody>
+							<% @comments.each do |comment| %>
+								<tr>
+									<td><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></td>
+									<td><%= comment.spot.name %></td>
+									<!-- 画像一覧 -->
+									<% if comment.comment_images.present? %>
+						  				<td>
+						  					<% comment.comment_images.first(1).each do |image| %>
+						  						<%= link_to member_member_path(comment_id: image.comment, anchor: "view-more2") do %>
+						    						<%= attachment_image_tag image, :image, :fill, 80, 60 %>
+						    							<% if comment.comment_images.count > 1 %>
+						    								<div class="p-small">view more</div>
+						    							<% end %>
+						    					<% end %>
+											<% end %>
+										</td>
+					  				<% else %>
+					  					<td>no image</td>
+					  			    <% end %>
+									<td><img src="<%= asset_path('star-on.png') %>"><%= comment.rate %></td>
+									<td class="p-small width-fix"><%= comment.comment %></td>
+									<td><%= link_to "編集", edit_member_comment_path(comment), class: "btn btn-default" %>
+										<%= link_to "削除", member_comment_path(comment), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-default" %>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+				    </table>
+			</div>
 		</div>
-	</div>
 	</div>
 
 	<!-- コメントごとの画像一覧 view-moreがクリックされたら表示-->

@@ -114,8 +114,8 @@ $(function(){
 //spot-showページ//
 $(document).on('turbolinks:load', function() {
   $(function () {
-    $('.nav-list-item').click(function() {
-      $('.nav-list-item').removeClass('pointer pointer2');
+    $('.spot-nav-list-item').click(function() {
+      $('.spot-nav-list-item').removeClass('pointer pointer2');
       $(this).addClass('pointer');
     });
   });
@@ -146,6 +146,7 @@ $(document).on('turbolinks:load', function() {
   $(function () {
     $('.spot-click').on('click', function() {
         $('.review-box').hide();
+        $('#view-more2').hide();
         $('.member-spot-box').show();
     });
   });
@@ -155,6 +156,7 @@ $(document).on('turbolinks:load', function() {
   $(function () {
     $('.review-click').on('click', function() {
         $('.member-spot-box').hide();
+        $('#view-more').hide();
         $('.review-box').show();
     });
   });
