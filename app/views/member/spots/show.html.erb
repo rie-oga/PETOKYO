@@ -15,7 +15,7 @@
 					<% end %>
 				</div>
 				<div class="row">
-					<div class="col-xs-9">
+					<div class="col-sm-9 col-xs-11">
 						<h1><%= @spot.name %>
 							<% if @spot.comments.present? %>
 								<span id="star-rate" class="star2"><!-- ☆平均値ここに表示 --></span>
@@ -24,7 +24,7 @@
 							<% end %>
 						</h1>
 					</div>
-					<div class="col-xs-2">
+					<div class="col-sm-2 col-xs-1">
 					<% if current_member || current_admin %>
 						<% if current_member.spots.where(id: @spot.id).empty? && current_member.comments.where(spot_id: @spot.id).empty? %>
 							<div class="mobile-none">
