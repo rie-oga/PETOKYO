@@ -1,8 +1,8 @@
-<div class="row spot-box-parent">
+<div class="spot-box-parent">
 	<% spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box row">
 			<%= link_to member_spot_path(spot, index: i), class:"under_line_none" do %>
-				<div class="spot-box-left col-xs-4">
+				<div class="spot-box-left col-md-4 col-xs-4">
 						<div>
 							<% if spot.spot_images.present? %>
 				  				<% spot.spot_images.first(1).each do |image| %><!-- 1件のみ表示 -->
@@ -17,7 +17,7 @@
 							<% end %>
 						</div>
 				</div>
-				<div class="spot-box-right col-xs-6">
+				<div class="spot-box-right col-md-6 col-xs-7">
 						<div>
 							<span class="font-size-big1"><strong><%= spot.name %></strong></span>
 							<% if spot.comments.present? %>
@@ -67,8 +67,7 @@
 			          	 	<% end %>
 						</div>
 				</div>
-			<% end %>
-				<div class="col-xs-2 mobile-none">
+				<div class="col-md-2">
 					<div class="btns">
 						<div class="mobile-none">
 							<% if spot.comments.exists? %>
@@ -83,9 +82,12 @@
 						</div>
 					</div>
 				</div>
-		</div>
-		<div class="row">
-			<div id="comment-form-<%= spot.id %>"><!-- コメントフォームここに表示 --></div>
+			<% end %>
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="comment-form-<%= spot.id %>"><!-- コメントフォームここに表示 --></div>
+				</div>
+			</div>
 		</div>
 	<% end %>
 </div>
