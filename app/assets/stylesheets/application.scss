@@ -48,7 +48,7 @@ header {
 .main {
 	padding-top: 2px;
   background-color: #fafafa;
-  min-height: 300px;
+  min-height: 676px;
 }
 footer {
 	background-color: #365C92;
@@ -168,7 +168,7 @@ ul.header-dropmenu li:hover ul li:hover {
    display: block;
    width: 20px;
    height: 20px;
-   margin: 7px 0 0 auto;/* 親にflexを設定しているため、左にautoをつけると右に寄る */
+   margin: 12px 10px 0 auto;/* 親にflexを設定しているため、左にautoをつけると右に寄る */
   }
   #hamburger span {
    position: absolute;
@@ -279,16 +279,17 @@ ul.header-dropmenu li:hover ul li:hover {
   }
 
   .logo {
-    height: 35px;
+    height: 45px;
   }
   .logo img {
     width: 50px;
-    height: 50px;
+    height: 45px;
     padding: 5px;
     background-color: #fff;
-    border-radius: 0 3px 3px;
+    border-radius: 0 3px 3px 0;
     z-index: 1;
     position: relative;
+    opacity: 0.9;
   }
   /* headerここまで */
 
