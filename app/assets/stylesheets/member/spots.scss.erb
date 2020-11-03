@@ -380,11 +380,13 @@ h5 {
 .padding-top {
   padding-top: 10px;
 }
-.spot_ranking_image, .spot_ranking_image .image {
+.spot_ranking_image, .spot_ranking_image .image, .spot_ranking_image img {
   width: 240px;
   height: 240px;
   object-fit: cover;
 }
+
+
 .spot_ranking_image {
   background-color: #000;
   position: relative;
@@ -398,10 +400,10 @@ h5 {
   right: 10px;
 }
 
-.spot_ranking_image .image:hover {
+.spot_ranking_image .image:hover, .spot_ranking_image img:hover {
   opacity: 0.4;
 }
-.spot_ranking_image .image:hover + .img-count-view {
+.spot_ranking_image .image:hover + .img-count-view, .spot_ranking_image img:hover + .img-count-view {
   opacity: 1;
 }
 .review-count {
@@ -704,7 +706,7 @@ h5 {
 
 
 
-/* spot_rankingページ */
+/* spot_rankingページここから */
 
 .spot-box-parent {
   margin-top: 0;
@@ -718,18 +720,30 @@ h5 {
   margin: 2px 0;
   font-size: 10px;
   line-height: 20px;
+  max-height: 200px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #808080;
 }
 //影付きボックスここまで
 
 .spot-box-parent {
   background-color: #c0c0c0;
 }
-.spot_ranking_image, .spot_ranking_image .image {
-  width: 110px;
+.spot_ranking_image, .spot_ranking_image .image, .spot-box-left div, .spot_ranking_image img {
+  width: 105%;
   height: 180px;
 }
+.spot-introduction-td {
+  height: 120px;
+}
+.spot-introduction {
+  height: 120px;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+}
 .font-size-big, .spot-introduction, .review-count {
-  font-size: 8px;
+  font-size: 7px;
 }
 .pc-none {
   display: block;
@@ -740,7 +754,10 @@ h5 {
 .font-size-big1 {
   font-size: 13px;
 }
-/* spot_rankingページ */
+.station {
+  padding: 2px 0;
+}
+/* spot_rankingページここまで */
 
 
 /* showページここから */
@@ -804,8 +821,8 @@ h5 {
 }
 .img-box .image {
   object-fit: cover;
-  width: 20vw;
-  height: 45vh;
+  width: 90%;
+  height: 200px;
 }
 .img-box div {
   margin: 0 5px 10px 5px;
