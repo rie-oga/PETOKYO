@@ -24,6 +24,9 @@
 	padding-top: 30px;
 	margin-bottom: 50px;
 }
+.profile_image, .image {
+  object-fit: cover;
+}
 
 //影ボックスここから
 .mydate-box {
