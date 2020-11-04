@@ -19,7 +19,8 @@
 						<h1><%= @spot.name %>
 							<% if @spot.comments.present? %>
 								<span id="star-rate" class="star2"><!-- ☆平均値ここに表示 --></span>
-								<span class="show-star"><%= @spot.ave_rate.round(1) %>点
+								<span class="show-star">
+									<%= @spot.ave_rate.round(1) %>点
 								</span>
 							<% end %>
 						</h1>
