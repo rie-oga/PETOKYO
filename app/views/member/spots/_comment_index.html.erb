@@ -14,7 +14,7 @@
           <span id="star-rate-<%= comment.id %>" class="star3"><!-- 星表示 -->
           </span><!-- 繰り返し処理を実行してもidを一意に保てるようにcomment.idを埋め込む-->
            <span class="font-size-5">評価：<%= comment.rate %>点 </span>
-            <p class="date font-size-5"><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></p>
+            <p class="date"><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></p>
           <script>
           $('#star-rate-<%= comment.id %>').raty({
             size: 36,
@@ -27,7 +27,7 @@
           });
           </script>
         <!--/星評価-->
-          <p class="font-size-5"><%= comment.comment %></p>
+          <p class="comment-comment"><%= comment.comment %></p>
         </div>
       </div>
     </div>
