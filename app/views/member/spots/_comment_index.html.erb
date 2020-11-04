@@ -4,17 +4,17 @@
   <% comments.each do |comment| %>
   <div class="comment-each">
     <div class="row">
-      <div class="col-md-2 comment-member">
+      <div class="col-sm-2 col-xs-3 comment-member">
         <span class="user-img2"><img src="<%= asset_path('moai.jpg') %>"></span>
-        <p class="under-line_none"><%= comment.member.nick_name %></p>
+        <p class="under-line_none font-size-8"><%= comment.member.nick_name %></p>
       </div>
-      <div class="col-md-8">
+      <div class="col-sm-8 col-xs-8">
         <div class="posts-content">
           <!--星評価-->
-          <span id="star-rate-<%= comment.id %>"><!-- 星表示 -->
+          <span id="star-rate-<%= comment.id %>" class="star3"><!-- 星表示 -->
           </span><!-- 繰り返し処理を実行してもidを一意に保てるようにcomment.idを埋め込む-->
-           <span>評価：<%= comment.rate %>点 </span>
-            <p class="date"><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></p>
+           <span class="font-size-5">評価：<%= comment.rate %>点 </span>
+            <p class="date font-size-5"><!-- lメソッド：時間を表示 --><%= l comment.created_at, format: :short %></p>
           <script>
           $('#star-rate-<%= comment.id %>').raty({
             size: 36,
@@ -27,11 +27,11 @@
           });
           </script>
         <!--/星評価-->
-          <p><%= comment.comment %></p>
+          <p class="font-size-5"><%= comment.comment %></p>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row mobile-none">
       <div class="col-md-2">
       </div>
       <div class="col-md-7 comment-bottom-padding">

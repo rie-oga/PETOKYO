@@ -15,11 +15,12 @@
 					<% end %>
 				</div>
 				<div class="row">
-					<div class="col-sm-9 col-xs-11">
+					<div class="col-sm-9 col-xs-10">
 						<h1><%= @spot.name %>
 							<% if @spot.comments.present? %>
 								<span id="star-rate" class="star2"><!-- ☆平均値ここに表示 --></span>
-								<span class="show-star"><%= @spot.ave_rate.round(1) %>点
+								<span class="show-star">
+									<%= @spot.ave_rate.round(1) %>点
 								</span>
 							<% end %>
 						</h1>
@@ -34,7 +35,7 @@
 							</div>
 							<div class="pc-none">
 								<%= link_to new_member_spot_path do %>
-									<i class="far fa-thumbs-up btn btn-default font-size-5"></i>
+									<i class="far fa-thumbs-up btn btn-default btn-xs font-size-5 iine-btn"></i>
 								<% end %>
 							</div>
 						<% end %>
@@ -108,7 +109,7 @@
 			 					<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 				</div>
 			 			<% else %>
-			 				<p class="text-align-center">レビュー / コメントはまだありません。
+			 				<p class="text-align-center font-size-5">レビュー / コメントはまだありません。
 			 				</p>
 			 			<% end %>
 			 		</div>
