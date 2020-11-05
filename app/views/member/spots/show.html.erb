@@ -35,7 +35,7 @@
 							</div>
 							<div class="pc-none">
 								<%= link_to new_member_spot_path do %>
-									<i class="far fa-thumbs-up btn btn-default btn-xs font-size-5 iine-btn"></i>
+									<i class="far fa-thumbs-up btn btn-default btn-xs font-size-8 iine-btn"></i>
 								<% end %>
 							</div>
 						<% end %>
@@ -75,9 +75,9 @@
 							<i class="fas fa-globe icon-size icon-padding"></i>URL:　<%= @spot.url %></div>
 					<% end %>
 				      	<ul class="nav-list">
-				      		<li class="nav-list-item spot-nav-list-item pointer img-click" id="img-click"><span class="font-size-8">写真</span>
+				      		<li class="nav-list-item spot-nav-list-item pointer img-click" id="img-click"><span class="font-size-10">写真</span>
 				      		</li>
-					        <li class="nav-list-item spot-nav-list-item pointer pointer2 comment-click" id="comment-click"><span class="font-size-8">レビュー / コメント</span></li>
+					        <li class="nav-list-item spot-nav-list-item pointer pointer2 comment-click" id="comment-click"><span class="font-size-10">レビュー / コメント</span></li>
 				      	</ul>
 				    </nav>
 
@@ -109,7 +109,7 @@
 			 					<%= render partial: 'comment_index', locals: {comments: @comments} %>
 			 				</div>
 			 			<% else %>
-			 				<p class="text-align-center font-size-5">レビュー / コメントはまだありません。
+			 				<p class="text-align-center font-size-8">レビュー / コメントはまだありません。
 			 				</p>
 			 			<% end %>
 			 		</div>
