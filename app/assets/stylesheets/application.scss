@@ -214,21 +214,19 @@ ul.header-dropmenu li:hover ul li:hover {
     transform: translateY(-5px) rotate(45deg);
   }
 
-
   .sp-nav ul {
-   padding: 0;
+   padding: 0 0 0 80px;
    display: flex;
    flex-direction: column;/* columnで縦並び */
    justify-content: center;/*親要素の上下中央へ */
    height: 100%;
   }
   .sp-nav li {
-     margin: 0;
-     padding: 0;
      color: #fff;
      letter-spacing: 0.5em;
      display: inline-block;
-     text-align: center;
+     text-align: left;
+     border-bottom: 1px solid #dcdcdc;
   }
   .sp-nav li span {
      font-size: 15px;
@@ -239,41 +237,15 @@ ul.header-dropmenu li:hover ul li:hover {
      padding: 20px 0;
      color: #fff;
   }
-
-  /* ✕印ここから */
-  /*基準となるli要素*/
-  .sp-nav .close {
-     position: relative;
-     padding-left: 20px;
+  .sp-li-category {
+    padding: 20px 0 10px;
   }
-  .white {
-    color: #fff;
+  .sp-li2 {
+    border-bottom: 1px solid #696969;
   }
-  /*バツ印線1*/
-  .sp-nav .close::before {
-     content: '';
-     position: absolute;
-     top: 50%;
-     left: 0;
-     display: block;
-     width: 16px;
-     height: 1px;
-     background: #fff;
-     transform: rotate( 45deg );
+  .sp-li2:last-child {
+    border-bottom: 0;
   }
-  /*バツ印線2*/
-  .sp-nav .close::after {
-     content: '';
-     position: absolute;
-     top: 50%;
-     left: 0;
-     display: block;
-     width: 16px;
-     height: 1px;
-     background: #fff;
-     transform: rotate( -45deg );
-  }
- /* ✕印ここまで */
 
   .sp-nav {
    z-index: 3;

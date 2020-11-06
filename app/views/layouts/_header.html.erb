@@ -80,7 +80,7 @@
 			<nav class="sp-nav">
 		    	<ul class="header-nav">
 						<li class="sp-li"><%= link_to 'Spotを投稿', new_member_spot_path %></li>
-						<li class="sp-li">Category
+						<li class="sp-li sp-li-category">Category
 							<ul>
 								<li class="sp-li2"><%= link_to '全て', member_spots_path %></li>
 								<% @genres.each do |genre| %>
@@ -114,7 +114,7 @@
 			<nav class="sp-nav">
 				<ul class="header-nav">
 					<li class="sp-li"><%= link_to 'About', root_path(anchor: "about") %></li>
-					<li class="sp-li">Category
+					<li class="sp-li sp-li-category">Category
 						<ul>
 							<li class="sp-li2"><%= link_to '全て', member_spots_path %></li>
 							<% @genres.each do |genre| %>
