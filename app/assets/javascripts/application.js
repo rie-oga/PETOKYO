@@ -172,3 +172,12 @@ $(document).on('turbolinks:load', function() {
      });
   });
 });
+// hamburger ✕へ //
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    $('.btn-trigger').on('click', function() {
+      $(this).toggleClass('active');
+      return false;
+    });
+  });
+});

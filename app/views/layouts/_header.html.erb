@@ -92,7 +92,6 @@
 
 
 						<li class="sp-li"><%= link_to 'Log out',destroy_member_session_path, method: :delete %></li>
-		      			<li class="close pc-li"><span class="white">閉じる</span></li>
 			   	</ul>
 			</nav>
 		<% elsif admin_signed_in? %>
@@ -109,7 +108,6 @@
 						</ul>
 					</li>
 					<li class="sp-li"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-					<li class="close pc-li"><span class="white">閉じる</span></li>
 				</ul>
 			</nav>
 		<% else %>
@@ -126,7 +124,6 @@
 					</li>
 					<li class="sp-li"><%= link_to '新規登録', new_member_registration_path %></li>
 					<li class="sp-li"><%= link_to 'ログイン', new_member_session_path %></li>
-					<li class="close pc-li"><span class="white">閉じる</span></li>
 				</ul>
 			</nav>
 		<% end %>
@@ -135,7 +132,9 @@
 			<%= link_to root_path do %>
 				<div class="logo"><%= image_tag 'PETOKYO_logo3.png' %></div>
 			<% end %>
-			<div id="hamburger">
+			<div id="hamburger" class="btn-trigger">
+				<span></span>
+				<span></span>
 				<span></span>
 			</div>
 		</div>
