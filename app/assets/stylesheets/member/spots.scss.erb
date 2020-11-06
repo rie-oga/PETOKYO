@@ -753,8 +753,28 @@ h5 {
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
   width: 100%;
 }
+
+.spot_ranking_image {
+  background-color: #fff;
+}
+
+.spot_ranking_image .image:hover, .spot_ranking_image img:hover {
+  opacity: 1;
+}
+.spot_ranking_image .image:hover + .img-count-view, .spot_ranking_image img:hover + .img-count-view {
+  opacity: 0;
+}
+
+
+
+
+
+
 .spot-box .col-xs-7 {
   padding-right: 5px;
+}
+.spot-box .col-xs-4 {
+  padding-left: 5px;
 }
 
 
@@ -792,7 +812,7 @@ h5 {
   padding-right: 0;
   padding-left: 0;
 }
-.icon-size {
+.ranking-icon-size {
   font-size: 10px;
 }
 
@@ -826,8 +846,8 @@ h5 {
 .show-star, .font-size-8 {
   font-size: 8px;
 }
-.icon-size {
-  font-size: 7px;
+.show-icon-size {
+  font-size: 8px;
 }
 .icon-padding {
   padding: 0 3px 0 3px;
