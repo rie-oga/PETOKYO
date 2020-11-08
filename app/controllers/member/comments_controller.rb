@@ -9,11 +9,16 @@ class Member::CommentsController < ApplicationController
 		if comment.save
 		   redirect_to member_spot_path(comment.spot)
 		else
-		   @spot = comment.spot_id
 		   @comment = Comment.new
+		   @comment.comment_images.build
+		   @spot = params[:comment][:spot_id]
+		   @i = 1
 		   flash[:notice] = "☆評価は必須です。"
-		   render :edit
+		   render :new
 		end
+	end
+
+	def new
 	end
 
 	def destroy

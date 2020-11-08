@@ -19,7 +19,7 @@
       </div>
       <!-- 評価javascript -->
         <script>
-          $('#<%= comment.spot_id %>').raty({
+          $("#<%= comment.spot_id %>".to_json).raty({
             size: 36,
             starOff: '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
@@ -45,8 +45,7 @@
         <%= form.label :comment, '口コミ', class:'col-md-2 col-form-label' %>
         <div class="col-md-9">
           <%= form.text_area :comment, class: "form-control", rows: "8",
-            placeholder:'口コミ内容や写真がなくても、評価のみで投稿できます。
-            まずは投稿してみましょう！投稿してから編集もできますよ！' %>
+            placeholder:'口コミ内容や写真がなくても、評価のみで投稿できます。まずは投稿してみましょう！投稿してから編集もできますよ！' %>
         </div>
       </div>
 

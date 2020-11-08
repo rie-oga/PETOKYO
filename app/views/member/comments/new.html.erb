@@ -1,0 +1,16 @@
+<div class="container edit-comment-form">
+	<div class="row">
+		<div class="col-sm-3">
+		</div>
+		<div class="col-sm-6">
+			<!--エラーメッセージ-->
+  			<div class="red">
+  				<%= h(flash[:notice]) %>
+  			</div>
+
+			<%= render partial: 'member/spots/comment_form', locals: { comment: @comment, spot_id: @spot, i: @i } %>
+		</div>
+		<div class="col-sm-3">
+		</div>
+	</div>
+</div>
