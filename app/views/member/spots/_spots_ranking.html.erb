@@ -1,7 +1,7 @@
 <div class="spot-box-parent">
 	<% spots.each.with_index(1) do |spot, i| %>
 		<div class="spot-box row">
-			<%= link_to member_spot_path(spot, index: i), class:"under_line_none" do %>
+			<%= link_to member_spot_path(spot, index: i), data: {"turbolinks" => false}, class:"under_line_none" do %>
 				<div class="spot-box-left col-md-4 col-xs-4">
 						<div>
 							<% if spot.spot_images.present? %>
@@ -24,7 +24,6 @@
 								<span id="star-rate-<%= spot.id %>" class="star"><!-- ☆平均値ここに表示 --></span><%= spot.ave_rate.round(1) %>点
 								<!--星評価-->
 								 <script>
-								 $(document).on('turbolinks:load', function(){
 								 	$('#star-rate-<%= spot.id %>').raty({
 						            size: 36,
 						            starOff: '<%= asset_path('star-off.png') %>',
@@ -35,7 +34,6 @@
 						            readOnly: true,//読み取り専用
 						            score: <%= spot.ave_rate || 0 %>
 						          });
-								 });
 						         </script>
 						        <!--/星評価-->
 							<% end %>

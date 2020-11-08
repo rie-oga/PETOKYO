@@ -11,7 +11,7 @@
 				<% spots.first(8).each.with_index(1) do |spot, i| %>
 					<nav>
 						<ul class="index-nav">
-							<li><%= i %>位  　<%= link_to spot.name, member_spot_path(spot.id) %></li>
+							<li><%= i %>位  　<%= link_to spot.name, member_spot_path(spot.id), data: {"turbolinks" => false} %></li>
 						</ul>
 					</nav>
 				<% end %>
@@ -20,7 +20,7 @@
 				<% spots.first(8).each.with_index(1) do |spot, i| %>
 					<nav>
 						<ul class="index-nav">
-							<li><%= i %>位　  <%= link_to spot.name,member_spot_path(spot.id) %></li>
+							<li><%= i %>位　  <%= link_to spot.name,member_spot_path(spot.id), data: {"turbolinks" => false} %></li>
 						</ul>
 					</nav>
 				<% end %>
