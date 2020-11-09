@@ -36,6 +36,7 @@ class Member::SpotsController < ApplicationController
   	@comment = Comment.new
     @comment.comment_images.build
     @comments = @spot.comments.order(id:"DESC").page(params[:page]).per(20)#降順
+    #@comments = Comment.includes(:comment_images).where(spot_id: @spot).order(id:"DESC").page(params[:page]).per(20)#降順
   end
 
   def new
