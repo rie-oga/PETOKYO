@@ -17,8 +17,9 @@
 					<td><%= member.id %></td>
 					<td><%= member.nick_name %></td>
 					<td><%= member.email %></td>
-					<td><%= link_to member.spots.count, member_member_path(member, anchor: "spot") %></td>
-					<td><%= link_to member.comments.count, member_member_path(member, anchor: "comment") %></td>
+					<td><%= link_to @member_spot_counts.to_h[member.id], member_member_path(member, anchor: "spot") %></td>
+					<td><%= link_to @member_comment_counts.to_h[member.id], member_member_path(member, anchor: "comment") %></td>
+					<td><%= link_to "詳細", member_member_path(member), class: "btn btn-default" %></td>
 				</tr>
 			<% end %>
 		</tbody>
