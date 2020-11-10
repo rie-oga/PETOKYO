@@ -7,9 +7,9 @@
 				<nav>
 					<ul class="header-nav header-dropmenu">
 						<%= link_to new_member_spot_path do %>
-						    <li class="col-sm-2 nav-li"><i class="fas fa-plus-circle header-spot-plus"></i><br> Spotを投稿</li>
+						    <li class="col-xs-2 nav-li"><i class="fas fa-plus-circle header-spot-plus"></i><br> Spotを投稿</li>
 						<% end %>
-						<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Category
+						<li class="col-xs-2 nav-li"><%= image_tag '4.png' %><br>Category
 							<ul>
 								<li><%= link_to '全て', member_spots_path, data: {"turbolinks" => false} %></li>
 								<% @genres.each do |genre| %>
@@ -18,23 +18,23 @@
 							</ul>
 						</li>
 						<%= link_to root_path do %>
-							<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
+							<li class="col-xs-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
 						<% end %>
 						<%= link_to member_member_path(current_member) do %>
-							<li class="col-sm-2 nav-li"><%= image_tag '5.png' %><br>My page</li>
+							<li class="col-xs-2 nav-li"><%= image_tag '5.png' %><br>My page</li>
 						<% end %>
 						<%= link_to destroy_member_session_path, method: :delete do %>
-							<li class="col-sm-2 nav-li logout"><%= image_tag '3.png' %><br>Log out</li>
+							<li class="col-xs-2 nav-li logout"><%= image_tag '3.png' %><br>Log out</li>
 						<% end %>
 					</ul>
 				</nav>
 			<% elsif admin_signed_in? %>
 				<nav>
 					<ul class="header-nav header-dropmenu">
-						<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
-						<li class="col-sm-2"><%= link_to 'ジャンル編集', admin_genres_path %></li>
-						<li class="col-sm-2"><%= link_to '会員一覧', admin_members_path %></li>
-						<li class="col-sm-2 nav-li">スポット一覧
+						<li class="col-xs-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
+						<li class="col-xs-2"><%= link_to 'ジャンル編集', admin_genres_path %></li>
+						<li class="col-xs-2"><%= link_to '会員一覧', admin_members_path %></li>
+						<li class="col-xs-2 nav-li">スポット一覧
 							<ul>
 								<li><%= link_to '全て', member_spots_path %></li>
 								<% @genres.each do |genre| %>
@@ -42,16 +42,16 @@
 								<% end %>
 							</ul>
 						</li>
-						<li class="col-sm-2"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+						<li class="col-xs-2"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
 					</ul>
 				</nav>
 			<% else %>
 				<nav>
 					<ul class="header-nav header-dropmenu">
 						<%= link_to root_path(anchor: "about") do %>
-							<li class="col-sm-2 nav-li"><%= image_tag '1.png' %><br>About</li>
+							<li class="col-xs-2 nav-li"><%= image_tag '1.png' %><br>About</li>
 						<% end %>
-						<li class="col-sm-2 nav-li"><%= image_tag '4.png' %><br>Category
+						<li class="col-xs-2 nav-li"><%= image_tag '4.png' %><br>Category
 							<ul>
 								<li><%= link_to '全て', member_spots_path, data: {"turbolinks" => false} %></li>
 								<% @genres.each do |genre| %>
@@ -60,13 +60,13 @@
 							</ul>
 						</li>
 						<%= link_to root_path do %>
-							<li class="col-sm-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
+							<li class="col-xs-4 logo"><%= image_tag 'PETOKYO_logo3.png' %></li>
 						<% end %>
 						<%= link_to new_member_registration_path do %>
-							<li class="col-sm-2 nav-li touroku"><%= image_tag '7.png' %><br>新規登録</li>
+							<li class="col-xs-2 nav-li touroku"><%= image_tag '7.png' %><br>新規登録</li>
 						<% end %>
 						<%= link_to new_member_session_path do %>
-							<li class="col-sm-2 nav-li login"><%= image_tag '6.png' %><br>ログイン</li>
+							<li class="col-xs-2 nav-li login"><%= image_tag '6.png' %><br>ログイン</li>
 						<% end %>
 					</ul>
 				</nav>

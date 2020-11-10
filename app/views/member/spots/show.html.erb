@@ -26,7 +26,7 @@
 						</h1>
 					</div>
 					<div class="col-sm-2 col-xs-1">
-					<% if current_member || current_admin %>
+					<% if current_member %>
 						<% if current_member.spots.where(id: @spot.id).empty? && current_member.comments.where(spot_id: @spot.id).empty? %>
 							<div class="mobile-none">
 								<%= link_to member_spot_path(anchor: "comment-form") do %>
@@ -89,6 +89,7 @@
 								<div><%= attachment_image_tag image, :image %></div>
 							<% end %>
 						<% end %>
+
 
 						<!-- コメント投稿時の写真 -->
 						<% if @spot.comments.present? %>
