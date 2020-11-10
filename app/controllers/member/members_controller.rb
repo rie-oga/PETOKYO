@@ -1,4 +1,5 @@
 class Member::MembersController < ApplicationController
+
   before_action :authenticate_member!
   before_action :ensure_correct_member, only: [:show, :edit, :update]
 
