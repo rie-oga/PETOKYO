@@ -9,3 +9,48 @@ Admin.create!(
    email: 'kou.kotetsu@gmail.com',
    password: 'dogdog'
 )
+Member.create!(
+	nick_name: '水',
+	email: 'a@a',
+	password: 'aaaaaa',
+	encrypted_password: 'aaaaaa'
+)
+Member.create!(
+	nick_name: '水水',
+	email: 'b@b',
+	password: 'aaaaaa',
+	encrypted_password: 'aaaaaa'
+)
+Genre.create!(
+	name: 'カフェ / ランチ'
+)
+Genre.create!(
+	name: 'ディナー'
+)
+Genre.create!(
+	name: 'ドッグラン'
+)
+Genre.create!(
+	name: 'ドッグラン(公園無)'
+)
+Spot.create!(
+	member_id: 1,
+	genre_id: 1,
+	name: '公園',
+	address: '公園だよ',
+	introduction: '公園だよー'
+)
+Spot.create!(
+	member_id: 1,
+	genre_id: 2,
+	name: 'kafe',
+	address: 'kafeだよ',
+	introduction: '公園だよー'
+)
+Spot.create!(
+	member_id: 1,
+	genre_id: 2,
+	name: 'kafe~',
+	address: 'kafeだよ~',
+	introduction: '公園だよー'
+)
