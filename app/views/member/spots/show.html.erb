@@ -91,17 +91,11 @@
 						<% end %>
 
 						<!-- コメント投稿時の写真 -->
-						<% if @spot.comments.present? %>
-							<% @spot.comments.each do |comment| %>
-							  	<% if comment.comment_images.present? %>
-							  		<% comment.comment_images.each do |image| %>
-										<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
-						      		<% end %>
-					        	<% end %>
-					        <% end %>
-						<% end %>
-
-
+						<% if @comment_find.comment_images.present? %>
+					  		<% @comment_find.comment_images.each do |image| %>
+								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
+				      		<% end %>
+				      	<% end %>
 					</div>
 
 					<!-- コメント一覧 -->
