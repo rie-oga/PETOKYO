@@ -203,11 +203,11 @@ jQuery(window).on("scroll", function() {
   footerHeight = jQuery("#footer").innerHeight();
 
   if (documentHeight - scrollPosition <= footerHeight) {
-    jQuery("#fixed1").css({
+    jQuery("#fixed1","#fixed2").css({
       bottom: 0
     });
   } else {
-    jQuery("#fixed1").css({
+    jQuery("#fixed1","#fixed2").css({
       bottom: "initial"
     });
   }
