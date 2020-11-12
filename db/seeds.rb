@@ -33,24 +33,4 @@ Genre.create!(
 Genre.create!(
 	name: 'ドッグラン(公園無)'
 )
-Spot.create!(
-	member_id: 1,
-	genre_id: 1,
-	name: '公園',
-	address: '公園だよ',
-	introduction: '公園だよー'
-)
-Spot.create!(
-	member_id: 1,
-	genre_id: 2,
-	name: 'kafe',
-	address: 'kafeだよ',
-	introduction: '公園だよー'
-)
-Spot.create!(
-	member_id: 1,
-	genre_id: 2,
-	name: 'kafe~',
-	address: 'kafeだよ~',
-	introduction: '公園だよー'
-)
+
