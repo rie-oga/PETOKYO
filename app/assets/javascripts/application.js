@@ -197,10 +197,18 @@ $(function(){
 });
 
 // left_side_bar footerと被らないように //
-jQuery( window ).on( 'scroll', function() {
-  if ( 1000 < jQuery( this ).scrollBottom() ) { // 1000px以上スクロールしたら
-    jQuery( '#fix1 #fix2' ).addClass( 'm_fixed' );
+jQuery(window).on("scroll", function() {
+  documentHeight = jQuery(document).height();
+  scrollPosition = jQuery(this).height() + jQuery(this).scrollTop();
+  footerHeight = jQuery("#footer").innerHeight();
+
+  if (documentHeight - scrollPosition <= footerHeight) {
+    jQuery("#fixed1").css({
+      bottom: 0
+    });
   } else {
-    jQuery( '#fix1 #fix2' ).removeClass( 'm_fixed' );
+    jQuery("#fixed1").css({
+      bottom: "initial"
+    });
   }
 });
