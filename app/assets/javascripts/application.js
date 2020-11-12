@@ -198,17 +198,17 @@ $(function(){
 
 // left_side_bar footerと被らないように //
 jQuery(window).on("scroll", function() {
-  documentHeight = jQuery(document).height();
-  scrollPosition = jQuery(this).height() + jQuery(this).scrollTop();
-  footerHeight = jQuery("#footer").innerHeight();
+  documentHeight = jQuery(document).height();//ドキュメントの高さ
+  scrollPosition = jQuery(this).height() + jQuery(this).scrollTop();//どのくらいスクロールしたか
+  footerHeight = jQuery("#footer").innerHeight();//footerの高さ
 
   if (documentHeight - scrollPosition <= footerHeight) {
-    jQuery("#fixed1","#fixed2").css({
-      bottom: 0
+    jQuery("#fixed1").css({
+      "position":"static"
     });
   } else {
-    jQuery("#fixed1","#fixed2").css({
-      bottom: "initial"
+    jQuery("#fixed1").css({
+      "position":"fixed"
     });
   }
 });

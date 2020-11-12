@@ -91,10 +91,12 @@
 						<% end %>
 
 						<!-- コメント投稿時の写真 -->
-						<% if @comment_find.comment_images.present? %>
-					  		<% @comment_find.comment_images.each do |image| %>
-								<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
-				      		<% end %>
+						<% if @comment_find.present? %>
+							<% if @comment_find.comment_images.present? %>
+						  		<% @comment_find.comment_images.each do |image| %>
+									<div><%= attachment_image_tag image, :image, :fill, 250, 250 %></div>
+					      		<% end %>
+					      	<% end %>
 				      	<% end %>
 					</div>
 
