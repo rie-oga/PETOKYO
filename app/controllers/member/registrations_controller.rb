@@ -59,7 +59,6 @@ class Member::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  #@member_new = Member.new
-  #@member = Member.find(params[:id])
-
+  # @member_new = Member.new
+  # @member = Member.find(params[:id])
 end

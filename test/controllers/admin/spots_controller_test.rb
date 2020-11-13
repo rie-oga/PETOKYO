@@ -20,5 +20,4 @@ class Admin::SpotsControllerTest < ActionDispatch::IntegrationTest
     get admin_spots_edit_url
     assert_response :success
   end
-
 end

@@ -5,5 +5,4 @@ class Admin::TopControllerTest < ActionDispatch::IntegrationTest
     get admin_top_top_url
     assert_response :success
   end
-
 end

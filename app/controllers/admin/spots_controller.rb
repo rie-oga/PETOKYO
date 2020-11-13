@@ -1,12 +1,13 @@
 class Admin::SpotsController < ApplicationController
   def index
-  	@spots = Spot.all
+    @spots = Spot.all
   end
 
   def edit
   end
 
-   private
+  private
+
   def spot_params
     params.permit(:url)
   end

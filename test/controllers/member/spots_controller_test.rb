@@ -15,5 +15,4 @@ class Member::SpotsControllerTest < ActionDispatch::IntegrationTest
     get member_spots_show_url
     assert_response :success
   end
-
 end

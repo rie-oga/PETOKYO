@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_10_10_144805) do
-
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,5 +78,4 @@ ActiveRecord::Schema.define(version: 2020_10_10_144805) do
     t.datetime "updated_at", null: false
     t.float "ave_rate"
   end
-
 end

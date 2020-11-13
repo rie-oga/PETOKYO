@@ -1,6 +1,4 @@
 class CommentImage < ApplicationRecord
-
-	belongs_to :comment
-	attachment :image
-
+  belongs_to :comment
+  attachment :image
 end
