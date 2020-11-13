@@ -23,19 +23,19 @@
 							<% if spot.comments.present? %>
 								<span id="star-rate-<%= spot.id %>" class="star"><!-- ☆平均値ここに表示 --></span><%= spot.ave_rate.round(1) %>点
 								<!--星評価-->
-								 <script>
-								 	$('#star-rate-<%= spot.id %>').raty({
-						            size: 36,
-						            starOff: '<%= asset_path('star-off.png') %>',
-						            starOn : '<%= asset_path('star-on.png') %>',
-						            starHalf: '<%= asset_path('star-half.png') %>',
-						            half: true,//星の半分入力
-						            number: 5,//星の数５個まで
-						            readOnly: true,//読み取り専用
-						            score: <%= spot.ave_rate || 0 %>
-						          });
-						         </script>
-						        <!--/星評価-->
+								<script>
+								$('#star-rate-<%= spot.id %>').raty({
+			            size: 36,
+			            starOff: '<%= asset_path('star-off.png') %>',
+			            starOn : '<%= asset_path('star-on.png') %>',
+			            starHalf: '<%= asset_path('star-half.png') %>',
+			            half: true,//星の半分入力
+			            number: 5,//星の数５個まで
+			            readOnly: true,//読み取り専用
+			            score: <%= spot.ave_rate || 0 %>
+						    });
+						    </script>
+						    <!--/星評価-->
 							<% end %>
 						</div>
 						<div class="station">
