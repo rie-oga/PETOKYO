@@ -50,8 +50,8 @@
 				</div>
 				<div>
 					<!--星評価-->
-					 <script>
-					 $(document).on('turbolinks:load', function(){
+					<script>
+					$(document).on('turbolinks:load', function(){
 					 	$('#star-rate').raty({
 			            size: 36,
 			            starOff: '<%= asset_path('star-off.png') %>',
@@ -61,10 +61,10 @@
 			            number: 5,//星の数５個まで
 			            readOnly: true,//読み取り専用
 			            score: <%= @spot.ave_rate || 0 %>
-			          });
-					 });
-			         </script>
-			        <!--/星評価-->
+			      });
+					});
+			    </script>
+			    <!--/星評価-->
 				</div>
 					<nav class="nav-show">
 					<div class="spot_address">
@@ -127,4 +127,4 @@
 			</div>
 		</div>
 	</div>
- </div>
+</div>

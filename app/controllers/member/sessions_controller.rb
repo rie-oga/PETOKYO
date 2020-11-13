@@ -26,7 +26,7 @@ class Member::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-   def reject_inactive_member
+  def reject_inactive_member
     @member = Member.find_by(email: params[:member][:email])
     if @member
       if @member.valid_password?(params[:member][:password]) && @member.is_withdeawal_status == false
