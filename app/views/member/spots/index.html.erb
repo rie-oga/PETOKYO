@@ -1,9 +1,9 @@
 <div class="container spot-index-background">
 	<div class="row spot-index-row">
 		<div class="col-sm-3">
-			<div class="spot-name-rank" id="fixed1">
-				<%= render partial: 'left_side_bar', locals: { genre: @genre, spots: @spots } %>
-			</div>
+				<div class="spot-name-rank" id="fixed1">
+					<%= render partial: 'left_side_bar', locals: { genre: @genre, spots: @spots } %>
+				</div>
 		</div>
 		<div class="col-sm-8 spots-ranking">
 		    <%= render 'spots_ranking', spots: @spots %>

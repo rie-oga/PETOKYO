@@ -200,15 +200,23 @@ $(function(){
 jQuery(window).on("scroll", function() {
   documentHeight = jQuery(document).height();//ドキュメントの高さ
   scrollPosition = jQuery(this).height() + jQuery(this).scrollTop();//どのくらいスクロールしたか
+  var scrollTop = jQuery(window).scrollTop();
+  var headerHeight = jQuery(".pc-header").innerHeight();
   footerHeight = jQuery("#footer").innerHeight();//footerの高さ
 
-  if (documentHeight - scrollPosition <= footerHeight) {
-    jQuery("#fixed1").css({
-      "position":"static"
+
+  if (documentHeight - scrollPosition < footerHeight) {
+    jQuery("#fixed1,#fixed2").css({
+      top: "initial",
+      bottom: footerHeight - (documentHeight - scrollPosition)
+    });
+  } else if ( scrollTop <= headerHeight ) {
+    jQuery("#fixed1,#fixed2").css({
+      top: headerHeight - scrollTop
     });
   } else {
-    jQuery("#fixed1").css({
-      "position":"fixed"
+    jQuery("#fixed1,#fixed2").css({
+      top: 0
     });
   }
 });
