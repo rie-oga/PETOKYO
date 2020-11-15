@@ -203,19 +203,19 @@ jQuery(window).on("scroll", function() {
   var scrollTop = jQuery(window).scrollTop();
   var headerHeight = jQuery(".pc-header").innerHeight();
   footerHeight = jQuery("#footer").innerHeight();//footerの高さ
-
+  var fixedEl = jQuery("#fixed1,#fixed2")
 
   if (documentHeight - scrollPosition < footerHeight) {
-    jQuery("#fixed1,#fixed2").css({
+    fixedEl.css({
       top: "initial",
       bottom: footerHeight - (documentHeight - scrollPosition)
     });
   } else if ( scrollTop <= headerHeight ) {
-    jQuery("#fixed1,#fixed2").css({
+    fixedEl.css({
       top: headerHeight - scrollTop
     });
   } else {
-    jQuery("#fixed1,#fixed2").css({
+    fixedEl.css({
       top: 0
     });
   }
